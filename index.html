@@ -204,7 +204,7 @@
 
     let activeProfile = "hessa";
 
-    function switchProfile(profileKey) {
+    async function switchProfile(profileKey) {
       activeProfile = profileKey;
       const data = profiles[profileKey];
 
@@ -222,8 +222,8 @@
       document.getElementById('main-btn').className = data.btnClass;
       document.getElementById('checklist-card').className = data.cardClass;
 
-      // Load Saved Progress from Local Storage / Database Sync
-      loadSavedState();
+      // Load Saved Progress from Supabase Database
+      await loadSavedState();
       renderTasks(data.tasks);
     }
 
@@ -256,25 +256,35 @@
       document.getElementById('progress-badge').innerText = `${completedCount} of ${tasks.length} Completed`;
     }
 
-    function toggleTask(index) {
+    async function toggleTask(index) {
       profiles[activeProfile].tasks[index].done = !profiles[activeProfile].tasks[index].done;
-      saveCurrentState();
       renderTasks(profiles[activeProfile].tasks);
+      await saveCurrentState();
     }
 
-    function saveCurrentState() {
+    async function saveCurrentState() {
       const stateKey = `academy_tasks_${activeProfile}`;
       const taskStates = profiles[activeProfile].tasks.map(t => t.done);
-      localStorage.setItem(stateKey, JSON.stringify(taskStates));
+      
+      // Save to Supabase Cloud Database
+      await supabaseClient
+        .from('task_states')
+        .upsert({ id: stateKey, states: taskStates, updated_at: new Date() });
     }
 
-    function loadSavedState() {
+    async function loadSavedState() {
       const stateKey = `academy_tasks_${activeProfile}`;
-      const saved = localStorage.getItem(stateKey);
-      if(saved) {
-        const taskStates = JSON.parse(saved);
+      
+      // Fetch from Supabase Cloud Database
+      const { data, error } = await supabaseClient
+        .from('task_states')
+        .select('states')
+        .eq('id', stateKey)
+        .single();
+
+      if (data && data.states) {
         profiles[activeProfile].tasks.forEach((t, i) => {
-          if(taskStates[i] !== undefined) t.done = taskStates[i];
+          if (data.states[i] !== undefined) t.done = data.states[i];
         });
       }
     }
