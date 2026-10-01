@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
   <style>
-    /* Theme Definitions */
     .theme-hessa {
       font-family: 'Fredoka', cursive;
       background: linear-gradient(135deg, #FFF5F7 0%, #E0F7FA 100%);
@@ -25,7 +24,6 @@
       background: linear-gradient(135deg, #FAF0F2 0%, #F3E5F5 100%);
     }
 
-    /* Tactile 3D Jelly Buttons (Hessa) */
     .btn-jelly {
       background: linear-gradient(180deg, #FF80AB 0%, #FF4081 100%);
       box-shadow: 0 8px 0 #C2185B, 0 12px 20px rgba(255, 64, 129, 0.4);
@@ -36,7 +34,6 @@
       box-shadow: 0 2px 0 #C2185B, 0 4px 10px rgba(255, 64, 129, 0.4);
     }
 
-    /* Watercolor Sketchbook Cards (Junainah) */
     .card-sketchbook {
       background: #FFFFFF;
       border: 3px solid #1DE9B6;
@@ -44,7 +41,6 @@
       box-shadow: 8px 8px 0px #FF7300;
     }
 
-    /* Rose-Gold Glassmorphism Tiles (Hanaan) */
     .tile-glass {
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(12px);
@@ -53,7 +49,6 @@
       box-shadow: 0 10px 30px rgba(226, 149, 120, 0.15);
     }
 
-    /* Custom Checkbox Animations */
     .task-check {
       appearance: none;
       width: 28px;
@@ -68,18 +63,26 @@
       border-color: #10B981;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .bot-active {
+      animation: pulse-ring 2s infinite;
+    }
   </style>
 </head>
-<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 transition-colors duration-500">
+<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500">
 
   <!-- TOP PROFILE SELECTOR BAR -->
   <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
     <div>
       <h1 class="text-3xl font-bold text-gray-800" id="welcome-title">Welcome, Hessa! 🌟</h1>
-      <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • 6:00 AM – 11:30 AM</p>
+      <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • Age 7 Track</p>
     </div>
     
-    <!-- Profile Switches -->
     <div class="flex gap-3 bg-white/80 p-2 rounded-full shadow-md backdrop-blur-sm">
       <button onclick="switchProfile('hessa')" class="px-4 py-2 rounded-full font-bold text-sm bg-pink-400 text-white shadow-sm hover:opacity-90">Hessa (7)</button>
       <button onclick="switchProfile('junainah')" class="px-4 py-2 rounded-full font-bold text-sm bg-teal-400 text-white shadow-sm hover:opacity-90">Junainah (10)</button>
@@ -89,8 +92,6 @@
 
   <!-- MAIN DASHBOARD CONTENT -->
   <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-    
-    <!-- LEFT PANEL: TODAY'S SELF-PACED CHECKLIST (2 COLUMNS) -->
     <section class="md:col-span-2 space-y-4">
       <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
         <div class="flex justify-between items-center mb-6">
@@ -99,31 +100,11 @@
           </h2>
           <span class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full" id="progress-badge">0 of 6 Completed</span>
         </div>
-
-        <!-- Task Items -->
-        <div class="space-y-3" id="task-list">
-          <!-- Tasks injected via JavaScript -->
-        </div>
+        <div class="space-y-3" id="task-list"></div>
       </div>
     </section>
 
-    <!-- RIGHT PANEL: LIVE ASSISTANT & QUICK ACTIONS -->
     <section class="space-y-6">
-      
-      <!-- Live AI Companion Card -->
-      <div id="ai-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-cyan-100 text-center">
-        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-cyan-100 flex items-center justify-center text-3xl shadow-inner">
-          🤖
-        </div>
-        <h3 class="font-bold text-gray-800 text-lg mb-1" id="ai-name">Buddy AI</h3>
-        <p class="text-xs text-gray-600 italic mb-4" id="ai-quote">"Good morning! Remember to speak politely and say please when asking questions today!"</p>
-        
-        <button id="main-btn" class="btn-jelly w-full py-3 text-white font-bold rounded-2xl">
-          Ask Buddy a Question 💬
-        </button>
-      </div>
-
-      <!-- Life Skills Badge Card -->
       <div id="skills-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-yellow-100">
         <h3 class="font-bold text-gray-800 text-md mb-2 flex items-center gap-2">
           <span>🏅</span> Active Physical Skill
@@ -133,17 +114,35 @@
           Show Mom / Verify Skill
         </button>
       </div>
-
     </section>
   </main>
 
+  <!-- PERSISTENT LIVE AI COMPANION BAR (FIXED BOTTOM) -->
+  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-pink-300 flex items-center justify-between gap-4 z-50">
+    <div class="flex items-center gap-3">
+      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-2xl shadow-inner bot-active">
+        🤖
+      </div>
+      <div>
+        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Joy Bot 🍬</h4>
+        <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Active Companion
+        </p>
+      </div>
+    </div>
+    <div class="flex-1 text-xs text-gray-600 italic px-2 border-l border-r border-gray-200 truncate" id="live-bot-speech">
+      "Initializing AI companion..."
+    </div>
+    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
+      Speak 💬
+    </button>
+  </div>
+
   <script>
-    // Supabase Initialization
     const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // Profile Configurations
     const profiles = {
       hessa: {
         name: "Hessa",
@@ -151,8 +150,7 @@
         themeClass: "theme-hessa",
         welcomeTitle: "Welcome, Hessa! 🌟",
         aiName: "Joy Bot 🍬",
-        aiQuote: "You're doing amazing! Let's build a micro:bit code today!",
-        btnClass: "btn-jelly w-full py-3 text-white font-bold rounded-2xl",
+        greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
         cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic Warm-Up (Brilliant Puzzle)", done: false },
@@ -170,8 +168,7 @@
         themeClass: "theme-junainah",
         welcomeTitle: "Studio Hub: Junainah 🎨",
         aiName: "Artisan AI 🖌️",
-        aiQuote: "Creative energy is high! Ready for fashion sketching and Python code?",
-        btnClass: "w-full py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-2xl shadow-md",
+        greeting: "Welcome back Junainah! Artisan AI online. Ready to create and code today?",
         cardClass: "card-sketchbook p-6",
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic & Spatial Puzzle", done: false },
@@ -189,8 +186,7 @@
         themeClass: "theme-hanaan",
         welcomeTitle: "Academic Suite: Hanaan ✨",
         aiName: "Cambridge Mentor 🏛️",
-        aiQuote: "Focus mode active. Let's analyze IGCSE Physics kinematics equations.",
-        btnClass: "w-full py-3 bg-rose-400 hover:bg-rose-500 text-white font-bold rounded-2xl shadow-lg",
+        greeting: "Greetings Hanaan. Cambridge Mentor active. Let's maintain focused progress on your schedule.",
         cardClass: "tile-glass p-6",
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic & Advanced Spatial Reasoning", done: false },
@@ -206,27 +202,34 @@
 
     let activeProfile = "hessa";
 
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.1;
+        window.speechSynthesis.speak(utterance);
+      }
+      document.getElementById('live-bot-speech').innerText = `"${text}"`;
+    }
+
     async function switchProfile(profileKey) {
       activeProfile = profileKey;
       const data = profiles[profileKey];
 
-      // Update Body Theme
-      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 transition-colors duration-500`;
+      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500`;
 
-      // Update Text Content
       document.getElementById('welcome-title').innerText = data.welcomeTitle;
       document.getElementById('welcome-subtitle').innerText = `Daily Rhythm • Age ${data.age} Track`;
-      document.getElementById('ai-name').innerText = data.aiName;
-      document.getElementById('ai-quote').innerText = `"${data.aiQuote}"`;
+      document.getElementById('live-bot-name').innerText = data.aiName;
       document.getElementById('skill-description').innerText = data.skill;
-
-      // Update Styling Classes
-      document.getElementById('main-btn').className = data.btnClass;
       document.getElementById('checklist-card').className = data.cardClass;
 
-      // Load Saved Progress from Supabase Database
       await loadSavedState();
       renderTasks(data.tasks);
+
+      // Trigger active companion greeting
+      speakText(data.greeting);
     }
 
     function renderTasks(tasks) {
@@ -259,16 +262,20 @@
     }
 
     async function toggleTask(index) {
-      profiles[activeProfile].tasks[index].done = !profiles[activeProfile].tasks[index].done;
+      const task = profiles[activeProfile].tasks[index];
+      task.done = !task.done;
       renderTasks(profiles[activeProfile].tasks);
       await saveCurrentState();
+
+      if (task.done) {
+        speakText(`Awesome job finishing ${task.title}! What are we doing next?`);
+      }
     }
 
     async function saveCurrentState() {
       const stateKey = `academy_tasks_${activeProfile}`;
       const taskStates = profiles[activeProfile].tasks.map(t => t.done);
       
-      // Save to Supabase Cloud Database
       await supabaseClient
         .from('task_states')
         .upsert({ id: stateKey, states: taskStates, updated_at: new Date() });
@@ -277,8 +284,7 @@
     async function loadSavedState() {
       const stateKey = `academy_tasks_${activeProfile}`;
       
-      // Fetch from Supabase Cloud Database
-      const { data, error } = await supabaseClient
+      const { data } = await supabaseClient
         .from('task_states')
         .select('states')
         .eq('id', stateKey)
@@ -288,6 +294,13 @@
         profiles[activeProfile].tasks.forEach((t, i) => {
           if (data.states[i] !== undefined) t.done = data.states[i];
         });
+      }
+    }
+
+    function triggerVoicePrompt() {
+      const promptText = prompt(`Ask ${profiles[activeProfile].aiName} a question:`);
+      if (promptText) {
+        speakText(`That's a great question about ${promptText}! Let's explore it together.`);
       }
     }
 
