@@ -65,19 +65,19 @@
     }
 
     @keyframes pulse-ring {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
     }
     .bot-active {
       animation: pulse-ring 2s infinite;
     }
   </style>
 </head>
-<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-48 transition-colors duration-500">
+<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-12 transition-colors duration-500">
 
   <!-- TOP PROFILE SELECTOR BAR -->
-  <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+  <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
     <div>
       <h1 class="text-3xl font-bold text-gray-800" id="welcome-title">Welcome, Hessa! 🌟</h1>
       <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • Age 7 Track</p>
@@ -90,18 +90,31 @@
     </div>
   </header>
 
-  <!-- LEGEND HUNTER DEDICATED HEADER BOX -->
-  <div class="max-w-4xl mx-auto mb-6 bg-amber-500/10 border-2 border-amber-400 p-4 rounded-3xl shadow-md backdrop-blur-md flex items-center gap-4">
-    <div class="relative w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl shadow-lg shrink-0">
-      🤠
-      <span class="absolute -bottom-1 -right-1 text-base">🧭</span>
-    </div>
-    <div class="flex-1">
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-100 px-2.5 py-0.5 rounded-full">Legend Hunter Quest Companion</span>
+  <!-- LEGEND HUNTER DEDICATED CARD BOX IN THE PAGE FLOW -->
+  <div class="max-w-4xl mx-auto mb-8 bg-white/95 border-2 border-amber-400 p-5 rounded-3xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-4 w-full sm:w-auto">
+      <div id="bot-avatar" class="relative w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-3xl shadow-md shrink-0 bot-active">
+        🤠
+        <span class="absolute -bottom-1 -right-1 text-base">🧭</span>
       </div>
-      <p class="text-xs text-gray-600 font-medium mt-1">Ready to guide your next discovery quest across all daily modules!</p>
+      <div>
+        <div class="flex items-center gap-2">
+          <h4 class="font-bold text-base text-gray-800" id="live-bot-name">Legend Hunter Companion 🤠</h4>
+          <span class="text-[10px] font-black uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">AI Companion</span>
+        </div>
+        <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Quest Guide Active
+        </p>
+      </div>
     </div>
+
+    <div class="flex-1 w-full text-xs text-gray-600 italic px-4 py-2 bg-amber-50/60 rounded-2xl border border-amber-200/50" id="live-bot-speech">
+      "Initializing AI companion..."
+    </div>
+
+    <button onclick="triggerVoicePrompt()" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-md hover:opacity-90 transition-all shrink-0">
+      Speak 💬
+    </button>
   </div>
 
   <!-- MAIN DASHBOARD CONTENT -->
@@ -117,7 +130,7 @@
       </div>
 
       <!-- SCHEDULE CHECKLIST -->
-      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100 mb-12">
+      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
             <span>📋</span> Morning Schedule Checklist
@@ -141,27 +154,6 @@
     </section>
   </main>
 
-  <!-- PERSISTENT LIVE AI COMPANION BAR (FIXED BOTTOM) -->
-  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-amber-400 flex items-center justify-between gap-4 z-50">
-    <div class="flex items-center gap-3">
-      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-2xl shadow-inner bot-active">
-        🤠
-      </div>
-      <div>
-        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Legend Hunter Companion 🤠</h4>
-        <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Quest Guide Active
-        </p>
-      </div>
-    </div>
-    <div class="flex-1 text-xs text-gray-600 italic px-2 border-l border-r border-gray-200 truncate" id="live-bot-speech">
-      "Initializing AI companion..."
-    </div>
-    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
-      Speak 💬
-    </button>
-  </div>
-
   <script>
     const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
@@ -175,7 +167,7 @@
         welcomeTitle: "Welcome, Hessa! 🌟",
         aiName: "Legend Hunter Companion 🤠",
         greeting: "Hello Hessa! Legend Hunter Companion online. Ready to go on our next learning quest?",
-        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100 mb-12",
+        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 flex justify-between items-center">
             <div>
@@ -211,7 +203,7 @@
         welcomeTitle: "Studio Hub: Junainah 🎨",
         aiName: "Legend Hunter Companion 🤠",
         greeting: "Welcome back Junainah! Legend Hunter Companion online. What quest shall we take on today?",
-        cardClass: "card-sketchbook p-6 mb-12",
+        cardClass: "card-sketchbook p-6",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-teal-50 border border-teal-200 flex justify-between items-center">
             <div>
@@ -247,7 +239,7 @@
         welcomeTitle: "Academic Suite: Hanaan ✨",
         aiName: "Legend Hunter Companion 🤠",
         greeting: "Greetings Hanaan. Legend Hunter Companion online. Ready to focus on today's goals.",
-        cardClass: "tile-glass p-6 mb-12",
+        cardClass: "tile-glass p-6",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
@@ -288,7 +280,7 @@
       activeProfile = profileKey;
       const data = profiles[profileKey];
 
-      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-48 transition-colors duration-500`;
+      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-12 transition-colors duration-500`;
 
       document.getElementById('welcome-title').innerText = data.welcomeTitle;
       document.getElementById('welcome-subtitle').innerText = `Daily Rhythm • Age ${data.age} Track`;
