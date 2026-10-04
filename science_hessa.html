@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hessa's Interactive Lab | Week 1</title>
+    <title>Hessa's Interactive Lab | Week 1: My Five Senses</title>
     <style>
         :root {
             --primary: #2C5E3B;
@@ -102,6 +102,21 @@
             background-color: #6D28D9;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Page Tracker Ribbon */
+        .page-tracker {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--dark-green);
         }
 
         /* Grown-Up Guide Section */
@@ -392,6 +407,55 @@
             background-color: #FAF8F5;
         }
 
+        /* Matching Activity Layout */
+        .matching-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .matching-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #FFFFFF;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid #E2DED7;
+        }
+
+        .matching-item span {
+            font-weight: 800;
+            color: var(--dark-green);
+            width: 100px;
+        }
+
+        /* Drawing Canvas / Box */
+        .draw-box {
+            border: 2px dashed var(--accent-purple);
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 15px 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Checkbox list styling */
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            font-weight: 700;
+        }
+
         /* Table & Inputs */
         table {
             width: 100%;
@@ -517,38 +581,44 @@
         <a href="index.html" class="btn-hub">← Main Hub</a>
     </div>
 
-    <!-- Grown-Up Guide & Weekly Setup -->
+    <!-- Page Indicator Ribbon -->
+    <div class="page-tracker">
+        <span>📖 Complete 15-Page Curriculum Edition</span>
+        <span>Pages 1 – 15 Included</span>
+    </div>
+
+    <!-- PAGE 1 & 2: Cover & Grown-Up Guide Section -->
     <div class="guide-card">
-        <h2>👨‍🏫 For the Grown-Up</h2>
-        <p><strong>What she will learn this week:</strong> By Friday she should be able to name the five senses, say which body part goes with each one, describe what each sense tells us, and explain that the brain is the boss that reads all the messages. She will also learn that senses help keep us safe.</p>
-        <p><strong>Time:</strong> Five sessions of about 30 to 40 minutes. Sit next to her for the "See it first!" boxes and the activities, and let her read as much as she can herself.</p>
-        <p><strong>How to use the "See it first!" boxes:</strong> Before reading each page, open Google Images (turn SafeSearch on), type the exact search phrase in the box, and look at the pictures together for a minute or two. Then read the explanation. Talk about what she noticed. Pictures first makes the words easier to understand.</p>
+        <h2>👨‍🏫 For the Grown-Up (Pages 1 & 2)[cite: 51, 52]</h2>
+        <p><strong>What she will learn this week:</strong> By Friday she should be able to name the five senses, say which body part goes with each one, describe what each sense tells us, and explain that the brain is the boss that reads all the messages[cite: 52]. She will also learn that senses help keep us safe[cite: 52].</p>
+        <p><strong>Time:</strong> Five sessions of about 30 to 40 minutes[cite: 52]. Sit next to her for the "See it first!" boxes and the activities, and let her read as much as she can herself[cite: 52].</p>
+        <p><strong>How to use the "See it first!" boxes:</strong> Before reading each page, open Google Images (turn SafeSearch on), type the exact search phrase in the box, and look at the pictures together for a minute or two[cite: 52]. Then read the explanation[cite: 52]. Talk about what she noticed[cite: 52]. Pictures first makes the words easier to understand[cite: 52].</p>
 
         <div class="guide-grid">
             <div class="guide-box">
                 <h4>Materials to Gather</h4>
                 <ul>
-                    <li>A mirror</li>
-                    <li>A dim room</li>
-                    <li>A rubber band</li>
-                    <li>A plastic tub or bowl</li>
-                    <li>A small piece of plastic wrap and some rice</li>
-                    <li>Cotton balls and 5 small cups</li>
-                    <li>Vanilla, lemon, mint leaves, cinnamon, ground coffee</li>
-                    <li>A lemon wedge, a pinch of sugar, a pinch of salt, a small piece of dark chocolate</li>
-                    <li>A few small pieces of apple and raw potato</li>
-                    <li>A paper bag and 6 small objects (cotton ball, spoon, sandpaper, sponge, key, pine cone or similar)</li>
-                    <li>Pencil and crayons</li>
+                    <li>A mirror[cite: 52]</li>
+                    <li>A dim room[cite: 52]</li>
+                    <li>A rubber band[cite: 52]</li>
+                    <li>A plastic tub or bowl[cite: 52]</li>
+                    <li>A small piece of plastic wrap and some rice[cite: 52]</li>
+                    <li>Cotton balls and 5 small cups[cite: 52]</li>
+                    <li>Vanilla, lemon, mint leaves, cinnamon, ground coffee[cite: 52]</li>
+                    <li>A lemon wedge, a pinch of sugar, a pinch of salt, a small piece of dark chocolate[cite: 52]</li>
+                    <li>A few small pieces of apple and raw potato[cite: 52]</li>
+                    <li>A paper bag and 6 small objects (cotton ball, spoon, sandpaper, sponge, key, pine cone or similar)[cite: 52]</li>
+                    <li>Pencil and crayons[cite: 52]</li>
                 </ul>
             </div>
             <div class="guide-box">
                 <h4>Suggested Week Schedule</h4>
                 <ul>
-                    <li><strong>Day 1:</strong> Big idea + Sight (eyes). Pupil experiment.</li>
-                    <li><strong>Day 2:</strong> Hearing (ears). Sound walk and vibration experiments.</li>
-                    <li><strong>Day 3:</strong> Smell (nose) and Taste (tongue). Smell jars and taste test.</li>
-                    <li><strong>Day 4:</strong> Touch (skin). Mystery bag. Then "Which sense?" and "Senses keep us safe."</li>
-                    <li><strong>Day 5:</strong> Research and report, label and draw page, quiz. Check with the answer key.</li>
+                    <li><strong>Day 1:</strong> Big idea + Sight (eyes). Pupil experiment[cite: 52].</li>
+                    <li><strong>Day 2:</strong> Hearing (ears). Sound walk and vibration experiments[cite: 52].</li>
+                    <li><strong>Day 3:</strong> Smell (nose) and Taste (tongue). Smell jars and taste test[cite: 52].</li>
+                    <li><strong>Day 4:</strong> Touch (skin). Mystery bag. Then "Which sense?" and "Senses keep us safe."[cite: 52]</li>
+                    <li><strong>Day 5:</strong> Research and report, label and draw page, quiz. Check with the answer key[cite: 52].</li>
                 </ul>
             </div>
         </div>
@@ -556,10 +626,10 @@
         <div class="safety-box">
             <h4>⚠️ SAFETY FIRST</h4>
             <ul>
-                <li>Ask about food allergies before any tasting, and only taste food that a grown-up has given you.</li>
-                <li>Never sniff cleaning products or strong chemicals. Use only the safe kitchen smells listed.</li>
-                <li>Never shine a torch or bright light into anyone's eyes.</li>
-                <li>Keep sounds gentle. Loud noises can hurt ears.</li>
+                <li>Ask about food allergies before any tasting, and only taste food that a grown-up has given you[cite: 52].</li>
+                <li>Never sniff cleaning products or strong chemicals. Use only the safe kitchen smells listed[cite: 52].</li>
+                <li>Never shine a torch or bright light into anyone's eyes[cite: 52, 54].</li>
+                <li>Keep sounds gentle. Loud noises can hurt ears[cite: 52, 55].</li>
             </ul>
         </div>
     </div>
@@ -569,60 +639,66 @@
         <div class="section-header">
             <div class="section-title">
                 <h2>The Big Idea: Your Body Has Helpers</h2>
-                <p>How your body finds out about the world</p>
+                <p>How your body finds out about the world[cite: 51, 53]</p>
             </div>
             <span class="badge-status">In Progress</span>
         </div>
 
-        <!-- Topic 1: Big Idea & Sight -->
+        <!-- PAGE 3: Topic 1 - Big Idea & Sight -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 1: Big Idea + Sight (Eyes) & Pupil Experiment</h3>
+                <h3>Page 3: Big Idea — Your Senses & The Brain</h3>
                 <span class="badge-days">Day 1</span>
             </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST!</h4>
-                <p>Open Google Images and search: <strong>five senses for kids</strong><br>
-                Look at the pictures. Can you point to the body part for each sense? Which one do you use the most?</p>
+                <p>Open Google Images and search: <strong>five senses for kids</strong>[cite: 53]<br>
+                Look at the pictures. Can you point to the body part for each sense? Which one do you use the most?[cite: 53]</p>
                 <div class="media-buttons">
                     <a href="https://www.google.com/search?tbm=isch&q=five+senses+for+kids" target="_blank" class="media-btn">🔍 Search: five senses for kids ↗</a>
                 </div>
             </div>
 
-            <p>Right now, your body is finding out about the world. You can see these words. You might hear a sound in the room. You can feel the paper under your hand. How does your body know all this?</p>
-            <p>Your body has special helpers called <strong style="color: var(--accent-purple);">senses</strong>. A sense is a way that your body finds out what is happening around you. Humans have five main senses:</p>
+            <p>Right now, your body is finding out about the world[cite: 53]. You can see these words[cite: 53]. You might hear a sound in the room[cite: 53]. You can feel the paper under your hand[cite: 53]. How does your body know all this?[cite: 53]</p>
+            <p>Your body has special helpers called <strong style="color: var(--accent-purple);">senses</strong>[cite: 53]. A sense is a way that your body finds out what is happening around you[cite: 53]. Humans have five main senses:[cite: 53]</p>
             <ul>
-                <li><strong style="color: var(--accent-blue);">Sight:</strong> you see with your eyes</li>
-                <li><strong style="color: var(--accent-purple);">Hearing:</strong> you hear with your ears</li>
-                <li><strong style="color: var(--accent-orange);">Smell:</strong> you smell with your nose</li>
-                <li><strong style="color: var(--accent-pink);">Taste:</strong> you taste with your tongue</li>
-                <li><strong style="color: var(--accent-green);">Touch:</strong> you feel with your skin</li>
+                <li><strong style="color: var(--accent-blue);">Sight:</strong> you see with your eyes[cite: 53]</li>
+                <li><strong style="color: var(--accent-purple);">Hearing:</strong> you hear with your ears[cite: 53]</li>
+                <li><strong style="color: var(--accent-orange);">Smell:</strong> you smell with your nose[cite: 53]</li>
+                <li><strong style="color: var(--accent-pink);">Taste:</strong> you taste with your tongue[cite: 53]</li>
+                <li><strong style="color: var(--accent-green);">Touch:</strong> you feel with your skin[cite: 53]</li>
             </ul>
-            <p>The body part that does the job for each sense is called a <strong>sense organ</strong>. But the sense organs cannot do everything on their own. They send messages along tiny pathways in your body called <strong>nerves</strong>. Nerves are a bit like wires that carry messages. The messages travel to your <strong>brain</strong>. Your brain is the boss. It reads all the messages and tells you what they mean: <em>"That is a red apple." "That is a bird singing." "That stove is hot!"</em></p>
+            <p>The body part that does the job for each sense is called a <strong>sense organ</strong>[cite: 53]. But the sense organs cannot do everything on their own[cite: 53]. They send messages along tiny pathways in your body called <strong>nerves</strong>[cite: 53]. Nerves are a bit like wires that carry messages[cite: 53]. The messages travel to your <strong>brain</strong>[cite: 53]. Your brain is the boss[cite: 53]. It reads all the messages and tells you what they mean: <em>"That is a red apple." "That is a bird singing." "That stove is hot!"</em>[cite: 53]</p>
 
             <div class="fun-fact-box">
-                <strong>💡 FUN FACT:</strong> Your brain is working out messages from your senses all day long, even when you are asleep. That is why a loud noise or a strange smell can wake you up!
+                <strong>💡 FUN FACT:</strong> Your brain is working out messages from your senses all day long, even when you are asleep[cite: 53]. That is why a loud noise or a strange smell can wake you up![cite: 53]
             </div>
 
             <div class="words-box">
                 <h5>Words to Know</h5>
                 <ul>
-                    <li><strong>sense:</strong> a way your body finds out about the world</li>
-                    <li><strong>sense organ:</strong> a body part that does the job of a sense</li>
-                    <li><strong>nerve:</strong> a tiny pathway that carries messages to the brain</li>
-                    <li><strong>brain:</strong> the boss of the body that reads the messages</li>
-                    <li><strong>sight, hearing, smell, taste, touch:</strong> the five main senses</li>
+                    <li><strong>sense:</strong> a way your body finds out about the world[cite: 53]</li>
+                    <li><strong>sense organ:</strong> a body part that does the job of a sense[cite: 53]</li>
+                    <li><strong>nerve:</strong> a tiny pathway that carries messages to the brain[cite: 53]</li>
+                    <li><strong>brain:</strong> the boss of the body that reads the messages[cite: 53]</li>
+                    <li><strong>sight, hearing, smell, taste, touch:</strong> the five main senses[cite: 53]</li>
                 </ul>
             </div>
+        </div>
 
-            <hr style="margin: 25px 0; border: none; border-top: 1px dashed var(--border);">
+        <!-- PAGE 4: Sight (Eyes) -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 4: Sight — Your Eyes & Pupil Experiment</h3>
+                <span class="badge-days">Day 1</span>
+            </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Sight: Your Eyes</h4>
-                <p>Open Google Images and search: <strong>parts of the human eye diagram for kids</strong><br>
-                Then search: <strong>eye pupil getting bigger and smaller</strong><br>
-                Or open <strong>kids.britannica.com</strong> and search for "eye". Find the colored part and the black dot in the middle.</p>
+                <p>Open Google Images and search: <strong>parts of the human eye diagram for kids</strong>[cite: 54]<br>
+                Then search: <strong>eye pupil getting bigger and smaller</strong>[cite: 54]<br>
+                Or open <strong>kids.britannica.com</strong> and search for "eye". Find the colored part and the black dot in the middle[cite: 54].</p>
                 <div class="media-buttons">
                     <a href="https://www.google.com/search?tbm=isch&q=parts+of+the+human+eye+diagram+for+kids" target="_blank" class="media-btn">🔍 Parts of the eye diagram ↗</a>
                     <a href="https://www.google.com/search?tbm=isch&q=eye+pupil+getting+bigger+and+smaller" target="_blank" class="media-btn outline">🔍 Pupil bigger and smaller ↗</a>
@@ -641,34 +717,34 @@
                 </div>
             </div>
 
-            <p>You see with your eyes. But here is a surprise: your eyes do not make light. You can only see things because light bounces off them and travels into your eyes. That is why it is hard to see in a very dark room. When there is not enough light, there is nothing bouncing into your eyes!</p>
-            <p>Look at a friend's eye. In the middle is a black circle called the <strong>pupil</strong>. The pupil is a hole that lets light in. Around it is the colored part, called the <strong>iris</strong>. The iris can be brown, green, blue, or grey. The iris works like a tiny curtain. In a dark place, it opens the pupil wide to let in more light. In a bright place, it makes the pupil small so too much light does not get in.</p>
-            <p>Inside your eye, the light lands on a special spot at the back. Nerves carry the message to your brain, and your brain makes the picture. Your eyes are very soft and important, so your body protects them. Eyelids close to keep dust out. Eyelashes catch tiny bits of dirt. Tears wash the eye clean and keep it wet.</p>
+            <p>You see with your eyes[cite: 54]. But here is a surprise: your eyes do not make light[cite: 54]. You can only see things because light bounces off them and travels into your eyes[cite: 54]. That is why it is hard to see in a very dark room[cite: 54]. When there is not enough light, there is nothing bouncing into your eyes![cite: 54]</p>
+            <p>Look at a friend's eye[cite: 54]. In the middle is a black circle called the <strong>pupil</strong>[cite: 54]. The pupil is a hole that lets light in[cite: 54]. Around it is the colored part, called the <strong>iris</strong>[cite: 54]. The iris can be brown, green, blue, or grey[cite: 54]. The iris works like a tiny curtain[cite: 54]. In a dark place, it opens the pupil wide to let in more light[cite: 54]. In a bright place, it makes the pupil small so too much light does not get in[cite: 54].</p>
+            <p>Inside your eye, the light lands on a special spot at the back[cite: 54]. Nerves carry the message to your brain, and your brain makes the picture[cite: 54]. Your eyes are very soft and important, so your body protects them[cite: 54]. Eyelids close to keep dust out[cite: 54]. Eyelashes catch tiny bits of dirt[cite: 54]. Tears wash the eye clean and keep it wet[cite: 54].</p>
 
             <div class="inner-box">
                 <h4>🧪 ACTIVITY: Watch a Pupil Change</h4>
-                <p>1. Sit with a grown-up in a dim room. Look at your own eyes in a mirror. Notice how big your pupils are.<br>
-                2. Have the grown-up switch on the room light while you keep looking in the mirror. Watch your pupils get smaller!<br>
-                3. Turn the light off again and wait. Do they get bigger?</p>
-                <p><strong style="color: var(--danger);">⚠️ Never shine a torch into anyone's eyes.</strong></p>
+                <p>1. Sit with a grown-up in a dim room. Look at your own eyes in a mirror. Notice how big your pupils are[cite: 54].<br>
+                2. Have the grown-up switch on the room light while you keep looking in the mirror. Watch your pupils get smaller![cite: 54]<br>
+                3. Turn the light off again and wait. Do they get bigger?[cite: 54]</p>
+                <p><strong style="color: var(--danger);">⚠️ Never shine a torch into anyone's eyes[cite: 52, 54].</strong></p>
 
-                <label><strong style="color: var(--dark-green);">What did you see happen to your pupils?</strong></label>
+                <label><strong style="color: var(--dark-green);">What did you see happen to your pupils?</strong>[cite: 54]</label>
                 <textarea rows="3" placeholder="Write what happened to your pupils in dim vs bright light..."></textarea>
             </div>
         </div>
 
-        <!-- Topic 2: Hearing -->
+        <!-- PAGE 5: Topic 2 - Hearing -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 2: Hearing (Ears), Sound Walk & Vibration Experiments</h3>
+                <h3>Page 5: Hearing — Ears, Sound Walk & Vibrations</h3>
                 <span class="badge-days">Day 2</span>
             </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Hearing: Your Ears</h4>
-                <p>Open Google Images and search: <strong>parts of the ear diagram for kids</strong><br>
-                Then search: <strong>how sound travels into the ear for kids</strong><br>
-                Find the part you can see on the outside of your head. What is it called?</p>
+                <p>Open Google Images and search: <strong>parts of the ear diagram for kids</strong>[cite: 55]<br>
+                Then search: <strong>how sound travels into the ear for kids</strong>[cite: 55]<br>
+                Find the part you can see on the outside of your head. What is it called?[cite: 55]</p>
                 <div class="media-buttons">
                     <a href="https://www.google.com/search?tbm=isch&q=parts+of+the+ear+diagram+for+kids" target="_blank" class="media-btn">🔍 Parts of the ear diagram ↗</a>
                     <a href="https://www.google.com/search?tbm=isch&q=how+sound+travels+into+the+ear+for+kids" target="_blank" class="media-btn outline">🔍 How sound travels into the ear ↗</a>
@@ -686,63 +762,52 @@
                 </div>
             </div>
 
-            <p>You hear with your ears. Every sound is made by something <strong>vibrating</strong>, which means wiggling back and forth very fast. A guitar string wiggles. A drum skin wiggles. Your voice box wiggles when you talk. These wiggles push the air, and the air carries the wiggles to your ears.</p>
-            <p>The part of the ear you can see is like a funnel that catches sounds. Inside, the wiggles hit a thin skin called the <strong>eardrum</strong>. The eardrum wiggles like the top of a little drum. Next, tiny bones and a snail-shaped part inside your head turn the wiggles into messages. Nerves carry the messages to your brain, and your brain says, <em>"That is a dog barking!"</em></p>
+            <p>You hear with your ears[cite: 55]. Every sound is made by something <strong>vibrating</strong>, which means wiggling back and forth very fast[cite: 55]. A guitar string wiggles[cite: 55]. A drum skin wiggles[cite: 55]. Your voice box wiggles when you talk[cite: 55]. These wiggles push the air, and the air carries the wiggles to your ears[cite: 55].</p>
+            <p>The part of the ear you can see is like a funnel that catches sounds[cite: 55]. Inside, the wiggles hit a thin skin called the <strong>eardrum</strong>[cite: 55]. The eardrum wiggles like the top of a little drum[cite: 55]. Next, tiny bones and a snail-shaped part inside your head turn the wiggles into messages[cite: 55]. Nerves carry the messages to your brain, and your brain says, <em>"That is a dog barking!"</em>[cite: 55]</p>
 
             <div class="fun-fact-box">
-                <strong>💡 FUN FACT:</strong> Loud sounds have big wiggles that can hurt the tiny parts inside your ear. Keep music and headphones low, and cover your ears near very loud noises.
+                <strong>💡 FUN FACT:</strong> Loud sounds have big wiggles that can hurt the tiny parts inside your ear[cite: 55]. Keep music and headphones low, and cover your ears near very loud noises[cite: 55].
             </div>
 
             <div class="inner-box">
                 <h4>🧪 ACTIVITY: Listen and Feel</h4>
-                <p><strong>Sound walk:</strong> Sit very still for two minutes with your eyes closed. Listen carefully. Then write or draw every sound you heard.<br>
-                <strong>Feel the voice:</strong> Put your fingers gently on your throat and hum. What do you feel? That is your voice vibrating!<br>
-                <strong>Twang:</strong> Stretch a rubber band between your fingers and pluck it. Can you see and hear it wiggle?</p>
+                <p><strong>Sound walk:</strong> Sit very still for two minutes with your eyes closed[cite: 55]. Listen carefully[cite: 55]. Then write or draw every sound you heard[cite: 55].<br>
+                <strong>Feel the voice:</strong> Put your fingers gently on your throat and hum[cite: 55]. What do you feel? That is your voice vibrating![cite: 55]<br>
+                <strong>Twang:</strong> Stretch a rubber band between your fingers and pluck it[cite: 55]. Can you see and hear it wiggle?[cite: 55]</p>
 
-                <label><strong style="color: var(--dark-green);">Sounds I heard during my sound walk:</strong></label>
+                <label><strong style="color: var(--dark-green);">Sounds I heard during my sound walk:</strong>[cite: 55]</label>
                 <textarea rows="3" placeholder="List or describe all the sounds you heard..."></textarea>
             </div>
         </div>
 
-        <!-- Topic 3: Smell & Taste -->
+        <!-- PAGE 6: Topic 3 - Smell -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 3: Smell (Nose) and Taste (Tongue). Smell Jars and Taste Test</h3>
+                <h3>Page 6: Smell — Your Nose & Smell Jars</h3>
                 <span class="badge-days">Day 3</span>
             </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Smell: Your Nose</h4>
-                <p>Open Google Images and search: <strong>how does the nose smell diagram for kids</strong><br>
-                Look for the smell nerve. Where does the message go?</p>
+                <p>Open Google Images and search: <strong>how does the nose smell diagram for kids</strong>[cite: 56]<br>
+                Look for the smell nerve. Where does the message go?[cite: 56]</p>
                 <div class="media-buttons">
                     <a href="https://www.google.com/search?tbm=isch&q=how+does+the+nose+smell+diagram+for+kids" target="_blank" class="media-btn">🔍 How does the nose smell diagram ↗</a>
                 </div>
             </div>
 
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Smelling Flowers">
-                    <div class="caption">Smelling Fresh Flowers</div>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1555529771-835f59fc5eff?auto=format&fit=crop&w=800&q=80" alt="Tasting Food">
-                    <div class="caption">Tasting Sweet & Sour Flavors</div>
-                </div>
-            </div>
-
-            <p>You smell with your nose. Everything that has a smell gives off tiny, tiny bits that are too small to see. These bits float in the air. When you breathe in, the bits go up your nose to a special patch high inside. There, nerves pick up the message and send it to your brain. Your brain says, <em>"Yum, that is bread!"</em> or <em>"Yuck, that is rotten!"</em></p>
-            <p>Your sense of smell helps you in many ways. It helps you enjoy food and flowers. It can also warn you of danger, like smoke from a fire or milk that has gone bad. Smell and taste are best friends. When you have a cold and your nose is blocked, food can seem to have very little taste.</p>
+            <p>You smell with your nose[cite: 56]. Everything that has a smell gives off tiny, tiny bits that are too small to see[cite: 56]. These bits float in the air[cite: 56]. When you breathe in, the bits go up your nose to a special patch high inside[cite: 56]. There, nerves pick up the message and send it to your brain[cite: 56]. Your brain says, <em>"Yum, that is bread!"</em> or <em>"Yuck, that is rotten!"</em>[cite: 56]</p>
+            <p>Your sense of smell helps you in many ways[cite: 56]. It helps you enjoy food and flowers[cite: 56]. It can also warn you of danger, like smoke from a fire or milk that has gone bad[cite: 56]. Smell and taste are best friends[cite: 56]. When you have a cold and your nose is blocked, food can seem to have very little taste[cite: 56].</p>
 
             <div class="fun-fact-box">
-                <strong>💡 FUN FACT:</strong> A dog's nose is much, much better than ours. Dogs can smell things people cannot smell at all, which is why some dogs are trained to find lost people.
+                <strong>💡 FUN FACT:</strong> A dog's nose is much, much better than ours[cite: 56]. Dogs can smell things people cannot smell at all, which is why some dogs are trained to find lost people[cite: 56].
             </div>
 
             <div class="inner-box">
                 <h4>🧪 ACTIVITY: Smell Jars</h4>
-                <p>1. A grown-up puts a cotton ball with a little vanilla, lemon, mint, cinnamon, or coffee in each cup, and covers the cups so you cannot see inside.<br>
-                2. Close your eyes. Sniff gently, one cup at a time, and guess the smell.<br>
-                3. Write your guesses below. Was it easy or hard?</p>
+                <p>1. A grown-up puts a cotton ball with a little vanilla, lemon, mint, cinnamon, or coffee in each cup, and covers the cups so you cannot see inside[cite: 56].<br>
+                2. Close your eyes. Sniff gently, one cup at a time, and guess the smell[cite: 56].<br>
+                3. Write your guesses below. Was it easy or hard?[cite: 56]</p>
 
                 <table>
                     <thead>
@@ -762,121 +827,371 @@
                     </tbody>
                 </table>
             </div>
+        </div>
 
-            <hr style="margin: 25px 0; border: none; border-top: 1px dashed var(--border);">
+        <!-- PAGE 7: Taste -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 7: Taste — Your Tongue & Taste Test</h3>
+                <span class="badge-days">Day 3</span>
+            </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Taste: Your Tongue</h4>
-                <p>Open Google Images and search: <strong>taste buds on tongue for kids</strong><br>
-                Then search: <strong>five basic tastes sweet sour salty bitter umami</strong><br>
-                Look at the little bumps on the tongue. Those bumps hold your taste buds.</p>
+                <p>Open Google Images and search: <strong>taste buds on tongue for kids</strong>[cite: 57]<br>
+                Then search: <strong>five basic tastes sweet sour salty bitter umami</strong>[cite: 57]<br>
+                Look at the little bumps on the tongue. Those bumps hold your taste buds[cite: 57].</p>
                 <div class="media-buttons">
-                    <a href="https://www.google.com/search?tbm=isch&q=taste+buds+on+tongue+for+kids" target="_blank" class="media-btn">🔍 Taste buds on tongue diagram ↗</a>
-                    <a href="https://www.google.com/search?tbm=isch&q=five+basic+tastes+sweet+sour+salty+bitter+umami" target="_blank" class="media-btn outline">🔍 Five basic tastes diagram ↗</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=taste+buds+on+tongue+for+kids" target="_blank" class="media-btn">🔍 Taste buds on tongue ↗</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=five+basic+tastes+sweet+sour+salty+bitter+umami" target="_blank" class="media-btn outline">🔍 Five basic tastes ↗</a>
                 </div>
             </div>
 
-            <p>You taste with your tongue. Look at your tongue in the mirror. It is covered with tiny bumps. On the bumps are even tinier taste buds, and you have thousands of them! When food touches the taste buds, they send a message to your brain about what you are tasting.</p>
-            <p>Your tongue can tell five main tastes: <strong style="color: var(--accent-pink);">sweet</strong> (like honey), <strong style="color: var(--accent-orange);">sour</strong> (like lemon), <strong style="color: var(--accent-blue);">salty</strong> (like chips), <strong style="color: var(--accent-purple);">bitter</strong> (like dark chocolate), and <strong style="color: var(--accent-green);">umami</strong>, which means savory, like the taste of soup or cheese. Some people think that each taste happens on only one part of the tongue. That is a myth! Every part of your tongue can taste all of them.</p>
-            <p>Taste works together with smell. Try this: pinch your nose shut, close your eyes, and have a grown-up give you a small piece of apple and a small piece of raw potato. Can you tell which is which? Now let go of your nose and try again. Your nose helps your tongue a lot!</p>
+            <p>You taste with your tongue[cite: 57]. Look at your tongue in the mirror[cite: 57]. It is covered with tiny bumps[cite: 57]. On the bumps are even tinier taste buds, and you have thousands of them![cite: 57] When food touches the taste buds, they send a message to your brain about what you are tasting[cite: 57].</p>
+            <p>Your tongue can tell five main tastes: sweet (like honey), sour (like lemon), salty (like chips), bitter (like dark chocolate), and umami, which means savory, like the taste of soup or cheese[cite: 57]. Some people think that each taste happens on only one part of the tongue. That is a myth! Every part of your tongue can taste all of them[cite: 57, 65].</p>
+            <p>Taste works together with smell[cite: 57]. Try this: pinch your nose shut, close your eyes, and have a grown-up give you a small piece of apple and a small piece of raw potato[cite: 57]. Can you tell which is which? Now let go of your nose and try again[cite: 57]. Your nose helps your tongue a lot![cite: 57]</p>
 
-            <div class="safety-box">
-                <h4>⚠️ SAFETY FIRST</h4>
-                <p style="margin:0;">Check for food allergies first. Only taste what a grown-up gives you. Never taste anything you find.</p>
-            </div>
-
-            <div class="inner-box" style="margin-top: 20px;">
+            <div class="inner-box">
                 <h4>🧪 ACTIVITY: Taste Test</h4>
-                <p>Taste a tiny bit of each one, then write your description and face reaction: lemon (sour), sugar (sweet), salt (salty), dark chocolate (bitter). Which did you like best? Which made your face scrunch up?</p>
+                <p>Taste a tiny bit of each one, then color or fill in the box: lemon (sour), sugar (sweet), salt (salty), dark chocolate (bitter)[cite: 57]. Which did you like best? Which made your face scrunch up?[cite: 57]</p>
 
                 <table>
                     <thead>
                         <tr>
                             <th>Food</th>
                             <th>Taste word</th>
-                            <th>My face reaction / Notes</th>
+                            <th>My face (describe or draw)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Lemon</td><td><input type="text" value="sour"></td><td><input type="text" placeholder="e.g. Scrunched my eyes!"></td></tr>
-                        <tr><td>Sugar</td><td><input type="text" value="sweet"></td><td><input type="text" placeholder="e.g. Yummy smile!"></td></tr>
-                        <tr><td>Salt</td><td><input type="text" value="salty"></td><td><input type="text" placeholder="e.g. Needs water!"></td></tr>
-                        <tr><td>Dark chocolate</td><td><input type="text" value="bitter"></td><td><input type="text" placeholder="e.g. Surprising taste!"></td></tr>
+                        <tr><td>Lemon</td><td><input type="text" placeholder="e.g. Sour"></td><td><input type="text" placeholder="e.g. Scrunched eyes"></td></tr>
+                        <tr><td>Sugar</td><td><input type="text" placeholder="e.g. Sweet"></td><td><input type="text" placeholder="e.g. Big smile"></td></tr>
+                        <tr><td>Salt</td><td><input type="text" placeholder="e.g. Salty"></td><td><input type="text"></td></tr>
+                        <tr><td>Dark chocolate</td><td><input type="text" placeholder="e.g. Bitter"></td><td><input type="text"></td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Topic 4: Touch & Safety -->
+        <!-- PAGE 8: Topic 4 - Touch -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 4: Touch (Skin). Mystery Bag. "Which Sense?" and "Senses Keep Us Safe"</h3>
+                <h3>Page 8: Touch — Your Skin & Mystery Bag</h3>
                 <span class="badge-days">Day 4</span>
             </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Touch: Your Skin</h4>
-                <p>Open Google Images and search: <strong>layers of skin diagram for kids</strong><br>
-                Then search: <strong>braille alphabet for kids</strong> to see how some people read with their fingertips.</p>
+                <p>Open Google Images and search: <strong>layers of skin diagram for kids</strong>[cite: 58]<br>
+                Then search: <strong>braille alphabet for kids</strong> to see how some people read with their fingertips[cite: 58].</p>
                 <div class="media-buttons">
                     <a href="https://www.google.com/search?tbm=isch&q=layers+of+skin+diagram+for+kids" target="_blank" class="media-btn">🔍 Layers of skin diagram ↗</a>
-                    <a href="https://www.google.com/search?tbm=isch&q=braille+alphabet+for+kids" target="_blank" class="media-btn outline">🔍 Braille alphabet for kids ↗</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=braille+alphabet+for+kids" target="_blank" class="media-btn outline">🔍 Braille alphabet ↗</a>
                 </div>
             </div>
 
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Sense of Touch">
-                    <div class="caption">Feeling Textures with Skin</div>
-                </div>
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Brain and Body">
-                    <div class="caption">The Brain Processes All 5 Senses</div>
-                </div>
-            </div>
-
-            <p>You feel things with your skin. Skin covers your whole body, and it is your body's biggest organ! Inside your skin are millions of tiny sensors. They pick up messages about what things feel like: hot or cold, soft or rough, smooth or bumpy, light touches and hard pressure. The sensors send the messages along nerves to the brain.</p>
-            <p>Some parts of your skin are extra good at feeling. Your fingertips and lips have lots of sensors, so they can feel very small details. Skin also feels pain. Pain is not fun, but it is very useful. It tells you to pull your hand away from something hot or sharp before you get badly hurt.</p>
+            <p>You feel things with your skin[cite: 58]. Skin covers your whole body, and it is your body's biggest organ![cite: 58] Inside your skin are millions of tiny sensors[cite: 58]. They pick up messages about what things feel like: hot or cold, soft or rough, smooth or bumpy, light touches and hard pressure[cite: 58]. The sensors send the messages along nerves to the brain[cite: 58].</p>
+            <p>Some parts of your skin are extra good at feeling[cite: 58]. Your fingertips and lips have lots of sensors, so they can feel very small details[cite: 58]. Skin also feels pain[cite: 58]. Pain is not fun, but it is very useful[cite: 58]. It tells you to pull your hand away from something hot or sharp before you get badly hurt[cite: 58, 65].</p>
 
             <div class="fun-fact-box">
-                <strong>💡 FUN FACT:</strong> Some people cannot see, so they read with their fingertips using a special code of raised dots called braille. Their sense of touch is very strong!
+                <strong>💡 FUN FACT:</strong> Some people cannot see, so they read with their fingertips using a special code of raised dots called braille[cite: 58]. Their sense of touch is very strong![cite: 58]
             </div>
 
             <div class="inner-box">
                 <h4>🧪 ACTIVITY: The Mystery Bag</h4>
-                <p>1. A grown-up puts 6 objects in a paper bag (for example: a cotton ball, a spoon, sandpaper, a sponge, a key, a pine cone).<br>
-                2. Put your hand in the bag WITHOUT looking. Feel one object and describe it with feeling words: soft, hard, rough, smooth, bumpy, squishy, cold.<br>
-                3. Guess what it is, then pull it out to check. Write your words below.</p>
+                <p>1. A grown-up puts 6 objects in a paper bag (for example: a cotton ball, a spoon, sandpaper, a sponge, a key, a pine cone)[cite: 58].<br>
+                2. Put your hand in the bag WITHOUT looking[cite: 58]. Feel one object and describe it with feeling words: soft, hard, rough, smooth, bumpy, squishy, cold[cite: 58].<br>
+                3. Guess what it is, then pull it out to check[cite: 58]. Write your words below[cite: 58].</p>
 
                 <table>
                     <thead>
                         <tr>
-                            <th>Object #</th>
-                            <th>Feeling Words</th>
-                            <th>My Guess</th>
-                            <th>Was I Right?</th>
+                            <th>Object I felt</th>
+                            <th>Feeling words</th>
+                            <th>My guess</th>
+                            <th>Was I right?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1</td><td><input type="text" placeholder="Soft, squishy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>2</td><td><input type="text" placeholder="Hard, cold..."></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>3</td><td><input type="text" placeholder="Rough, scratchy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>4</td><td><input type="text" placeholder="Smooth, flat..."></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>5</td><td><input type="text" placeholder="Bumpy, sharp..."></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>6</td><td><input type="text" placeholder="Light, fuzzy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>4</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
+        <!-- PAGE 9: Which Sense Is It? -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 9: Practice — Which Sense Is It?</h3>
+                <span class="badge-days">Day 4</span>
+            </div>
+
+            <div class="inner-box">
+                <h4>Part 1: Match the body part to its job.</h4>
+                <p>Select the correct action for each sense organ[cite: 59]:</p>
+                <div class="matching-list">
+                    <div class="matching-item">
+                        <span>Eyes</span>
+                        <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select>
+                    </div>
+                    <div class="matching-item">
+                        <span>Ears</span>
+                        <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select>
+                    </div>
+                    <div class="matching-item">
+                        <span>Nose</span>
+                        <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select>
+                    </div>
+                    <div class="matching-item">
+                        <span>Tongue</span>
+                        <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select>
+                    </div>
+                    <div class="matching-item">
+                        <span>Skin</span>
+                        <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inner-box">
+                <h4>Part 2: Which sense do you use?</h4>
+                <p>Select <strong>sight</strong>, <strong>hearing</strong>, <strong>smell</strong>, <strong>taste</strong>, or <strong>touch</strong> next to each one[cite: 59]:</p>
+                
+                <ol>
+                    <li>Watching a rainbow: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Listening to rain on the window: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Smelling bread baking: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Eating a sour lemon: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Petting a soft cat: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Hearing a doorbell ring: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Feeling a hot cup of tea: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Smelling a flower: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Reading a book: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Tasting honey: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Feeling sand between your toes: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                    <li>Listening to a bird sing: <select><option>Select sense...</option><option>sight</option><option>hearing</option><option>smell</option><option>taste</option><option>touch</option></select></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- PAGE 10: Senses Keep Us Safe -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 10: Safety — Senses Keep Us Safe</h3>
+                <span class="badge-days">Day 4</span>
+            </div>
+
+            <div class="inner-box">
+                <h4>▢ SEE IT FIRST!</h4>
+                <p>Open Google Images and search: <strong>how the senses keep us safe for kids</strong>[cite: 60]<br>
+                Look at the pictures. Which senses are being used to stay safe in each one?[cite: 60]</p>
+                <div class="media-buttons">
+                    <a href="https://www.google.com/search?tbm=isch&q=how+the+senses+keep+us+safe+for+kids" target="_blank" class="media-btn">🔍 How senses keep us safe ↗</a>
+                </div>
+            </div>
+
+            <p>Your senses are like a team of guards[cite: 60]. They watch for danger all day long[cite: 60]. Eyes spot a car coming[cite: 60]. Ears hear a horn or an alarm[cite: 60]. Your nose smells smoke[cite: 60]. Your tongue tastes when food has gone bad[cite: 60]. Your skin feels that a pan is too hot[cite: 60]. The sense organs send the message, the nerves carry it, and the brain decides what to do, sometimes in a split second![cite: 60]</p>
+
+            <div class="inner-box">
+                <h4>Think and write. Finish each sentence with a sense and a body part[cite: 60].</h4>
+                <p>1. If I smell smoke, my <input type="text" style="width: 150px; display: inline;" placeholder="nose"> tells me to tell a grown-up right away[cite: 60].</p>
+                <p>2. If I hear a loud honk, my <input type="text" style="width: 150px; display: inline;" placeholder="ears"> tell me to stop and look[cite: 60].</p>
+                <p>3. If a cup feels very hot, my <input type="text" style="width: 150px; display: inline;" placeholder="skin"> tells me to pull my hand away[cite: 60].</p>
+                <p>4. If milk tastes sour and bad, my <input type="text" style="width: 150px; display: inline;" placeholder="tongue"> tells me not to drink it[cite: 60].</p>
+                <p>5. If I see a red light, my <input type="text" style="width: 150px; display: inline;" placeholder="eyes"> tell me to stop[cite: 60].</p>
+            </div>
+
+            <div class="inner-box">
+                <h4>What if you lost one sense?[cite: 60]</h4>
+                <p>Imagine you could not hear for one day. What would be hard? What could you use instead?[cite: 60]</p>
+                <textarea rows="3" placeholder="Write your thoughts here..."></textarea>
+            </div>
+        </div>
+
+        <!-- PAGE 11: Draw & Label + Senses Hunt -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 11: Draw and Label Yourself & Senses Hunt</h3>
+                <span class="badge-days">Day 5</span>
+            </div>
+
+            <p>Draw a picture of your face and upper body in the box. Then draw a line to each sense organ and write its name and sense. Use the word bank[cite: 61].</p>
+            <p><strong>Word bank:</strong> eyes (sight), ears (hearing), nose (smell), tongue (taste), skin (touch), brain[cite: 61]</p>
+
+            <div class="draw-box">
+                🎨 [ Draw your face, upper body, sense organs, and brain here! ][cite: 61]
+            </div>
+
+            <div class="inner-box">
+                <h4>My Five-Senses Hunt</h4>
+                <p>Go on a safe hunt around your home or garden. Write or draw one thing for each sense[cite: 61].</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sense</th>
+                            <th>I found...</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I can SEE</td><td><input type="text" placeholder="e.g. A green leaf"></td></tr>
+                        <tr><td>I can HEAR</td><td><input type="text" placeholder="e.g. Wind blowing"></td></tr>
+                        <tr><td>I can SMELL</td><td><input type="text" placeholder="e.g. Fresh grass"></td></tr>
+                        <tr><td>I can TASTE (ask a grown-up first)</td><td><input type="text" placeholder="e.g. A sweet apple"></td></tr>
+                        <tr><td>I can TOUCH</td><td><input type="text" placeholder="e.g. Smooth rock"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- PAGE 12 & 13: Research & Report -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Pages 12 & 13: Research & Report — Super-Sense Animals</h3>
+                <span class="badge-days">Day 5</span>
+            </div>
+
+            <p>Some animals have senses that are much better than ours[cite: 62]. Your job is to become an expert on one of them, and teach your family, just like a teacher in a classroom![cite: 62]</p>
+
+            <h4>Step 1: Choose one animal. Circle it, and use the search phrase to look at pictures and videos with a grown-up[cite: 62].</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Animal</th>
+                        <th>Super sense</th>
+                        <th>Search phrase (Google or YouTube)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Dog</td><td>Smell</td><td>how good is a dog's sense of smell for kids</td></tr>
+                    <tr><td>Bat</td><td>Hearing</td><td>how do bats use sound to find food for kids</td></tr>
+                    <tr><td>Eagle</td><td>Sight</td><td>eagle eyesight facts for kids</td></tr>
+                    <tr><td>Cat</td><td>Touch & seeing in dim light</td><td>cat whiskers facts for kids</td></tr>
+                    <tr><td>Snake</td><td>Smell (with its tongue!)</td><td>how do snakes smell with their tongue for kids</td></tr>
+                </tbody>
+            </table>
+
+            <div class="inner-box">
+                <h4>Step 2: Find 3 facts. Write or draw them here[cite: 62].</h4>
+                <textarea rows="3" placeholder="1... 2... 3..."></textarea>
+            </div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="taught">
+                <label for="taught">Step 3: Teach it! Stand up and tell your sisters and your grown-up what you learned, like you are presenting to a class. Show your drawing. Let them ask you one question. Then tick this box: <strong>I taught it!</strong>[cite: 62]</label>
+            </div>
+
+            <div class="inner-box" style="margin-top: 15px;">
+                <h4>Step 4: Write your summary[cite: 62].</h4>
+                <p>Write 3 or 4 sentences about your animal and its super sense[cite: 62].</p>
+                <textarea rows="3" placeholder="Write your summary sentences here..."></textarea>
+            </div>
+
+            <h4>Page 13: Draw your super-sense animal[cite: 63]</h4>
+            <div class="draw-box">
+                🐾 [ Draw your chosen super-sense animal here! ][cite: 63]
+            </div>
+        </div>
+
+        <!-- PAGE 14: Week 1 Quiz Review -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Page 14: My Week 1 Review & Quiz</h3>
+                <span class="badge-days">Day 5 Assessment</span>
+            </div>
+
+            <div class="inner-box">
+                <h4>1. Fill in the blanks[cite: 64].</h4>
+                <p>I see with my <input type="text" style="width: 150px; display: inline;" placeholder="eyes">[cite: 64]</p>
+                <p>I hear with my <input type="text" style="width: 150px; display: inline;" placeholder="ears">[cite: 64]</p>
+                <p>I smell with my <input type="text" style="width: 150px; display: inline;" placeholder="nose">[cite: 64]</p>
+                <p>I taste with my <input type="text" style="width: 150px; display: inline;" placeholder="tongue">[cite: 64]</p>
+                <p>I feel things with my <input type="text" style="width: 150px; display: inline;" placeholder="skin">[cite: 64]</p>
+            </div>
+
+            <div class="inner-box">
+                <h4>2. True or False? Select one[cite: 64].</h4>
+                <p>a) Your brain reads the messages from your senses: 
+                    <select><option>Select...</option><option>TRUE</option><option>FALSE</option></select>[cite: 64]
+                </p>
+                <p>b) The pupil is the white part of your eye: 
+                    <select><option>Select...</option><option>TRUE</option><option>FALSE</option></select>[cite: 64]
+                </p>
+                <p>c) Sounds are made by things vibrating: 
+                    <select><option>Select...</option><option>TRUE</option><option>FALSE</option></select>[cite: 64]
+                </p>
+                <p>d) Only your fingers can feel things: 
+                    <select><option>Select...</option><option>TRUE</option><option>FALSE</option></select>[cite: 64]
+                </p>
+                <p>e) Your tongue can taste sweet, sour, salty, bitter, and umami: 
+                    <select><option>Select...</option><option>TRUE</option><option>FALSE</option></select>[cite: 64]
+                </p>
+            </div>
+
+            <div class="inner-box">
+                <h4>3. Short Answers[cite: 64].</h4>
+                <p><strong>a) What does the pupil do?</strong>[cite: 64]</p>
+                <input type="text" placeholder="Write answer here...">
+
+                <p><strong>b) Why is feeling pain useful?</strong>[cite: 64]</p>
+                <input type="text" placeholder="Write answer here...">
+
+                <p><strong>c) Name the boss that reads all the messages from the senses.</strong>[cite: 64]</p>
+                <input type="text" placeholder="Write answer here...">
+
+                <p><strong>d) Which sense did you like testing the most this week? Why?</strong>[cite: 64]</p>
+                <input type="text" placeholder="Write answer here...">
+            </div>
+        </div>
+
+        <!-- PAGE 15: Answer Key & Notes -->
+        <div class="topic-card">
+            <div class="topic-header" style="background-color: var(--accent-purple);">
+                <h3>Page 15: Answer Key and Notes (Grown-Ups)</h3>
+                <span class="badge-days">Grown-Up Key</span>
+            </div>
+
+            <div class="inner-box">
+                <h4>Answers & Explanations</h4>
+                <p><strong>Matching:</strong> eyes - to see; ears - to hear; nose - to smell; tongue - to taste; skin - to touch[cite: 65].</p>
+                <p><strong>Which sense (Part 2):</strong> 1 sight; 2 hearing; 3 smell; 4 taste; 5 touch; 6 hearing; 7 touch; 8 smell; 9 sight; 10 taste; 11 touch; 12 hearing[cite: 65].</p>
+                <p><strong>Senses keep us safe:</strong> 1 nose; 2 ears; 3 skin; 4 tongue; 5 eyes[cite: 65].</p>
+                <p><strong>Quiz Part 1:</strong> eyes, ears, nose, tongue, skin[cite: 65].</p>
+                <p><strong>Quiz Part 2:</strong> True, False (the pupil is the black hole in the middle), True, False (skin all over the body can feel), True[cite: 65].</p>
+                <p><strong>Quiz Part 3:</strong><br>
+                a) The pupil lets light into the eye (and changes size for dim or bright light)[cite: 65].<br>
+                b) Pain warns us to move away from danger before we get badly hurt[cite: 65].<br>
+                c) The brain[cite: 65].<br>
+                d) Her own opinion[cite: 65].</p>
+            </div>
+
+            <div class="inner-box">
+                <h4>Ideas to Talk About</h4>
+                <p>• Why can't you see in a completely dark room? (No light is bouncing into the eye.)[cite: 65]</p>
+                <p>• What do a dog, a bat, and an eagle teach us about how different animals use their senses?[cite: 65]</p>
+                <p>• Can a person be very good at another sense if one is missing? (Think about braille.)[cite: 65]</p>
+            </div>
+
+            <div class="inner-box">
+                <h4>Watch For</h4>
+                <p>If she says the tongue map (sweet at the front, sour at the sides, and so on), gently remind her it is a myth[cite: 65]. The pupil is a hole, not a "black circle painted on."[cite: 65]</p>
+                <p><strong>Next week (Week 2):</strong> Living vs Non-Living things[cite: 65].</p>
+            </div>
+        </div>
+
     </div>
 
     <!-- Save & Complete Footer Card -->
     <div class="save-card">
         <div class="save-info">
-            <h4>Ready to Save Progress?</h4>
-            <p>Great job finishing this week's activities! Click save to keep your answers recorded.</p>
+            <h4>Ready to save Hessa's progress?</h4>
+            <p>Make sure all inputs, quiz answers, and activity details are filled out for Week 1!</p>
         </div>
-        <button class="btn-save" onclick="alert('Progress Saved Successfully!')">💾 Save My Work</button>
+        <button class="btn-save" onclick="alert('Progress saved successfully for Week 1!')">💾 Save Week 1 Progress</button>
     </div>
 
 </div>
