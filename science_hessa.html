@@ -1,230 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hessa's Junior Science Explorer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Fredoka', cursive; } </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hessa's Interactive Science | Week 1: My Five Senses</title>
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --accent: #FF6B6B;
+            --bg: #F7F9FC;
+            --card-bg: #FFFFFF;
+            --text: #2C3E50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+
+        .meta-info {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 10px;
+        }
+
+        .explore-box {
+            background-color: #EBF3FA;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .explore-box h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+        }
+
+        .explore-box a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 5px;
+            color: #1A0DAB;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .explore-box a:hover {
+            text-decoration: underline;
+        }
+
+        img.topic-img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .fun-fact {
+            background-color: #FFF9E6;
+            border-left: 4px solid #FFD166;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .safety-box {
+            background-color: #FFEAEA;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .activity-box {
+            background-color: #E8F8F5;
+            border: 2px dashed var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #DDD;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .diagram-box {
+            background-color: #F0F4F8;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .quiz-option {
+            margin: 5px 0;
+        }
+    </style>
 </head>
-<body class="bg-pink-50 text-slate-800 p-4 md:p-8 min-h-screen">
-  <div class="max-w-4xl mx-auto space-y-6">
+<body>
 
-    <!-- Navigation Header -->
-    <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-pink-200 shadow-sm">
-      <div>
-        <h1 class="text-3xl font-extrabold text-purple-700">Hessa's Science Explorer 🌟</h1>
-        <p class="text-xs text-slate-500 font-medium">7 Years Old • Interactive Science Workbook</p>
-      </div>
-      <a href="index.html" class="text-xs font-bold bg-pink-100 hover:bg-pink-200 text-pink-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
+<div class="container">
+
+    <header>
+        <h1>Integrated Science | Week 1</h1>
+        <h2>My Five Senses</h2>
+        <div class="meta-info">Level: Foundation (PreK-K) | Topic 1 of 117</div>
+    </header>
+
+    <!-- Grown-Up Guide -->
+    <div class="card" style="border-left-color: #6C5CE7;">
+        <h2>📋 Grown-Up Guide & Weekly Setup</h2>
+        <h3>What Hessa Will Learn</h3>
+        <ul>
+            <li>Name the five main senses[cite: 52].</li>
+            <li>Identify the body part (sense organ) for each sense[cite: 52].</li>
+            <li>Describe what each sense tells us[cite: 52].</li>
+            <li>Explain that the brain is the boss that reads all messages[cite: 52].</li>
+            <li>Understand how our senses keep us safe[cite: 52].</li>
+        </ul>
+
+        <h3>Recommended Daily Schedule</h3>
+        <p><strong>Time Commitment:</strong> 5 sessions of approximately 30 to 40 minutes[cite: 52].</p>
+        <ul>
+            <li><strong>Day 1:</strong> Big Idea + Sight (Eyes) & Pupil Experiment[cite: 52]</li>
+            <li><strong>Day 2:</strong> Hearing (Ears), Sound Walk & Vibration Experiments[cite: 52]</li>
+            <li><strong>Day 3:</strong> Smell (Nose) & Taste (Tongue), Smell Jars & Taste Test[cite: 52]</li>
+            <li><strong>Day 4:</strong> Touch (Skin), Mystery Bag, "Which Sense?", and "Senses Keep Us Safe"[cite: 52]</li>
+            <li><strong>Day 5:</strong> Research & Report (Super-Sense Animals), Label/Draw Page, and Review Quiz[cite: 52]</li>
+        </ul>
+
+        <h3>Materials Checklist</h3>
+        <ul>
+            <li>Mirror & Dim Room (Day 1)[cite: 52]</li>
+            <li>Rubber band, Plastic tub/bowl, Plastic wrap, Uncooked rice (Day 2)[cite: 52]</li>
+            <li>Cotton balls & 5 small cups[cite: 52]</li>
+            <li>Kitchen smells: Vanilla, lemon, mint leaves, cinnamon, ground coffee[cite: 52]</li>
+            <li>Taste items: Lemon wedge, pinch of sugar, pinch of salt, small piece of dark chocolate[cite: 52]</li>
+            <li>Flavors test: Small pieces of apple and raw potato[cite: 52]</li>
+            <li>Mystery bag items: Paper bag + 6 small objects (cotton ball, spoon, sandpaper, sponge, key, pine cone)[cite: 52]</li>
+            <li>Pencils and crayons[cite: 52]</li>
+        </ul>
+
+        <div class="safety-box">
+            ⚠️ <strong>SAFETY FIRST</strong>
+            <ul>
+                <li><strong>Food Allergies:</strong> Check for any food allergies before tasting activities. Only taste food given by a grown-up[cite: 52].</li>
+                <li><strong>Chemical Safety:</strong> Never sniff cleaning products or strong chemicals. Use only safe kitchen ingredients[cite: 52].</li>
+                <li><strong>Eye Protection:</strong> Never shine a torch or bright light directly into anyone's eyes[cite: 52].</li>
+                <li><strong>Hearing Safety:</strong> Keep sounds gentle. Loud noises can cause damage to ears[cite: 52].</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- WEEK 1 DIGITAL WORKBOOK -->
-    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 shadow-md space-y-8">
-      
-      <!-- Banner -->
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b pb-4 border-slate-100">
-        <div>
-          <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">Week 1 Workbook</span>
-          <h2 class="text-2xl font-extrabold text-slate-800 mt-2">My Five Senses Discovery</h2>
-        </div>
-        <span id="hessa-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
-      </div>
-
-      <!-- Resource Bar -->
-      <div class="bg-purple-50 p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-purple-200">
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">📄</span>
-          <div>
-            <p class="text-xs font-bold text-purple-900">Printable Companion PDF</p>
-            <p class="text-xs text-purple-700">Open or print the full coloring workbook</p>
-          </div>
-        </div>
-        <a href="Science_Week01_My_Five_Senses_7yo.pdf" target="_blank" class="text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 rounded-xl transition shadow-sm w-full md:w-auto text-center">
-          Open PDF ↗
-        </a>
-      </div>
-
-      <!-- PART 1: INTERACTIVE SENSE MATCHING -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
-          <span>👀</span> Part 1: Tap to Match Senses
-        </h3>
-
-        <!-- Interactive Sense Item 1 -->
-        <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <span class="text-xs font-bold text-slate-700">1. Listening to a bird singing outside 🐦</span>
-          <div class="flex gap-2">
-            <button onclick="checkMatch(this, false, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Sight</button>
-            <button onclick="checkMatch(this, true, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Hearing 👂</button>
-            <button onclick="checkMatch(this, false, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Smell</button>
-          </div>
-        </div>
-
-        <!-- Interactive Sense Item 2 -->
-        <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <span class="text-xs font-bold text-slate-700">2. Feeling a fluffy soft teddy bear 🧸</span>
-          <div class="flex gap-2">
-            <button onclick="checkMatch(this, true, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Touch ✋</button>
-            <button onclick="checkMatch(this, false, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Taste</button>
-            <button onclick="checkMatch(this, false, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Sight</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PART 2: MINI QUIZ TIME -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
-          <span>⭐</span> Part 2: Super Senses Quiz
-        </h3>
-        <div class="p-4 bg-purple-50/60 rounded-2xl space-y-2">
-          <p class="text-xs font-bold text-slate-800">Which body part do you use to smell delicious freshly baked cookies?</p>
-          <div class="flex gap-2">
-            <button onclick="checkMatch(this, false, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Ears</button>
-            <button onclick="checkMatch(this, true, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Nose 👃</button>
-            <button onclick="checkMatch(this, false, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Hands</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PART 3: WRITTEN & DRAWING REFLECTION -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
-          <span>✏️</span> Part 3: Written Explorer Journal
-        </h3>
+    <!-- Topic 1 -->
+    <div class="card">
+        <h2>Topic 1: The Big Idea — Your Body Has Helpers</h2>
         
-        <div class="space-y-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">
-              Task 1: What is your absolute favorite thing to taste, and how does it taste (sweet, salty, sour)?
-            </label>
-            <textarea id="hessa_ans1" rows="2" class="w-full text-xs p-3 border border-pink-200 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Type here..."></textarea>
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">
-              Task 2: Look around the room right now. List 3 things you can SEE using your eyes!
-            </label>
-            <textarea id="hessa_ans2" rows="2" class="w-full text-xs p-3 border border-pink-200 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="1. ... 2. ... 3. ..."></textarea>
-          </div>
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=five+senses+for+kids&tbm=isch" target="_blank">🖼️ Google Images: Five Senses for Kids[cite: 53]</a>
+            <a href="https://pbskids.org/learn/senses/" target="_blank">🎮 PBS Kids: Five Senses Interactive Games</a>
         </div>
-      </div>
 
-      <!-- PART 4: FUN VIDEOS -->
-      <div class="space-y-3">
-        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
-          <span>🎬</span> Fun Songs & Video Links
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <a href="https://www.youtube.com/results?search_query=five+senses+song+for+kids" target="_blank" class="p-3 bg-pink-50 hover:bg-pink-100 rounded-2xl border border-pink-200 flex items-center gap-3 transition">
-            <span class="text-xl">🎵</span>
-            <div>
-              <p class="text-xs font-bold text-pink-900">Song: Five Senses Sing-Along</p>
-              <p class="text-xs text-pink-600">Catchy musical guide to the 5 senses</p>
-            </div>
-          </a>
-          <a href="https://www.youtube.com/results?search_query=animal+super+senses+for+kids" target="_blank" class="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-2xl border border-yellow-200 flex items-center gap-3 transition">
-            <span class="text-xl">🦅</span>
-            <div>
-              <p class="text-xs font-bold text-yellow-900">Video: Super Animal Senses</p>
-              <p class="text-xs text-yellow-700">How animals use super sight and smell!</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- SUBMIT WORKBOOK -->
-      <div class="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <p class="text-xs font-bold text-slate-700">Finished your workbook tasks?</p>
-          <p class="text-xs text-slate-500">Tap below to submit your answers and unlock Week 2!</p>
-        </div>
-        <button id="hessa-submit-btn" onclick="saveHessaWorkbook()" class="w-full md:w-auto text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
-          Save Workbook & Unlock Week 2 🌟
-        </button>
-      </div>
-
-    </div>
-
-    <!-- WEEK 2 UNLOCKED / LOCKED CONTAINER -->
-    <div id="hessa-w2-container" class="bg-slate-100 rounded-3xl p-6 md:p-8 border-2 border-slate-200 text-slate-400 space-y-4 opacity-75">
-      <div class="flex justify-between items-center">
-        <span class="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">Week 2 Topic</span>
-        <span id="hessa-w2-status" class="text-xs font-bold text-slate-400">🔒 Locked</span>
-      </div>
-      <h3 class="text-xl font-bold text-slate-700">Living vs. Non-Living Things & Plants</h3>
-      <p class="text-xs text-slate-500">Finish Week 1 above to unlock Week 2!</p>
-    </div>
-
-  </div>
-
-  <script>
-    const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-    function checkMatch(btn, isCorrect, groupClass) {
-      document.querySelectorAll('.' + groupClass).forEach(b => {
-        b.className = groupClass + " text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg";
-      });
-      if (isCorrect) {
-        btn.className = groupClass + " text-xs bg-purple-600 text-white font-bold py-1.5 px-3 rounded-lg";
-      } else {
-        btn.className = groupClass + " text-xs bg-pink-500 text-white font-bold py-1.5 px-3 rounded-lg";
-      }
-    }
-
-    async function saveHessaWorkbook() {
-      const a1 = document.getElementById('hessa_ans1').value;
-      const a2 = document.getElementById('hessa_ans2').value;
-
-      if(!a1.trim() || !a2.trim()) {
-        alert("Please fill in both journal answers before submitting!");
-        return;
-      }
-
-      document.getElementById('hessa-status').className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full";
-      document.getElementById('hessa-status').innerText = "Completed ✨";
-      
-      const submitBtn = document.getElementById('hessa-submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Workbook Submitted ✓";
-      submitBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
-
-      document.getElementById('hessa-w2-container').className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 text-slate-800 space-y-4 shadow-md transition-all";
-      document.getElementById('hessa-w2-status').className = "text-xs font-bold text-purple-600";
-      document.getElementById('hessa-w2-status').innerText = "🔓 Unlocked for Week 2";
-
-      await supabaseClient.from('task_states').upsert({
-        id: 'science_hessa_week1',
-        states: [true, a1, a2],
-        updated_at: new Date()
-      });
-    }
-
-    async function loadSavedData() {
-      const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_hessa_week1').single();
-      if (data && data.states && data.states[0]) {
-        if(data.states[1]) document.getElementById('hessa_ans1').value = data.states[1];
-        if(data.states[2]) document.getElementById('hessa_ans2').value = data.states[2];
-
-        document.getElementById('hessa-status').className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full";
-        document.getElementById('hessa-status').innerText = "Completed ✨";
+        <p>Right now, your body is finding out about the world[cite: 53]. You can see these words[cite: 53]. You might hear a sound in the room[cite: 53]. You can feel the surface under your hand[cite: 53]. How does your body know all this?</p>
         
-        const submitBtn = document.getElementById('hessa-submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Workbook Submitted ✓";
-        submitBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
+        <p>Your body has special helpers called <strong>senses</strong>[cite: 53]. A sense is a way that your body finds out what is happening around you[cite: 53]. Humans have five main senses[cite: 53]:</p>
 
-        document.getElementById('hessa-w2-container').className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 text-slate-800 space-y-4 shadow-md transition-all";
-        document.getElementById('hessa-w2-status').className = "text-xs font-bold text-purple-600";
-        document.getElementById('hessa-w2-status').innerText = "🔓 Unlocked for Week 2";
-      }
-    }
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Five Senses" class="topic-img">
 
-    loadSavedData();
-  </script>
+        <ul>
+            <li><strong>Sight:</strong> You see with your <strong>eyes</strong>[cite: 53, 59].</li>
+            <li><strong>Hearing:</strong> You hear with your <strong>ears</strong>[cite: 53, 59].</li>
+            <li><strong>Smell:</strong> You smell with your <strong>nose</strong>[cite: 53, 59].</li>
+            <li><strong>Taste:</strong> You taste with your <strong>tongue</strong>[cite: 53, 59].</li>
+            <li><strong>Touch:</strong> You feel with your <strong>skin</strong>[cite: 53, 59].</li>
+        </ul>
+
+        <p>The body part that does the job for each sense is called a <strong>sense organ</strong>[cite: 53]. But the sense organs cannot do everything on their own[cite: 53]. They send messages along tiny pathways in your body called <strong>nerves</strong>[cite: 53]. Nerves are like tiny wires that carry messages straight to your <strong>brain</strong>[cite: 53].</p>
+
+        <p>Your brain is the boss[cite: 53]! It reads all the messages and tells you what they mean[cite: 53]:</p>
+        <ul>
+            <li><em>"That is a red apple."</em>[cite: 53]</li>
+            <li><em>"That is a bird singing."</em>[cite: 53]</li>
+            <li><em>"That stove is hot!"</em>[cite: 53]</li>
+        </ul>
+
+        <div class="fun-fact">
+            💡 <strong>FUN FACT:</strong> Your brain is working out messages from your senses all day long, even when you are asleep[cite: 53]! That is why a loud noise or a strange smell can wake you up[cite: 53].
+        </div>
+
+        <h3>Words to Know</h3>
+        <ul>
+            <li><strong>sense:</strong> A way your body finds out about the world[cite: 53].</li>
+            <li><strong>sense organ:</strong> A body part that does the job of a sense[cite: 53].</li>
+            <li><strong>nerve:</strong> A tiny pathway that carries messages to the brain[cite: 53].</li>
+            <li><strong>brain:</strong> The boss of the body that reads all the messages[cite: 53].</li>
+            <li><strong>sight, hearing, smell, taste, touch:</strong> The five main senses[cite: 53].</li>
+        </ul>
+    </div>
+
+    <!-- Topic 2 -->
+    <div class="card">
+        <h2>Topic 2: Sight — Your Eyes</h2>
+
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=parts+of+the+human+eye+diagram+for+kids&tbm=isch" target="_blank">🖼️ Search: Eye Diagram for Kids[cite: 54]</a>
+            <a href="https://www.google.com/search?q=eye+pupil+getting+bigger+and+smaller&tbm=isch" target="_blank">🎥 Search: Pupil Changing Size Animation[cite: 54]</a>
+            <a href="https://kids.britannica.com/kids/article/eye/353120" target="_blank">📖 Britannica Kids: Human Eye Guide[cite: 54]</a>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Human Eye Closeup" class="topic-img">
+
+        <p>You see with your eyes[cite: 54]. But here is a surprise: your eyes do not make light[cite: 54]. You can only see things because light bounces off them and travels into your eyes[cite: 54]. That is why it is hard to see in a very dark room—when there is not enough light, nothing is bouncing into your eyes[cite: 54]!</p>
+
+        <p>Look at a friend's eye or your eye in a mirror:</p>
+        <ol>
+            <li><strong>Pupil:</strong> The black circle in the middle[cite: 54]. The pupil is a hole that lets light in[cite: 54].</li>
+            <li><strong>Iris:</strong> The colored part around the pupil (brown, green, blue, or grey)[cite: 54].</li>
+        </ol>
+
+        <p>The iris works like a tiny curtain[cite: 54]:</p>
+        <ul>
+            <li>In a <strong>dark place</strong>, it opens the pupil wide to let in more light[cite: 54].</li>
+            <li>In a <strong>bright place</strong>, it makes the pupil small so too much light does not get in[cite: 54].</li>
+        </ul>
+
+        <p>Your body protects your soft eyes[cite: 54]:</p>
+        <ul>
+            <li><strong>Eyelids</strong> close to keep dust out[cite: 54].</li>
+            <li><strong>Eyelashes</strong> catch tiny bits of dirt[cite: 54].</li>
+            <li><strong>Tears</strong> wash the eye clean and keep it wet[cite: 54].</li>
+        </ul>
+
+        <div class="activity-box">
+            🧪 <h3>Interactive Experiment: Watch a Pupil Change</h3>
+            <ol>
+                <li>Sit with a grown-up in a dim room[cite: 54]. Look at your eyes in a mirror and notice how big your pupils are[cite: 54].</li>
+                <li>Have the grown-up switch on the room light while you keep looking in the mirror[cite: 54]. Watch your pupils shrink smaller[cite: 54]!</li>
+                <li>Turn the light off again and wait—do they get bigger[cite: 54]?</li>
+            </ol>
+            <label><strong>Observation Journal (What happened to your pupils?):</strong></label>
+            <textarea rows="3" placeholder="Write what you saw here..."></textarea>
+        </div>
+    </div>
+
+    <!-- Topic 3 -->
+    <div class="card">
+        <h2>Topic 3: Hearing — Your Ears</h2>
+
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=parts+of+the+ear+diagram+for+kids&tbm=isch" target="_blank">🖼️ Search: Parts of Ear Diagram[cite: 55]</a>
+            <a href="https://www.google.com/search?q=how+sound+travels+into+the+ear+for+kids&tbm=isch" target="_blank">🎥 Search: How Sound Travels[cite: 55]</a>
+            <a href="https://www.nidcd.nih.gov/health/how-we-hear" target="_blank">🔊 NIDCD: Interactive Hearing Guide</a>
+        </div>
+
+        <p>You hear with your ears[cite: 55]. Every sound is made by something <strong>vibrating</strong>, which means wiggling back and forth very fast[cite: 55]. A guitar string wiggles, a drum skin wiggles, and your voice box wiggles when you talk[cite: 55]. These wiggles push the air, carrying vibrations to your ears[cite: 55].</p>
+
+        <div class="fun-fact">
+            🔊 <strong>FUN FACT:</strong> Loud sounds have big wiggles that can hurt tiny parts inside your ear[cite: 55]. Keep music low and cover your ears near loud noises[cite: 55]!
+        </div>
+
+        <div class="activity-box">
+            🧪 <h3>Interactive Experiment: Sound Walk & Vibrations</h3>
+            <ul>
+                <li><strong>Sound Walk:</strong> Sit still for 2 minutes with eyes closed and listen[cite: 55].</li>
+                <li><strong>Feel the Voice:</strong> Place fingers gently on your throat and hum[cite: 55]. Feel your voice vibrating[cite: 55]!</li>
+                <li><strong>Twang Test:</strong> Stretch a rubber band between fingers and pluck it—watch and listen to it wiggle[cite: 55]!</li>
+            </ul>
+            <label><strong>Record Sounds You Heard:</strong></label>
+            <input type="text" placeholder="Sound 1 (e.g., Bird singing)">
+            <input type="text" placeholder="Sound 2 (e.g., Clock ticking)">
+            <input type="text" placeholder="Sound 3 (e.g., Car driving by)">
+        </div>
+    </div>
+
+    <!-- Topic 4 -->
+    <div class="card">
+        <h2>Topic 4: Smell — Your Nose</h2>
+
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=how+does+the+nose+smell+diagram+for+kids&tbm=isch" target="_blank">🖼️ Search: Nose Diagram for Kids[cite: 56]</a>
+            <a href="https://kidshealth.org/en/kids/nose.html" target="_blank">📖 KidsHealth: How the Nose Works</a>
+        </div>
+
+        <p>You smell with your nose[cite: 56]. Everything that has a smell gives off tiny, invisible floating particles[cite: 56]. When you breathe in, these particles travel up your nose to a special patch high inside[cite: 56]. Nerves pick up the message and send it to your brain[cite: 56].</p>
+
+        <div class="fun-fact">
+            🐶 <strong>FUN FACT:</strong> A dog's sense of smell is much better than ours[cite: 56]! Dogs can identify scents people can't detect at all, which is why they are trained to find lost individuals[cite: 56].
+        </div>
+
+        <div class="activity-box">
+            🧪 <h3>Interactive Activity: Smell Jars</h3>
+            <p>Sniff each covered cup and test your guesses[cite: 56]:</p>
+            <table>
+                <tr>
+                    <th>Cup</th>
+                    <th>My Guess</th>
+                    <th>Real Smell[cite: 52]</th>
+                    <th>Did I Like It?</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text"></td>
+                    <td>Vanilla</td>
+                    <td><select><option>Select...</option><option>Yes 👍</option><option>No 👎</option></select></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                    <td>Lemon</td>
+                    <td><select><option>Select...</option><option>Yes 👍</option><option>No 👎</option></select></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text"></td>
+                    <td>Mint</td>
+                    <td><select><option>Select...</option><option>Yes 👍</option><option>No 👎</option></select></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text"></td>
+                    <td>Cinnamon</td>
+                    <td><select><option>Select...</option><option>Yes 👍</option><option>No 👎</option></select></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text"></td>
+                    <td>Coffee</td>
+                    <td><select><option>Select...</option><option>Yes 👍</option><option>No 👎</option></select></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Topic 5 -->
+    <div class="card">
+        <h2>Topic 5: Taste — Your Tongue</h2>
+
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=taste+buds+on+tongue+for+kids&tbm=isch" target="_blank">🖼️ Search: Taste Buds Diagram[cite: 57]</a>
+            <a href="https://www.google.com/search?q=five+basic+tastes+sweet+sour+salty+bitter+umami+for+kids&tbm=isch" target="_blank">🎥 Search: Five Basic Tastes[cite: 57]</a>
+            <a href="https://faculty.washington.edu/chudler/taste.html" target="_blank">🧠 Neuroscience for Kids: Taste System</a>
+        </div>
+
+        <p>Look at your tongue in the mirror[cite: 57]. It is covered with tiny bumps that contain thousands of <strong>taste buds</strong>[cite: 57]. Your tongue can identify 5 main tastes: Sweet, Sour, Salty, Bitter, and Umami (savory)[cite: 57].</p>
+
+        <div class="fun-fact" style="background-color: #E8F8F5; border-left-color: var(--secondary);">
+            🚫 <strong>MYTH BUSTER:</strong> The idea that different tastes happen on only one part of the tongue is a myth[cite: 57, 65]! Every part of your tongue can taste all five basic tastes[cite: 57].
+        </div>
+
+        <div class="activity-box">
+            🧪 <h3>Interactive Experiment: Taste Test</h3>
+            <table>
+                <tr>
+                    <th>Food</th>
+                    <th>Taste Category[cite: 57]</th>
+                    <th>Select Reaction Face</th>
+                </tr>
+                <tr>
+                    <td>Lemon</td>
+                    <td>Sour</td>
+                    <td><select><option>😖 Scrunch</option><option>😊 Happy</option><option>😮 Surprised</option></select></td>
+                </tr>
+                <tr>
+                    <td>Sugar</td>
+                    <td>Sweet</td>
+                    <td><select><option>😊 Happy</option><option>😖 Scrunch</option><option>😮 Surprised</option></select></td>
+                </tr>
+                <tr>
+                    <td>Salt</td>
+                    <td>Salty</td>
+                    <td><select><option>😮 Surprised</option><option>😊 Happy</option><option>😖 Scrunch</option></select></td>
+                </tr>
+                <tr>
+                    <td>Dark Chocolate</td>
+                    <td>Bitter</td>
+                    <td><select><option>😐 Neutral</option><option>😖 Scrunch</option><option>😊 Happy</option></select></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Topic 6 -->
+    <div class="card">
+        <h2>Topic 6: Touch — Your Skin</h2>
+
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=layers+of+skin+diagram+for+kids&tbm=isch" target="_blank">🖼️ Search: Skin Layers Diagram[cite: 58]</a>
+            <a href="https://www.google.com/search?q=braille+alphabet+for+kids&tbm=isch" target="_blank">⠃⠗⠁⠊⠇⠇⠑ Search: Braille Alphabet Code[cite: 58]</a>
+        </div>
+
+        <p>Skin covers your whole body and is your body's <strong>largest organ</strong>[cite: 58]! Millions of sensors in your skin detect hot, cold, soft, rough, smooth, and bumpy sensations[cite: 58]. Your fingertips and lips have the most sensors[cite: 58].</p>
+
+        <div class="activity-box">
+            🧪 <h3>Interactive Activity: Mystery Bag Log</h3>
+            <p>Reach into a paper bag containing 6 items without looking[cite: 58]:</p>
+            <table>
+                <tr>
+                    <th>Item #</th>
+                    <th>Tactile Words (Soft, Rough, Hard, Smooth)[cite: 58]</th>
+                    <th>My Guess[cite: 58]</th>
+                    <th>Correct?[cite: 58]</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Topic 7 -->
+    <div class="card">
+        <h2>Topic 7: Practice & Matching</h2>
+        <h3>Match Sense Organs to Actions</h3>
+        <p>Select the correct action for each body part[cite: 59]:</p>
+        <ul>
+            <li>Eyes 👁️ ➔ <select><option>Select...</option><option>To See[cite: 65]</option><option>To Hear</option><option>To Smell</option></select></li>
+            <li>Ears 👂 ➔ <select><option>Select...</option><option>To Hear[cite: 65]</option><option>To See</option><option>To Touch</option></select></li>
+            <li>Nose 👃 ➔ <select><option>Select...</option><option>To Smell[cite: 65]</option><option>To Taste</option><option>To See</option></select></li>
+            <li>Tongue 👅 ➔ <select><option>Select...</option><option>To Taste[cite: 65]</option><option>To Touch</option><option>To Smell</option></select></li>
+            <li>Skin ✋ ➔ <select><option>Select...</option><option>To Touch[cite: 65]</option><option>To See</option><option>To Hear</option></select></li>
+        </ul>
+    </div>
+
+    <!-- Topic 8 -->
+    <div class="card">
+        <h2>Topic 8: Senses Keep Us Safe</h2>
+        <div class="explore-box">
+            <h4>🌐 Explore Live</h4>
+            <a href="https://www.google.com/search?q=how+the+senses+keep+us+safe+for+kids&tbm=isch" target="_blank">🖼️ Search: How Senses Keep Us Safe[cite: 60]</a>
+        </div>
+
+        <h3>Complete the Safety Sentences</h3>
+        <ol>
+            <li>If I smell smoke, my <input type="text" style="width:150px" placeholder="organ"> tells me to tell a grown-up right away[cite: 60].</li>
+            <li>If I hear a loud honk, my <input type="text" style="width:150px" placeholder="organ"> tell me to stop and look[cite: 60].</li>
+            <li>If a cup feels very hot, my <input type="text" style="width:150px" placeholder="organ"> tells me to pull my hand away[cite: 60].</li>
+            <li>If milk tastes sour and bad, my <input type="text" style="width:150px" placeholder="organ"> tells me not to drink it[cite: 60].</li>
+            <li>If I see a red light, my <input type="text" style="width:150px" placeholder="organ"> tell me to stop[cite: 60].</li>
+        </ol>
+    </div>
+
+    <!-- Topic 9 -->
+    <div class="card">
+        <h2>Topic 9: Five Senses Scavenger Hunt</h2>
+        <div class="activity-box">
+            <h3>🏠 Outdoor & Indoor Hunt Checklist</h3>
+            <p>Write what you found for each sense[cite: 61]:</p>
+            <label>👁️ I can SEE:</label>
+            <input type="text">
+            <label>👂 I can HEAR:</label>
+            <input type="text">
+            <label>👃 I can SMELL:</label>
+            <input type="text">
+            <label>👅 I can TASTE (ask grown-up first):</label>
+            <input type="text">
+            <label>✋ I can TOUCH:</label>
+            <input type="text">
+        </div>
+    </div>
+
+    <!-- Topic 10 -->
+    <div class="card">
+        <h2>Topic 10: Research & Report — Super-Sense Animals</h2>
+        <p>Choose an animal and watch its research video[cite: 62]:</p>
+        <ul>
+            <li>🐶 <strong>Dog (Smell):</strong> <a href="https://www.youtube.com/results?search_query=how+good+is+a+dog+sense+of+smell+for+kids" target="_blank">Watch YouTube Research Video[cite: 62]</a></li>
+            <li>🦇 <strong>Bat (Hearing):</strong> <a href="https://www.youtube.com/results?search_query=how+do+bats+use+sound+to+find+food+for+kids" target="_blank">Watch YouTube Research Video[cite: 62]</a></li>
+            <li>🦅 <strong>Eagle (Sight):</strong> <a href="https://www.youtube.com/results?search_query=eagle+eyesight+facts+for+kids" target="_blank">Watch YouTube Research Video[cite: 62]</a></li>
+            <li>🐱 <strong>Cat (Touch/Whiskers):</strong> <a href="https://www.youtube.com/results?search_query=cat+whiskers+facts+for+kids" target="_blank">Watch YouTube Research Video[cite: 62]</a></li>
+            <li>🐍 <strong>Snake (Tongue Smell):</strong> <a href="https://www.youtube.com/results?search_query=how+do+snakes+smell+with+their+tongue+for+kids" target="_blank">Watch YouTube Research Video[cite: 62]</a></li>
+        </ul>
+
+        <div class="activity-box">
+            <h3>Presentation Checklist</h3>
+            <p><input type="checkbox"> I chose my animal[cite: 62].</p>
+            <p><input type="checkbox"> I found 3 facts[cite: 62].</p>
+            <p><input type="checkbox"> I presented my facts to my family like a teacher[cite: 62]!</p>
+            <label><strong>Write 3-4 Summary Sentences About Your Animal:</strong></label>
+            <textarea rows="4" placeholder="Write summary here..."></textarea>
+        </div>
+    </div>
+
+    <!-- Topic 11 -->
+    <div class="card">
+        <h2>Topic 11: Week 1 Interactive Quiz</h2>
+        
+        <h3>True or False?</h3>
+        <p>1. Your brain reads the messages from your senses[cite: 64].</p>
+        <select><option>Select...</option><option>True[cite: 65]</option><option>False</option></select>
+
+        <p>2. The pupil is the white part of your eye[cite: 64].</p>
+        <select><option>Select...</option><option>True</option><option>False[cite: 65]</option></select>
+
+        <p>3. Sounds are made by things vibrating[cite: 64].</p>
+        <select><option>Select...</option><option>True[cite: 65]</option><option>False</option></select>
+
+        <h3>Short Answers</h3>
+        <p>What boss reads all messages from the senses[cite: 65]?</p>
+        <input type="text" placeholder="Type answer here...">
+    </div>
+
+</div>
+
 </body>
 </html>
