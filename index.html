@@ -92,7 +92,17 @@
 
   <!-- MAIN DASHBOARD CONTENT -->
   <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-    <section class="md:col-span-2 space-y-4">
+    <section class="md:col-span-2 space-y-6">
+      
+      <!-- DYNAMIC SUBJECT MODULES CARD -->
+      <div id="subject-modules-card" class="bg-white/90 p-6 rounded-3xl shadow-lg border-2 border-purple-100">
+        <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+          <span>📚</span> Subject Portals & Core Modules
+        </h2>
+        <div id="subject-links-container"></div>
+      </div>
+
+      <!-- SCHEDULE CHECKLIST -->
       <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
@@ -152,6 +162,15 @@
         aiName: "Joy Bot 🍬",
         greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
         cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
+        subjectHTML: `
+          <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold text-sm text-pink-900">🔤 Early Phonics & Digraphs</p>
+              <p class="text-xs text-pink-700">Workbook & Tactile Pacing</p>
+            </div>
+            <span class="text-xs bg-pink-200 text-pink-800 font-bold px-3 py-1 rounded-full">Primary</span>
+          </div>
+        `,
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic Warm-Up (Brilliant Puzzle)", done: false },
           { id: 2, time: "06:10 AM", title: "Math Visual Arithmetic & Abacus", done: false },
@@ -170,6 +189,15 @@
         aiName: "Artisan AI 🖌️",
         greeting: "Welcome back Junainah! Artisan AI online. Ready to create and code today?",
         cardClass: "card-sketchbook p-6",
+        subjectHTML: `
+          <div class="p-4 rounded-2xl bg-teal-50 border border-teal-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold text-sm text-teal-900">🎨 Creative Design & Logic</p>
+              <p class="text-xs text-teal-700">Studio & Word Problems</p>
+            </div>
+            <span class="text-xs bg-teal-200 text-teal-800 font-bold px-3 py-1 rounded-full">Studio</span>
+          </div>
+        `,
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic & Spatial Puzzle", done: false },
           { id: 2, time: "06:10 AM", title: "Mathematics Core & Word Problems", done: false },
@@ -188,6 +216,17 @@
         aiName: "Cambridge Mentor 🏛️",
         greeting: "Greetings Hanaan. Cambridge Mentor active. Let's maintain focused progress on your schedule.",
         cardClass: "tile-glass p-6",
+        subjectHTML: `
+          <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div>
+              <p class="font-bold text-sm text-purple-900">📐 Adaptive Math Bridge</p>
+              <p class="text-xs text-purple-700">Cambridge O Level (4024) Progress Track</p>
+            </div>
+            <a href="math_hanaan.html" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs rounded-xl shadow transition-all">
+              Launch Math Bridge →
+            </a>
+          </div>
+        `,
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic & Advanced Spatial Reasoning", done: false },
           { id: 2, time: "06:10 AM", title: "Cambridge Math: Algebraic Proofs", done: false },
@@ -224,6 +263,7 @@
       document.getElementById('live-bot-name').innerText = data.aiName;
       document.getElementById('skill-description').innerText = data.skill;
       document.getElementById('checklist-card').className = data.cardClass;
+      document.getElementById('subject-links-container').innerHTML = data.subjectHTML;
 
       await loadSavedState();
       renderTasks(data.tasks);
