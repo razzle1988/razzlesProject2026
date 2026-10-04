@@ -3,143 +3,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junainah's Interactive Science Workbook</title>
+  <title>Junainah's Interactive Science Workbook - Week 1</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Outfit', sans-serif; } </style>
+  <style>
+    body { font-family: 'Outfit', sans-serif; }
+    .interactive-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .interactive-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 p-4 md:p-8 min-h-screen">
-  <div class="max-w-4xl mx-auto space-y-6">
+  <div class="max-w-4xl mx-auto space-y-8">
 
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
       <div>
-        <h1 class="text-3xl font-extrabold text-emerald-700">Junainah's Science Lab 🔬</h1>
-        <p class="text-xs text-slate-500 font-medium">Integrated Science • Week 1 Interactive Workbook</p>
+        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Integrated Science • Level Foundation</span>
+        <h1 class="text-3xl font-extrabold text-emerald-700 mt-1">Junainah's Interactive Lab 🔬</h1>
+        <p class="text-xs text-slate-500 font-medium mt-0.5">Week 1: Senses & Living vs Non-Living (Topics 1–2 of 117)</p>
       </div>
       <a href="index.html" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
     </div>
 
     <!-- MAIN WORKBOOK CONTAINER -->
-    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 shadow-md space-y-8">
+    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 shadow-md space-y-10">
       
-      <!-- Module Title -->
+      <!-- Module Banner -->
       <div class="flex justify-between items-center border-b pb-4 border-slate-100">
         <div>
-          <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Unit 1</span>
-          <h2 class="text-2xl font-extrabold text-slate-800 mt-2">Sensory Receptors & MRS GREN Classification</h2>
+          <h2 class="text-2xl font-extrabold text-slate-800">The Senses, and What Makes Something Alive</h2>
+          <p class="text-xs text-slate-500 mt-1">Four to five sessions of 35–45 minutes • Materials: Mirror, rubber band, potted plant, rock, toy car, window access.</p>
         </div>
         <span id="j-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
       </div>
 
-      <!-- SECTION 1: READING & CORE CONCEPT NOTES -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          📖 Section 1: Lesson Notes & Key Concepts
-        </h3>
-        
-        <div class="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100 space-y-3 text-xs leading-relaxed">
-          <h4 class="font-extrabold text-emerald-900 text-sm">Part A: How Our Senses Work (Sensory Receptors)</h4>
-          <p>
-            Your body collects information about the world using specialized cells called <strong>Sensory Receptors</strong>. These receptors detect stimulus (energy changes) in your environment and send electrical signals along neural pathways directly to your brain.
+      <!-- ========================================================================================= -->
+      <!-- TOPIC 1: HOW YOUR BODY SENSES THE WORLD -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6">
+        <div class="bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">Topic 1: How Your Body Senses the World</h3>
+          <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Days 1 & 2</span>
+        </div>
+
+        <!-- SEE IT FIRST BOX 1 -->
+        <div class="bg-sky-50 border border-sky-200 p-5 rounded-2xl space-y-3">
+          <div class="flex items-center gap-2 text-sky-800 font-bold text-sm">
+            <span>👁️</span> SEE IT FIRST! Interactive Media & Visualizations
+          </div>
+          <p class="text-xs text-sky-900 leading-relaxed">
+            Before reading, explore how sense organs connect to the brain and how nerves carry messages between them!
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-            <div class="bg-white p-3 rounded-xl border border-emerald-200">
-              <p class="font-bold text-emerald-800">Photoreceptors</p>
-              <p class="text-slate-600 mt-1">Located in the eyes. They detect light energy and allow you to perceive color, movement, and shapes.</p>
+          <div class="flex flex-wrap gap-3 pt-1">
+            <a href="https://www.bbc.co.uk/bitesize/articles/z3jpk2p" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-sky-600 hover:bg-sky-700 text-white py-2 px-4 rounded-xl transition">
+              🌐 BBC Bitesize: The Nervous System Interactive Guide ↗
+            </a>
+            <a href="https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-white border border-sky-300 text-sky-800 hover:bg-sky-100 py-2 px-4 rounded-xl transition">
+              🔍 Search Diagram: Five Senses & Nervous System ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Diagram Illustration -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col items-center text-center">
+            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=600&q=80" alt="Nervous System Neural Network" class="w-full h-40 object-cover rounded-xl mb-3">
+            <p class="text-xs font-bold text-slate-700">The Neural Superhighway</p>
+            <p class="text-[11px] text-slate-500 mt-1">Signals travel along nerves at up to 120 metres per second!</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col items-center text-center">
+            <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80" alt="Sensory Processing Brain" class="w-full h-40 object-cover rounded-xl mb-3">
+            <p class="text-xs font-bold text-slate-700">Brain Control Centre</p>
+            <p class="text-[11px] text-slate-500 mt-1">The brain receives electrical signals and decides how to respond.</p>
+          </div>
+        </div>
+
+        <!-- Section Reading Notes -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs leading-relaxed space-y-3">
+          <h4 class="font-extrabold text-slate-900 text-sm">How Receptors and Nerves Work</h4>
+          <p>
+            Every second, your body is collecting information: light bouncing off this page, the hum of a fridge, the smell of dinner cooking. Your body collects this information using <strong>five sense organs</strong>: eyes (sight), ears (hearing), nose (smell), tongue (taste), and skin (touch).
+          </p>
+          <p>
+            Each sense organ contains <strong>receptors</strong>, tiny structures that detect a specific kind of information, such as light, sound waves, chemicals, or pressure. When a receptor is triggered, it sends an electrical signal along a nerve. Nerves are part of your <strong>nervous system</strong>, a network that carries messages around your body at incredible speed, up to about 120 metres per second.
+          </p>
+          <p>
+            All these signals travel to your brain, which interprets them and decides how to respond. Sometimes the response is a thought (<em>"that smells like popcorn"</em>), and sometimes it's an automatic reaction called a <strong>reflex</strong>, like blinking or pulling your hand off something hot before you've even consciously felt the pain.
+          </p>
+        </div>
+
+        <!-- DID YOU KNOW BOX -->
+        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex gap-3 items-start">
+          <span class="text-2xl">💡</span>
+          <div class="text-xs text-amber-900 leading-relaxed">
+            <strong class="font-extrabold block text-amber-950 mb-0.5">DID YOU KNOW?</strong>
+            A reflex reaction can happen before your brain has even finished processing the pain! Some reflex signals only travel as far as your spinal cord and back, which is faster than sending a message all the way to the brain.
+          </div>
+        </div>
+
+        <!-- ACTIVITY 1: REFLEX & REACTION EXPERIMENT -->
+        <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-2xl space-y-4">
+          <h4 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+            🧪 Activity: Reflex and Reaction Lab & Eye Experiment
+          </h4>
+          <div class="text-xs text-slate-700 space-y-2 leading-relaxed">
+            <p><strong>Part 1 (Hand Reaction):</strong> Sit facing a partner. Have them hold their hand out, palm up, just under yours without touching. Without warning, they try to catch your hand as you snatch it away. Swap roles.</p>
+            <p><strong>Part 2 (Knee Reflex):</strong> Gently tap just below the kneecap with the side of your hand while your leg dangles freely. Watch the automatic leg twitch!</p>
+            <p><strong>Part 3 (Eye Mirror Experiment):</strong> In a dim room, look at your eyes in a mirror and note the pupil size. Switch on a bright light and watch again!</p>
+          </div>
+
+          <div class="space-y-3 pt-2 text-xs">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Observation 1: Record what you noticed about how fast your body reacted without you 'deciding' first:</label>
+              <textarea id="j_exp1" rows="2" class="w-full p-3 border border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Write your observation here..."></textarea>
             </div>
-            <div class="bg-white p-3 rounded-xl border border-emerald-200">
-              <p class="font-bold text-emerald-800">Mechanoreceptors</p>
-              <p class="text-slate-600 mt-1">Located in skin and inner ears. They detect physical pressure, sound vibrations, touch, and balance.</p>
-            </div>
-            <div class="bg-white p-3 rounded-xl border border-emerald-200">
-              <p class="font-bold text-emerald-800">Chemoreceptors</p>
-              <p class="text-slate-600 mt-1">Located in the nose and tongue. They detect chemical molecules in air (smell) and food (taste).</p>
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Observation 2: Explain in your own words why the pupil changes size when switching on a bright light:</label>
+              <textarea id="j_exp2" rows="2" class="w-full p-3 border border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain pupil action..."></textarea>
             </div>
           </div>
         </div>
 
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3 text-xs leading-relaxed">
-          <h4 class="font-extrabold text-slate-800 text-sm">Part B: Living vs. Non-Living (MRS GREN)</h4>
-          <p>
-            To decide if something is scientifically "living," biologists check if it carries out <strong>all seven life processes</strong>. We remember them using the acronym <strong>MRS GREN</strong>:
-          </p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 font-mono text-[11px]">
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>M</strong> - Movement</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>R</strong> - Respiration</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>S</strong> - Sensitivity</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>G</strong> - Growth</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>R</strong> - Reproduction</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>E</strong> - Excretion</div>
-            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>N</strong> - Nutrition</div>
+        <!-- SENSES IN DEPTH SUBSECTION -->
+        <div class="space-y-4 pt-4">
+          <h3 class="text-base font-extrabold text-slate-800 border-b pb-2">The Senses in Depth</h3>
+
+          <!-- SEE IT FIRST BOX 2 -->
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center gap-2 text-sky-800 font-bold text-xs">
+              <span>🔊</span> SEE IT FIRST! Visual & Audio Deep Dives
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://www.youtube.com/results?search_query=how+does+the+human+ear+detect+sound+waves+for+kids" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-sky-600 hover:bg-sky-700 text-white py-1.5 px-3 rounded-xl transition">
+                🎥 Interactive Ear & Sound Wave Video ↗
+              </a>
+              <a href="https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-white border border-sky-300 text-sky-800 py-1.5 px-3 rounded-xl transition">
+                👅 Taste Buds & Smell Receptors Diagram ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Deep Depth Cards with Images -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80" alt="Hearing Sound Waves" class="w-full h-28 object-cover rounded-lg">
+              <h5 class="font-bold text-emerald-800 text-sm">👂 Hearing</h5>
+              <p class="text-slate-600 leading-relaxed">
+                Sound travels through air as waves. The outer ear funnels waves to the <strong>eardrum</strong>, vibrating three tiny bones that pass movement to the fluid-filled, snail-shaped <strong>cochlea</strong>, where receptors create nerve signals.
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
+              <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=400&q=80" alt="Smell and Taste Chemoreception" class="w-full h-28 object-cover rounded-lg">
+              <h5 class="font-bold text-emerald-800 text-sm">👅 Smell & Taste</h5>
+              <p class="text-slate-600 leading-relaxed">
+                Work as a team called <strong>chemoreception</strong>. Smell receptors detect airborne particles. Taste buds detect sweet, sour, salty, bitter, and umami. Most "flavour" is actually smell!
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=400&q=80" alt="Touch Skin Receptors" class="w-full h-28 object-cover rounded-lg">
+              <h5 class="font-bold text-emerald-800 text-sm">✋ Touch</h5>
+              <p class="text-slate-600 leading-relaxed">
+                Skin is the body's largest organ! It houses receptors for light pressure, deep pressure, temperature, and pain. Fingertips and lips have the highest receptor density.
+              </p>
+            </div>
+          </div>
+
+          <!-- THINK LIKE A SCIENTIST 1 -->
+          <div class="bg-purple-50 border border-purple-200 p-5 rounded-2xl space-y-3 text-xs">
+            <h4 class="font-extrabold text-purple-900 text-sm flex items-center gap-2">
+              🧠 THINK LIKE A SCIENTIST!
+            </h4>
+            <div>
+              <label class="block font-bold text-purple-950 mb-1">1. Why might it be useful, from a survival point of view, that pain reactions can happen faster than conscious thought?</label>
+              <textarea id="j_think1" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your response..."></textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-purple-950 mb-1">2. People who are deaf or blind often report that their other senses feel sharper. Can you think of a reason why that might be, even though the sense organ itself hasn't changed?</label>
+              <textarea id="j_think2" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your response..."></textarea>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 2: INTERACTIVE PRACTICE & CLASSIFICATION -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          🧩 Section 2: Interactive Receptor Matching
-        </h3>
-        <p class="text-xs text-slate-600">Select the correct sensory receptor responsible for each situation:</p>
+      <!-- ========================================================================================= -->
+      <!-- TOPIC 2: LIVING VS NON-LIVING & MRS GREN -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6 border-t pt-8 border-slate-100">
+        <div class="bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">Topic 2: Living vs Non-Living</h3>
+          <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Days 3 & 4</span>
+        </div>
 
+        <!-- SEE IT FIRST BOX 3 -->
+        <div class="bg-sky-50 border border-sky-200 p-5 rounded-2xl space-y-3">
+          <div class="flex items-center gap-2 text-sky-800 font-bold text-sm">
+            <span>🌿</span> SEE IT FIRST! Interactive Life Classification
+          </div>
+          <p class="text-xs text-sky-900 leading-relaxed">
+            Explore interactive guides on the 7 processes of life and test your understanding!
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://www.bbc.co.uk/bitesize/articles/zp6g7p3" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-sky-600 hover:bg-sky-700 text-white py-2 px-4 rounded-xl transition">
+              🌐 BBC Bitesize: 7 Characteristics of Living Things ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- MRS GREN Interactive Grid -->
         <div class="space-y-3 text-xs">
-          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
-            <span class="font-medium text-slate-800">1. Spotting a flashing red traffic light from 50 meters away:</span>
-            <div class="flex gap-2">
-              <button onclick="checkMatch(this, true, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
-              <button onclick="checkMatch(this, false, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
-              <button onclick="checkMatch(this, false, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
+          <h4 class="font-extrabold text-slate-800 text-sm">The MRS GREN Acronym (Memory Trick)</h4>
+          <p class="text-slate-600">Scientists use 7 characteristics to decide if something is alive. It must do ALL seven!</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">M</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Movement</strong>
+                <span class="text-slate-600">Living things move all or part of themselves (even plants turning to light).</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">R</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Respiration</strong>
+                <span class="text-slate-600">Releasing energy from food inside cells (not just breathing!).</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">S</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Sensitivity</strong>
+                <span class="text-slate-600">Detecting and responding to changes in surroundings (stimuli).</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">G</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Growth</strong>
+                <span class="text-slate-600">Getting bigger and developing over a lifetime.</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">R</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Reproduction</strong>
+                <span class="text-slate-600">Producing offspring, more of their own kind.</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">E</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Excretion</strong>
+                <span class="text-slate-600">Removing waste products made inside their bodies.</span>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-start gap-3 md:col-span-2">
+              <span class="font-extrabold text-emerald-800 text-base bg-emerald-200 px-2.5 py-1 rounded-lg">N</span>
+              <div>
+                <strong class="text-emerald-950 font-bold block">Nutrition</strong>
+                <span class="text-slate-600">Taking in and using food (or making their own) for energy and building materials.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THREE CATEGORIES SECTION -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3 text-xs leading-relaxed">
+          <h4 class="font-extrabold text-slate-900 text-sm">Living, Non-Living, or Dead? (3-Way Sorting)</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="font-bold text-emerald-700 text-sm block mb-1">🟢 Living</span>
+              <p class="text-slate-600">Currently doing all 7 MRS GREN characteristics right now. <em>(e.g., a tree, a bird, a person)</em></p>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="font-bold text-amber-700 text-sm block mb-1">🟡 Dead</span>
+              <p class="text-slate-600">Was once alive and could do all seven characteristics, but no longer can. <em>(e.g., a fallen leaf, a dead insect, a cooked carrot)</em></p>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-700 text-sm block mb-1">⚪ Non-Living</span>
+              <p class="text-slate-600">Has never been alive and never could do the seven characteristics. <em>(e.g., a rock, water, a toy car, a cloud)</em></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE NATURE WALK TABLE -->
+        <div class="space-y-3 border border-slate-200 p-5 rounded-2xl bg-white shadow-sm">
+          <h4 class="font-bold text-slate-800 text-sm flex items-center justify-between">
+            <span>🔍 Activity: Nature Walk Interactive Sorting Table</span>
+            <span class="text-xs font-normal text-slate-500">Find 10 items around your home or park</span>
+          </h4>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-slate-200 bg-slate-50 text-slate-700">
+                  <th class="p-2 font-bold">#</th>
+                  <th class="p-2 font-bold">Thing I Found</th>
+                  <th class="p-2 font-bold">Category</th>
+                  <th class="p-2 font-bold">Why / MRS GREN Test Failed (for tricky ones)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100" id="sort-table-body">
+                <!-- 10 Interactive Rows Generated Here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TRICKY CASES & DEBATES -->
+        <div class="space-y-4">
+          <h3 class="text-base font-extrabold text-slate-800 border-b pb-2">Tricky Cases & Biological Debates</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 space-y-2">
+              <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=500&q=80" alt="Dry Seeds Dormancy" class="w-full h-32 object-cover rounded-xl mb-1">
+              <h5 class="font-bold text-amber-900 text-sm">Case 1: A Dry Seed</h5>
+              <p class="text-slate-700 leading-relaxed">
+                A seed in a packet looks still and non-living. But inside, it is alive in a resting state called <strong>dormancy</strong>. Its life processes happen extremely slowly; with water, warmth, and light, it will sprout!
+              </p>
+            </div>
+
+            <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-200 space-y-2">
+              <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=500&q=80" alt="Virus Microscopic Structure" class="w-full h-32 object-cover rounded-xl mb-1">
+              <h5 class="font-bold text-purple-900 text-sm">Case 2: A Virus</h5>
+              <p class="text-slate-700 leading-relaxed">
+                Viruses reproduce only by invading host cells. On their own, they cannot grow, respire, or respond. Because they fail most tests on their own, most scientists classify them as <strong>non-living</strong>.
+              </p>
             </div>
           </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
-            <span class="font-medium text-slate-800">2. Feeling the bass drum vibrations at a concert:</span>
-            <div class="flex gap-2">
-              <button onclick="checkMatch(this, false, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
-              <button onclick="checkMatch(this, true, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
-              <button onclick="checkMatch(this, false, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
+          <!-- THINK LIKE A SCIENTIST 2 -->
+          <div class="bg-purple-50 border border-purple-200 p-5 rounded-2xl space-y-3 text-xs">
+            <h4 class="font-extrabold text-purple-900 text-sm flex items-center gap-2">
+              🧠 THINK LIKE A SCIENTIST!
+            </h4>
+            <div>
+              <label class="block font-bold text-purple-950 mb-1">1. Is a chicken egg alive? Think about which of the seven characteristics apply to what's growing inside it.</label>
+              <textarea id="j_think3" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your analysis..."></textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-purple-950 mb-1">2. Is fire alive? Go through MRS GREN and decide which ones it passes and which it fails.</label>
+              <textarea id="j_think4" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your analysis..."></textarea>
             </div>
           </div>
+        </div>
 
-          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
-            <span class="font-medium text-slate-800">3. Smelling fresh peppermint essential oil:</span>
-            <div class="flex gap-2">
-              <button onclick="checkMatch(this, false, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
-              <button onclick="checkMatch(this, false, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
-              <button onclick="checkMatch(this, true, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
+      </div>
+
+      <!-- ========================================================================================= -->
+      <!-- DAY 5: RESEARCH & REPORT -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6 border-t pt-8 border-slate-100">
+        <div class="bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">Day 5: Research & Presentation Lab</h3>
+          <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Independent Study</span>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 text-xs">
+          <p class="font-bold text-slate-800 text-sm">Choose ONE question to research, then present what you learned to your family:</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <label class="bg-white p-3 rounded-xl border border-slate-200 flex items-start gap-2 cursor-pointer hover:border-emerald-400 transition">
+              <input type="radio" name="research_q" value="viruses" class="mt-0.5" checked>
+              <span><strong>Option A:</strong> Are viruses alive or not? Find two reasons scientists give for each side.</span>
+            </label>
+            <label class="bg-white p-3 rounded-xl border border-slate-200 flex items-start gap-2 cursor-pointer hover:border-emerald-400 transition">
+              <input type="radio" name="research_q" value="bats" class="mt-0.5">
+              <span><strong>Option B:</strong> How do bats 'see' in the dark using echolocation with their ears?</span>
+            </label>
+            <label class="bg-white p-3 rounded-xl border border-slate-200 flex items-start gap-2 cursor-pointer hover:border-emerald-400 transition">
+              <input type="radio" name="research_q" value="venus" class="mt-0.5">
+              <span><strong>Option C:</strong> How does a Venus flytrap sense and respond to touch without a brain?</span>
+            </label>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Facts I Found (At least 3 facts):</label>
+              <textarea id="j_res_facts" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">My Presentation Summary (Write 4–5 sentences):</label>
+              <textarea id="j_res_summary" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Write summary..."></textarea>
+            </div>
+            <div class="flex items-center gap-2 pt-1">
+              <input type="checkbox" id="j_presented" class="w-4 h-4 text-emerald-600 rounded">
+              <label for="j_presented" class="font-bold text-emerald-900">I presented this to my family and answered a question about it!</label>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 3: WRITTEN ANALYSIS WORKSHEET -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          ✍ Section 3: Deep Dive Investigation & Analysis
-        </h3>
+      <!-- ========================================================================================= -->
+      <!-- MY WEEK 1 REVIEW QUIZ & SHORT ANSWERS -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6 border-t pt-8 border-slate-100">
+        <div class="bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">My Week 1 Assessment Review</h3>
+          <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Final Test</span>
+        </div>
 
-        <div class="space-y-4 text-xs">
+        <!-- Section A: Fill in the Blank -->
+        <div class="space-y-3 text-xs bg-emerald-50/40 p-5 rounded-2xl border border-emerald-100">
+          <h4 class="font-extrabold text-emerald-900 text-sm">Part 1: Fill in the Blanks</h4>
+          <div class="space-y-3">
+            <div>
+              1. The five sense organs are the eyes, ears, nose, tongue, and 
+              <input type="text" id="j_q1" class="border-b-2 border-emerald-500 bg-transparent px-2 py-0.5 focus:outline-none font-bold text-emerald-900" placeholder="your answer">.
+            </div>
+            <div>
+              2. Nerves carry messages to the 
+              <input type="text" id="j_q2" class="border-b-2 border-emerald-500 bg-transparent px-2 py-0.5 focus:outline-none font-bold text-emerald-900" placeholder="your answer">, which interprets them.
+            </div>
+            <div>
+              3. An automatic, very fast response like blinking is called a 
+              <input type="text" id="j_q3" class="border-b-2 border-emerald-500 bg-transparent px-2 py-0.5 focus:outline-none font-bold text-emerald-900" placeholder="your answer">.
+            </div>
+            <div>
+              4. The seven characteristics of living things are remembered with the acronym 
+              <input type="text" id="j_q4" class="border-b-2 border-emerald-500 bg-transparent px-2 py-0.5 focus:outline-none font-bold text-emerald-900" placeholder="your answer">.
+            </div>
+            <div>
+              5. A leaf that has fallen off a tree and dried up is an example of something that is 
+              <input type="text" id="j_q5" class="border-b-2 border-emerald-500 bg-transparent px-2 py-0.5 focus:outline-none font-bold text-emerald-900" placeholder="your answer">.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section B: Short Answers -->
+        <div class="space-y-4 text-xs bg-white p-5 rounded-2xl border border-slate-200">
+          <h4 class="font-extrabold text-slate-900 text-sm">Part 2: Short Answer Investigation</h4>
+
           <div>
-            <label class="block font-bold text-slate-700 mb-1">
-              Task 1: Fire Analysis — A candle flame grows, moves, consumes oxygen, and releases heat. Explain using MRS GREN why a flame is scientifically non-living.
-            </label>
-            <textarea id="j_ans1" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Write your explanation here..."></textarea>
+            <label class="block font-bold text-slate-800 mb-1">1) Name the seven characteristics of living things, in full (not just the letters):</label>
+            <textarea id="j_sa1" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Movement..."></textarea>
           </div>
 
           <div>
-            <label class="block font-bold text-slate-700 mb-1">
-              Task 2: Neural Pathway — Trace the exact step-by-step path from touching a hot stove to pulling your hand away (Include: stimulus, receptor, nerve, brain, muscle action).
-            </label>
-            <textarea id="j_ans2" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Step 1: ... Step 2: ..."></textarea>
+            <label class="block font-bold text-slate-800 mb-1">2) Explain why a candle flame is not considered a living thing:</label>
+            <textarea id="j_sa2" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain using MRS GREN..."></textarea>
           </div>
 
           <div>
-            <label class="block font-bold text-slate-700 mb-1">
-              Task 3: Plant Sensitivity — How do plants show sensitivity without having a brain or nervous system? (Hint: Think about sunlight or gravity).
-            </label>
-            <textarea id="j_ans3" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Type your observation..."></textarea>
+            <label class="block font-bold text-slate-800 mb-1">3) Explain why a dry, dormant seed is still considered alive:</label>
+            <textarea id="j_sa3" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain dormancy..."></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">4) Describe the path a signal takes from your finger touching something hot, to you feeling it:</label>
+            <textarea id="j_sa4" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Describe the signal path..."></textarea>
           </div>
         </div>
       </div>
@@ -147,11 +462,11 @@
       <!-- SUBMIT WORKBOOK -->
       <div class="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <p class="text-xs font-bold text-slate-700">Finished all tasks?</p>
-          <p class="text-xs text-slate-500">Submitting will record your answers into your lab ledger and mark Week 1 complete.</p>
+          <p class="text-xs font-bold text-slate-800">Ready to save your progress?</p>
+          <p class="text-xs text-slate-500">Submitting records all your answers into your live science ledger.</p>
         </div>
-        <button id="j-submit" onclick="saveJunainahWorkbook()" class="w-full md:w-auto text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
-          Save & Submit Workbook ✨
+        <button id="j-submit" onclick="saveJunainahFullWorkbook()" class="w-full md:w-auto text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
+          Save & Complete Week 1 Workbook ✨
         </button>
       </div>
 
@@ -163,25 +478,55 @@
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    function checkMatch(btn, isCorrect, groupClass) {
-      document.querySelectorAll('.' + groupClass).forEach(b => {
-        b.className = groupClass + " bg-white border border-slate-300 py-1.5 px-3 rounded-xl transition";
-      });
-      if (isCorrect) {
-        btn.className = groupClass + " bg-emerald-600 text-white font-bold py-1.5 px-3 rounded-xl transition";
-      } else {
-        btn.className = groupClass + " bg-red-500 text-white font-bold py-1.5 px-3 rounded-xl transition";
-      }
+    // Build 10 Interactive Table Rows dynamically
+    const tableBody = document.getElementById('sort-table-body');
+    for (let i = 1; i <= 10; i++) {
+      const row = document.createElement('tr');
+      row.className = "hover:bg-slate-50";
+      row.innerHTML = `
+        <td class="p-2 font-bold text-slate-400">${i}</td>
+        <td class="p-2"><input type="text" id="j_sort_item_${i}" class="w-full border-b border-slate-200 focus:outline-none text-xs" placeholder="Item name..."></td>
+        <td class="p-2">
+          <select id="j_sort_cat_${i}" class="border border-slate-200 rounded-lg p-1 text-xs">
+            <option value="Living">Living</option>
+            <option value="Dead">Dead</option>
+            <option value="Non-living">Non-living</option>
+          </select>
+        </td>
+        <td class="p-2"><input type="text" id="j_sort_reason_${i}" class="w-full border-b border-slate-200 focus:outline-none text-xs" placeholder="Reason / failed test..."></td>
+      `;
+      tableBody.appendChild(row);
     }
 
-    async function saveJunainahWorkbook() {
-      const a1 = document.getElementById('j_ans1').value;
-      const a2 = document.getElementById('j_ans2').value;
-      const a3 = document.getElementById('j_ans3').value;
+    async function saveJunainahFullWorkbook() {
+      const dataPayload = {
+        exp1: document.getElementById('j_exp1').value,
+        exp2: document.getElementById('j_exp2').value,
+        think1: document.getElementById('j_think1').value,
+        think2: document.getElementById('j_think2').value,
+        think3: document.getElementById('j_think3').value,
+        think4: document.getElementById('j_think4').value,
+        res_facts: document.getElementById('j_res_facts').value,
+        res_summary: document.getElementById('j_res_summary').value,
+        presented: document.getElementById('j_presented').checked,
+        q1: document.getElementById('j_q1').value,
+        q2: document.getElementById('j_q2').value,
+        q3: document.getElementById('j_q3').value,
+        q4: document.getElementById('j_q4').value,
+        q5: document.getElementById('j_q5').value,
+        sa1: document.getElementById('j_sa1').value,
+        sa2: document.getElementById('j_sa2').value,
+        sa3: document.getElementById('j_sa3').value,
+        sa4: document.getElementById('j_sa4').value,
+        sortItems: []
+      };
 
-      if(!a1.trim() || !a2.trim() || !a3.trim()) {
-        alert("Please complete all three investigation tasks before submitting!");
-        return;
+      for(let i=1; i<=10; i++) {
+        dataPayload.sortItems.push({
+          item: document.getElementById(`j_sort_item_${i}`).value,
+          category: document.getElementById(`j_sort_cat_${i}`).value,
+          reason: document.getElementById(`j_sort_reason_${i}`).value
+        });
       }
 
       document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
@@ -189,28 +534,53 @@
 
       const btn = document.getElementById('j-submit');
       btn.disabled = true;
-      btn.innerText = "Workbook Submitted ✓";
+      btn.innerText = "Workbook Saved & Completed ✓";
       btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
 
       await supabaseClient.from('task_states').upsert({
-        id: 'science_junainah_week1',
-        states: [true, a1, a2, a3],
+        id: 'science_junainah_week1_full',
+        states: [true, dataPayload],
         updated_at: new Date()
       });
     }
 
     async function loadSavedData() {
-      const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_junainah_week1').single();
+      const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_junainah_week1_full').single();
       if (data && data.states && data.states[0]) {
-        if(data.states[1]) document.getElementById('j_ans1').value = data.states[1];
-        if(data.states[2]) document.getElementById('j_ans2').value = data.states[2];
-        if(data.states[3]) document.getElementById('j_ans3').value = data.states[3];
+        const p = data.states[1];
+        if(p.exp1) document.getElementById('j_exp1').value = p.exp1;
+        if(p.exp2) document.getElementById('j_exp2').value = p.exp2;
+        if(p.think1) document.getElementById('j_think1').value = p.think1;
+        if(p.think2) document.getElementById('j_think2').value = p.think2;
+        if(p.think3) document.getElementById('j_think3').value = p.think3;
+        if(p.think4) document.getElementById('j_think4').value = p.think4;
+        if(p.res_facts) document.getElementById('j_res_facts').value = p.res_facts;
+        if(p.res_summary) document.getElementById('j_res_summary').value = p.res_summary;
+        if(p.presented) document.getElementById('j_presented').checked = p.presented;
+        if(p.q1) document.getElementById('j_q1').value = p.q1;
+        if(p.q2) document.getElementById('j_q2').value = p.q2;
+        if(p.q3) document.getElementById('j_q3').value = p.q3;
+        if(p.q4) document.getElementById('j_q4').value = p.q4;
+        if(p.q5) document.getElementById('j_q5').value = p.q5;
+        if(p.sa1) document.getElementById('j_sa1').value = p.sa1;
+        if(p.sa2) document.getElementById('j_sa2').value = p.sa2;
+        if(p.sa3) document.getElementById('j_sa3').value = p.sa3;
+        if(p.sa4) document.getElementById('j_sa4').value = p.sa4;
+
+        if(p.sortItems) {
+          p.sortItems.forEach((row, idx) => {
+            const i = idx + 1;
+            if(document.getElementById(`j_sort_item_${i}`)) document.getElementById(`j_sort_item_${i}`).value = row.item || '';
+            if(document.getElementById(`j_sort_cat_${i}`)) document.getElementById(`j_sort_cat_${i}`).value = row.category || 'Living';
+            if(document.getElementById(`j_sort_reason_${i}`)) document.getElementById(`j_sort_reason_${i}`).value = row.reason || '';
+          });
+        }
 
         document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
         document.getElementById('j-status').innerText = "Completed ✨";
         const btn = document.getElementById('j-submit');
         btn.disabled = true;
-        btn.innerText = "Workbook Submitted ✓";
+        btn.innerText = "Workbook Saved & Completed ✓";
         btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
       }
     }
