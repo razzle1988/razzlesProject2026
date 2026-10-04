@@ -1,0 +1,193 @@
+{
+  "week_number": 1,
+  "start_date": "2026-11-02",
+  "status": "active",
+  "students": [
+    {
+      "student_id": "junainah_10",
+      "name": "Junainah",
+      "age": 10,
+      "pace_topics_per_week": 2,
+      "topics": ["My Five Senses", "Living vs Non-Living"],
+      "supplies_needed": [
+        "Handheld mirror",
+        "Small torch or light source",
+        "Rubber bands",
+        "5 small cups + cotton balls + smell samples (vanilla, lemon, mint, cinnamon, coffee)",
+        "Taste samples (lemon, sugar, salt, dark chocolate)",
+        "Outdoor/garden access for sorting walk"
+      ],
+      "daily_lessons": [
+        {
+          "day": 1,
+          "topic": "My Five Senses",
+          "title": "Sight & Hearing Mechanics",
+          "objectives": [
+            "Identify receptor types in eyes and ears",
+            "Observe pupil response to light changes",
+            "Understand eardrum and cochlea vibrations"
+          ],
+          "instructions": "Perform the pupil expansion experiment in front of a mirror with dim and bright light. Test sound vibrations using stretched rubber bands.",
+          "completed": false
+        },
+        {
+          "day": 2,
+          "topic": "My Five Senses",
+          "title": "Smell, Taste & Touch Pathways",
+          "objectives": [
+            "Explain chemoreception in nasal passages and tongue",
+            "Debunk the tongue taste map myth (all areas detect 5 basic tastes)",
+            "Understand sensory neurons and reflex arcs"
+          ],
+          "instructions": "Conduct a blindfolded smell identification test using 5 cups, followed by a 4-taste test on different parts of the tongue.",
+          "completed": false
+        },
+        {
+          "day": 3,
+          "topic": "Living vs Non-Living",
+          "title": "The 7 Traits of Life (MRS GREN)",
+          "objectives": [
+            "Master the MRS GREN acronym (Movement, Respiration, Sensitivity, Growth, Reproduction, Excretion, Nutrition)",
+            "Differentiate cellular respiration from breathing"
+          ],
+          "instructions": "Create a detailed MRS GREN cheat sheet with examples for each characteristic.",
+          "completed": false
+        },
+        {
+          "day": 4,
+          "topic": "Living vs Non-Living",
+          "title": "3-Way Sorting Investigation",
+          "objectives": [
+            "Categorize items into Living, Dead (once alive), and Non-Living",
+            "Analyze edge cases (e.g., wooden spoons, dried leaves, water, soil)"
+          ],
+          "instructions": "Take a 20-minute indoor/outdoor walk and record at least 12 items in a 3-column chart.",
+          "completed": false
+        },
+        {
+          "day": 5,
+          "topic": "Integration & Assessment",
+          "title": "Deep Dive Research & Week 1 Quiz",
+          "objectives": [
+            "Investigate a scientific anomaly (Viruses, Venus Flytraps, or Bat Echolocation)",
+            "Complete Week 1 Knowledge Assessment"
+          ],
+          "instructions": "Write a 1-page report or record a short video on whether viruses are considered living or non-living, then take the quiz.",
+          "completed": false
+        }
+      ],
+      "quiz": {
+        "quiz_id": "quiz_w1_junainah",
+        "title": "Week 1 Science Master Quiz - Junainah",
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple_choice",
+            "question": "What does the 'R' in MRS GREN stand for?",
+            "options": ["Reflex", "Respiration", "Reaction", "Repulsion"],
+            "correct_answer": "Respiration"
+          },
+          {
+            "id": "q2",
+            "type": "multiple_choice",
+            "question": "Which sensory receptors in the retina are responsible for seeing color?",
+            "options": ["Rods", "Cones", "Cochlea", "Olfactory bulbs"],
+            "correct_answer": "Cones"
+          }
+        ]
+      }
+    },
+    {
+      "student_id": "hessa_7",
+      "name": "Hessa",
+      "age": 7,
+      "pace_topics_per_week": 1,
+      "topics": ["My Five Senses"],
+      "supplies_needed": [
+        "Handheld mirror",
+        "Flashlight or room light switch",
+        "Rubber band",
+        "5 smell jars (vanilla, lemon, coffee, mint, cinnamon)",
+        "4 taste test items (lemon wedge, sugar water, salt water, dark chocolate)",
+        "Paper mystery bag + 6 tactile objects (sandpaper, sponge, key, pinecone, spoon, cotton)"
+      ],
+      "daily_lessons": [
+        {
+          "day": 1,
+          "topic": "My Five Senses",
+          "title": "Sight - How Our Eyes Work",
+          "objectives": [
+            "Name the eyes as the organ for sight",
+            "Observe how pupils change size in light and dark"
+          ],
+          "instructions": "Look in the mirror in a dim room, then turn on the light and watch your pupils shrink!",
+          "completed": false
+        },
+        {
+          "day": 2,
+          "topic": "My Five Senses",
+          "title": "Hearing - Sound Vibrations",
+          "objectives": [
+            "Identify ears as the organ for hearing",
+            "Feel vibrations created by sound"
+          ],
+          "instructions": "Go on a 5-minute sound walk. Gently touch your throat while humming and pluck a stretched rubber band to feel sound moving.",
+          "completed": false
+        },
+        {
+          "day": 3,
+          "topic": "My Five Senses",
+          "title": "Smell & Taste Teamwork",
+          "objectives": [
+            "Explore olfactory (smell) and gustatory (taste) senses",
+            "Discover how smell helps us taste food"
+          ],
+          "instructions": "Close your eyes for the Smell Jar test. Try eating a piece of apple while holding your nose to see if taste changes.",
+          "completed": false
+        },
+        {
+          "day": 4,
+          "topic": "My Five Senses",
+          "title": "Touch & Sense Safety",
+          "objectives": [
+            "Use skin to detect texture and temperature",
+            "Understand how senses keep us safe from dangers"
+          ],
+          "instructions": "Reach into the Mystery Bag and guess 6 hidden items using only touch. Draw 2 ways your senses protect you (e.g., hearing a fire alarm).",
+          "completed": false
+        },
+        {
+          "day": 5,
+          "topic": "My Five Senses",
+          "title": "Super-Sense Animals & Review",
+          "objectives": [
+            "Learn how animals use super senses to survive",
+            "Complete Week 1 Picture Quiz"
+          ],
+          "instructions": "Pick one animal with super senses (Eagle, Dog, Bat, or Snake), present 3 fun facts to the family, and take the quiz.",
+          "completed": false
+        }
+      ],
+      "quiz": {
+        "quiz_id": "quiz_w1_hessa",
+        "title": "Week 1 Fun Quiz - Hessa",
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple_choice",
+            "question": "Which organ sends messages from your senses to your body?",
+            "options": ["Heart", "Stomach", "Brain", "Bones"],
+            "correct_answer": "Brain"
+          },
+          {
+            "id": "q2",
+            "type": "multiple_choice",
+            "question": "What happens to your eye pupil in bright light?",
+            "options": ["It gets smaller", "It gets bigger", "It changes color", "It stays the same"],
+            "correct_answer": "It gets smaller"
+          }
+        ]
+      }
+    }
+  ]
+}
