@@ -12,7 +12,7 @@
             --bg: #EAE6DF;
             --card-bg: #F5F2EC;
             --text-main: #1F2937;
-            --text-muted: #6B7280;
+            --text-muted: #4B5563;
             --border: #D1D5DB;
             --badge-bg: #FEF3C7;
             --badge-text: #92400E;
@@ -25,7 +25,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--text-main);
             background-color: var(--bg);
             margin: 0;
@@ -33,7 +33,7 @@
         }
 
         .container {
-            max-width: 950px;
+            max-width: 980px;
             margin: 0 auto;
         }
 
@@ -88,6 +88,47 @@
             background-color: #CBD5E1;
         }
 
+        /* Grown-Up Guide Section */
+        .guide-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border-left: 6px solid var(--primary);
+        }
+
+        .guide-card h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .guide-box {
+            background-color: #FFFFFF;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .guide-box h4 {
+            margin: 0 0 8px 0;
+            color: var(--dark-green);
+        }
+
+        .guide-box ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
         /* Main Section Container */
         .main-card {
             background-color: var(--card-bg);
@@ -130,8 +171,8 @@
         .topic-card {
             background-color: #EBE7E0;
             border-radius: 16px;
-            padding: 20px 25px;
-            margin-bottom: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
         }
 
         .topic-header {
@@ -147,7 +188,7 @@
 
         .topic-header h3 {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
         }
 
@@ -170,27 +211,22 @@
         }
 
         .inner-box h4 {
-            margin: 0 0 6px 0;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        .inner-box p {
-            margin: 0 0 15px 0;
+            margin: 0 0 8px 0;
             font-size: 0.9rem;
-            color: var(--text-muted);
+            text-transform: uppercase;
+            color: var(--dark-green);
+            letter-spacing: 0.5px;
         }
 
         .media-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            margin-top: 10px;
         }
 
         .media-btn {
-            background-color: #3B82F6;
+            background-color: #2563EB;
             color: white;
             text-decoration: none;
             padding: 8px 16px;
@@ -203,22 +239,21 @@
         }
 
         .media-btn.outline {
-            background-color: transparent;
+            background-color: #FFFFFF;
             color: var(--text-main);
             border: 1px solid #CBD5E1;
         }
 
-        /* Image Grid */
         .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         .image-grid img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             border-radius: 12px;
         }
@@ -234,7 +269,7 @@
         }
 
         th, td {
-            padding: 10px 14px;
+            padding: 12px 14px;
             text-align: left;
             border-bottom: 1px solid #E5E7EB;
             font-size: 0.9rem;
@@ -315,12 +350,40 @@
         <a href="index.html" class="btn-hub">← Main Hub</a>
     </div>
 
+    <!-- Grown-Up Guide & Weekly Setup -->
+    <div class="guide-card">
+        <h2>Grown-Up Guide & Weekly Setup</h2>
+        <div class="guide-grid">
+            <div class="guide-box">
+                <h4>What Hessa Will Learn</h4>
+                <ul>
+                    <li>Name the five main senses.</li>
+                    <li>Identify the body part (sense organ) for each sense.</li>
+                    <li>Describe what each sense tells us.</li>
+                    <li>Explain that the brain is the boss that reads all messages.</li>
+                    <li>Understand how our senses keep us safe.</li>
+                </ul>
+            </div>
+            <div class="guide-box">
+                <h4>Materials Checklist</h4>
+                <ul>
+                    <li>Mirror & Dim Room (Day 1)</li>
+                    <li>Rubber band, Plastic tub/bowl, Plastic wrap, Uncooked rice (Day 2)</li>
+                    <li>Cotton balls & 5 small cups (Day 3)</li>
+                    <li>Kitchen smells (Vanilla, Lemon, Cinnamon, Coffee, Vinegar)</li>
+                    <li>Taste items (Salt, Sugar, Lemon, Cocoa powder)</li>
+                    <li>Pillowcase/bag with 5 tactile items (Day 4)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content Container -->
     <div class="main-card">
         <div class="section-header">
             <div class="section-title">
                 <h2>The Five Senses & How Our Body Learns</h2>
-                <p>Five sessions of 30–40 minutes • Materials: Mirror, rubber band, smell cups, taste items, mystery bag.</p>
+                <p>Time Commitment: 5 sessions of approximately 30 to 40 minutes.</p>
             </div>
             <span class="badge-status">In Progress</span>
         </div>
@@ -328,16 +391,16 @@
         <!-- Topic 1 -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 1: How Your Body Senses the World</h3>
-                <span class="badge-days">Days 1 & 2</span>
+                <h3>Topic 1: Big Idea + Sight (Eyes) & Pupil Experiment</h3>
+                <span class="badge-days">Day 1</span>
             </div>
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Interactive Media & Visualizations</h4>
-                <p>Before reading, explore how sense organs connect to the brain and how nerves carry messages between them!</p>
+                <p>Explore how sense organs connect to the brain before diving into the lesson reading!</p>
                 <div class="media-buttons">
-                    <a href="https://pbskids.org/learn/senses/" target="_blank" class="media-btn">🎮 PBS Kids: Five Senses Games ↗</a>
-                    <a href="https://www.google.com/search?q=five+senses+for+kids&tbm=isch" target="_blank" class="media-btn outline">🔍 Search Diagram: Five Senses & Nerves ↗</a>
+                    <a href="https://www.pbs.org/parents/crafts-and-experiments/senses-spinner-game" target="_blank" class="media-btn">🌐 PBS Kids: Five Senses Exploration ↗</a>
+                    <a href="https://kids.britannica.com/kids/article/eye/353116" target="_blank" class="media-btn outline">🔍 Britannica Kids: Human Eye Guide ↗</a>
                 </div>
             </div>
 
@@ -346,92 +409,137 @@
                 <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Human Eye">
             </div>
 
+            <h4>Lesson Notes:</h4>
             <p>Your body is finding out about the world right now! You see with your <strong>eyes</strong>, hear with your <strong>ears</strong>, smell with your <strong>nose</strong>, taste with your <strong>tongue</strong>, and feel with your <strong>skin</strong>.</p>
-            <p>These are your five <strong>sense organs</strong>. They send messages along tiny pathways called <strong>nerves</strong> straight to your <strong>brain</strong>, which is the boss that tells you what everything means!</p>
+            <p>These five special body parts are called <strong>sense organs</strong>. They collect clues about everything around you and send tiny electrical messages along pathways called <strong>nerves</strong> straight to your <strong>brain</strong>. Your brain is the boss that reads all these messages and tells you what you are experiencing!</p>
+            
+            <p><strong>Focus on Sight:</strong> Your eyes take in light. The black dot in the center of your eye is called the <strong>pupil</strong>. It lets light enter your eye so you can see pictures of the world!</p>
+
+            <div class="inner-box">
+                <h4>🧪 Experiment: The Expanding Pupil</h4>
+                <p>1. Look at your eyes in a mirror in a brightly lit room. Notice how big or small your pupil is.<br>
+                2. Dim the lights or cover your eyes gently with your hands for 10 seconds.<br>
+                3. Look in the mirror as you turn the light back on!</p>
+
+                <label><strong>What happened to your pupil in the dark vs. the light?</strong></label>
+                <textarea rows="2" placeholder="Record what you observed in the mirror..."></textarea>
+            </div>
         </div>
 
         <!-- Topic 2 -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 2: Sight, Sound & Vibrations</h3>
-                <span class="badge-days">Days 2 & 3</span>
+                <h3>Topic 2: Hearing (Ears), Sound Walk & Vibration Experiments</h3>
+                <span class="badge-days">Day 2</span>
+            </div>
+
+            <h4>Lesson Notes:</h4>
+            <p>Your ears catch <strong>sounds</strong>! Sounds are actually created by tiny wiggles in the air called <strong>vibrations</strong>. When an object vibrates, it pushes air in invisible waves, which travel inside your ear canal and hit your eardrum!</p>
+
+            <div class="inner-box">
+                <h4>🧪 Experiment: Seeing Vibrations</h4>
+                <p>1. Stretch plastic wrap tightly over a plastic tub or bowl.<br>
+                2. Sprinkle a few grains of uncooked rice on top.<br>
+                3. Snap a thick rubber band or hum loudly right next to the bowl!</p>
+
+                <label><strong>What did the rice grains do when you made a sound?</strong></label>
+                <textarea rows="2" placeholder="Write down what happened to the rice..."></textarea>
             </div>
 
             <div class="inner-box">
-                <h4>🧪 Interactive Experiment Log</h4>
-                <p>Observe how your pupil changes in light and record the sounds around you on your sound walk!</p>
+                <h4>🎧 Activity: 5-Minute Sound Walk</h4>
+                <p>Sit quietly for 5 minutes inside or outdoors. Close your eyes and listen carefully!</p>
                 
-                <label><strong>Pupil Experiment (What happened when the light switched on?):</strong></label>
-                <textarea rows="2" placeholder="Describe how your pupil changed size..."></textarea>
-
-                <br><br>
-                <label><strong>Sound Walk Log:</strong></label>
-                <input type="text" placeholder="Sound 1 (e.g., Bird singing outside)">
+                <input type="text" placeholder="Sound 1 (e.g., Bird chirping outside)">
                 <input type="text" placeholder="Sound 2 (e.g., Clock ticking)">
+                <input type="text" placeholder="Sound 3 (e.g., Wind blowing)">
             </div>
         </div>
 
         <!-- Topic 3 -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 3: Smell, Taste & Touch Investigations</h3>
-                <span class="badge-days">Days 3 & 4</span>
+                <h3>Topic 3: Smell (Nose) & Taste (Tongue) Investigations</h3>
+                <span class="badge-days">Day 3</span>
             </div>
 
+            <h4>Lesson Notes:</h4>
+            <p>Your nose and tongue work together as a team! Inside your nose are tiny smell receptors that pick up scent particles floating in the air. On your tongue are tiny bumps called <strong>taste buds</strong>.</p>
+            <p>Your taste buds can recognize four main primary tastes: <strong>Sweet, Sour, Salty, and Bitter</strong>. When you eat, your nose and taste buds send messages to your brain at the same time to create the full <strong>flavor</strong>!</p>
+
             <div class="inner-box">
-                <h4>👃 Smell & Taste Test Record</h4>
+                <h4>👃 Investigation 1: Smell Jars</h4>
+                <p>Dip cotton balls into different items (vanilla extract, vinegar, lemon juice, cinnamon) and place them in numbered cups. Hold them under your nose with your eyes closed!</p>
                 <table>
                     <tr>
-                        <th>Item</th>
-                        <th>My Guess / Category</th>
-                        <th>Reaction / Notes</th>
+                        <th>Cup Number</th>
+                        <th>My Scent Guess</th>
+                        <th>Was I Correct?</th>
                     </tr>
                     <tr>
-                        <td>Smell Cup 1</td>
-                        <td><input type="text" placeholder="Guess smell..."></td>
-                        <td><input type="text" placeholder="Liked or disliked?"></td>
+                        <td>Cup 1</td>
+                        <td><input type="text" placeholder="Guess scent..."></td>
+                        <td><input type="text" placeholder="Yes / No"></td>
                     </tr>
                     <tr>
-                        <td>Lemon Test</td>
-                        <td>Sour</td>
-                        <td><input type="text" placeholder="Describe the reaction..."></td>
+                        <td>Cup 2</td>
+                        <td><input type="text" placeholder="Guess scent..."></td>
+                        <td><input type="text" placeholder="Yes / No"></td>
                     </tr>
                 </table>
             </div>
 
             <div class="inner-box">
-                <h4>✋ Mystery Bag Tactile Log</h4>
-                <p>Reach into the bag without looking. Record how each object feels!</p>
-                <input type="text" placeholder="Item 1: Soft, rough, hard, or smooth?">
-                <input type="text" placeholder="Item 2: Soft, rough, hard, or smooth?">
+                <h4>👅 Investigation 2: Taste Bud Challenge</h4>
+                <p>Sample tiny tastes of sugar (sweet), lemon juice (sour), salt (salty), and cocoa powder (bitter).</p>
+                <label><strong>Which taste was your favorite and which was your least favorite?</strong></label>
+                <textarea rows="2" placeholder="Record your taste test thoughts..."></textarea>
             </div>
         </div>
 
         <!-- Topic 4 -->
         <div class="topic-card">
             <div class="topic-header">
-                <h3>Topic 4: Review & Final Investigation</h3>
+                <h3>Topic 4: Touch (Skin), Mystery Bag & Safety</h3>
+                <span class="badge-days">Day 4</span>
+            </div>
+
+            <h4>Lesson Notes:</h4>
+            <p>Your <strong>skin</strong> is the largest sense organ on your body! All over your skin are tiny feelers called <strong>nerve endings</strong>. They tell your brain if something is <strong>hot, cold, soft, rough, smooth, or sharp</strong>.</p>
+            <p><strong>Senses Keep Us Safe:</strong> Our senses warn us of danger! Your eyes see red stop lights, your ears hear car horns or fire alarms, your skin pulls back from a hot stove, and your nose smells smoke or spoiled food before you eat it.</p>
+
+            <div class="inner-box">
+                <h4>✋ Investigation: Mystery Bag Challenge</h4>
+                <p>Reach into a bag containing hidden items without looking!</p>
+                <input type="text" placeholder="Item 1 Texture (e.g., Soft cotton ball)">
+                <input type="text" placeholder="Item 2 Texture (e.g., Rough sandpaper)">
+            </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <h3>Topic 5: Research & Review Quiz</h3>
                 <span class="badge-days">Day 5</span>
             </div>
 
             <div class="inner-box">
-                <h4>Part 1: Quick Quiz</h4>
-                <p>1. Which boss reads all the messages sent from your senses?</p>
-                <input type="text" placeholder="Type answer here...">
-
-                <p>2. Sounds are created when objects do what?</p>
-                <select>
-                    <option>Select answer...</option>
-                    <option>Vibrate (wiggle back and forth)</option>
-                    <option>Melt</option>
-                    <option>Stay completely still</option>
-                </select>
+                <h4> Part 1: Super-Sense Animals</h4>
+                <p>Research an animal with a super sense (like an Eagle's sight, an Elephant's hearing, or a Shark's smell).</p>
+                <label><strong>Chosen Animal & Super Sense:</strong></label>
+                <textarea rows="3" placeholder="Describe the animal and how its sense helps it survive..."></textarea>
             </div>
 
             <div class="inner-box">
-                <h4>Part 2: Super-Sense Animal Short Report</h4>
-                <label><strong>Describe the animal you researched and how its special sense helps it survive:</strong></label>
-                <textarea rows="4" placeholder="Write summary here..."></textarea>
+                <h4> Part 2: Review Quiz</h4>
+                <p>1. Name the boss body part that reads all sense messages sent through nerves:</p>
+                <input type="text" placeholder="Type answer...">
+
+                <p>2. Which sense organ catches sound vibrations?</p>
+                <input type="text" placeholder="Type answer...">
+
+                <p>3. How does your sense of touch keep you safe around hot objects?</p>
+                <textarea rows="2" placeholder="Explain answer..."></textarea>
             </div>
         </div>
     </div>
