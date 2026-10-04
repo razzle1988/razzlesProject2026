@@ -11,48 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
   <style>
-    .theme-hessa {
-      font-family: 'Fredoka', cursive;
-      background: linear-gradient(135deg, #FFF5F7 0%, #E0F7FA 100%);
-    }
-    .theme-junainah {
-      font-family: 'Outfit', sans-serif;
-      background: linear-gradient(135deg, #E6FFFA 0%, #F0E6FF 100%);
-    }
-    .theme-hanaan {
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #FAF0F2 0%, #F3E5F5 100%);
-    }
-
-    .btn-jelly {
-      background: linear-gradient(180deg, #FF80AB 0%, #FF4081 100%);
-      box-shadow: 0 8px 0 #C2185B, 0 12px 20px rgba(255, 64, 129, 0.4);
-      transition: all 0.1s ease;
-    }
-    .btn-jelly:active {
-      transform: translateY(6px);
-      box-shadow: 0 2px 0 #C2185B, 0 4px 10px rgba(255, 64, 129, 0.4);
-    }
-
-    .card-sketchbook {
-      background: #FFFFFF;
-      border: 3px solid #1DE9B6;
-      border-radius: 24px;
-      box-shadow: 8px 8px 0px #FF7300;
-    }
+    .theme-hessa { font-family: 'Fredoka', cursive; background: linear-gradient(135deg, #FFF5F7 0%, #E0F7FA 100%); }
+    .theme-junainah { font-family: 'Outfit', sans-serif; background: linear-gradient(135deg, #E6FFFA 0%, #F0E6FF 100%); }
+    .theme-hanaan { font-family: 'Playfair Display', serif; background: linear-gradient(135deg, #FAF0F2 0%, #F3E5F5 100%); }
 
     .tile-glass {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(14px);
       border: 1.5px solid rgba(226, 149, 120, 0.4);
-      border-radius: 20px;
+      border-radius: 24px;
       box-shadow: 0 10px 30px rgba(226, 149, 120, 0.15);
     }
 
     .task-check {
       appearance: none;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       border: 2px solid #CBD5E1;
       cursor: pointer;
@@ -64,76 +38,128 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     }
 
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    .quiz-option {
+      transition: all 0.2s ease;
     }
-    .bot-active {
-      animation: pulse-ring 2s infinite;
+    .quiz-option:hover {
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500">
 
-  <!-- TOP PROFILE SELECTOR BAR -->
-  <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+  <!-- TOP HEADER -->
+  <header class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
     <div>
-      <h1 class="text-3xl font-bold text-gray-800" id="welcome-title">Welcome, Hessa! 🌟</h1>
-      <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • Age 7 Track</p>
+      <h1 class="text-3xl font-bold text-gray-800" id="welcome-title">Academic Suite: Hanaan ✨</h1>
+      <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • Age 12 Track</p>
     </div>
     
     <div class="flex gap-3 bg-white/80 p-2 rounded-full shadow-md backdrop-blur-sm">
-      <button onclick="switchProfile('hessa')" class="px-4 py-2 rounded-full font-bold text-sm bg-pink-400 text-white shadow-sm hover:opacity-90">Hessa (7)</button>
-      <button onclick="switchProfile('junainah')" class="px-4 py-2 rounded-full font-bold text-sm bg-teal-400 text-white shadow-sm hover:opacity-90">Junainah (10)</button>
-      <button onclick="switchProfile('hanaan')" class="px-4 py-2 rounded-full font-bold text-sm bg-rose-300 text-white shadow-sm hover:opacity-90">Hanaan (12)</button>
+      <button onclick="switchProfile('hessa')" class="px-4 py-2 rounded-full font-bold text-sm bg-pink-400 text-white hover:opacity-90">Hessa (7)</button>
+      <button onclick="switchProfile('junainah')" class="px-4 py-2 rounded-full font-bold text-sm bg-teal-400 text-white hover:opacity-90">Junainah (10)</button>
+      <button onclick="switchProfile('hanaan')" class="px-4 py-2 rounded-full font-bold text-sm bg-rose-400 text-white hover:opacity-90">Hanaan (12)</button>
     </div>
   </header>
 
-  <!-- MAIN DASHBOARD CONTENT -->
-  <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-    <section class="md:col-span-2 space-y-4">
-      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
+  <!-- MAIN DASHBOARD -->
+  <main class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <!-- SCHEDULE & TASK LIST -->
+    <section class="md:col-span-2 space-y-6">
+      <div id="checklist-card" class="tile-glass p-6">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
-            <span>📋</span> Morning Schedule Checklist
+            <span>📋</span> Daily Rhythm & Tasks
           </h2>
           <span class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full" id="progress-badge">0 of 6 Completed</span>
         </div>
         <div class="space-y-3" id="task-list"></div>
       </div>
+
+      <!-- CLAUDE INTERACTIVE MATH WORKSHEET & QUIZ ENGINE -->
+      <div id="math-engine-card" class="tile-glass p-6 bg-gradient-to-br from-white/90 to-rose-50/80">
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Claude Interactive Engine</span>
+            <h3 class="text-lg font-bold text-gray-800" id="math-unit-title">Math Bridge: Grade 7 ➔ Pre-Algebra</h3>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 bg-rose-100 text-rose-700 rounded-lg" id="math-stage-badge">Stage 1 of 4</span>
+        </div>
+
+        <p class="text-xs text-gray-600 mb-4" id="math-unit-desc">
+          Building linear equation mastery from Khan Academy Grade 7 before advancing to Cambridge O Level proofs.
+        </p>
+
+        <!-- INTERACTIVE WORKSHEET STEP -->
+        <div id="worksheet-container" class="bg-white/80 p-4 rounded-2xl border border-rose-200 mb-4 space-y-3">
+          <h4 class="text-xs font-bold text-gray-700 uppercase">Interactive Step 1: Guided Practice</h4>
+          <div class="text-sm text-gray-800 font-medium" id="problem-text">Solve for $x$: $3x + 7 = 22$</div>
+          
+          <div class="flex items-center gap-2">
+            <input type="text" id="math-answer-input" placeholder="Type answer here..." class="px-3 py-2 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-400 w-full md:w-48">
+            <button onclick="checkStepAnswer()" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs rounded-xl shadow">Check Step</button>
+          </div>
+          <p id="step-feedback" class="text-xs font-bold hidden"></p>
+        </div>
+
+        <!-- DYNAMIC QUIZ SECTION -->
+        <div id="quiz-container" class="bg-white/80 p-4 rounded-2xl border border-rose-200 space-y-3">
+          <h4 class="text-xs font-bold text-gray-700 uppercase">Interactive Quiz (Auto-Fetch Next Unit)</h4>
+          <p class="text-sm font-semibold text-gray-800" id="quiz-question">Which step correctly isolates $x$ in $2x - 4 = 10$?</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2" id="quiz-options">
+            <button onclick="submitQuizOption(0)" class="quiz-option p-3 bg-rose-50 hover:bg-rose-100 text-gray-700 text-xs font-medium rounded-xl border border-rose-200 text-left">A) Add 4 to both sides, then divide by 2</button>
+            <button onclick="submitQuizOption(1)" class="quiz-option p-3 bg-rose-50 hover:bg-rose-100 text-gray-700 text-xs font-medium rounded-xl border border-rose-200 text-left">B) Subtract 4 from both sides, then multiply by 2</button>
+          </div>
+          <p id="quiz-feedback" class="text-xs font-bold hidden"></p>
+        </div>
+      </div>
     </section>
 
+    <!-- SIDEBAR: PHYSICAL SKILLS & CLAUDE INTEGRATION HUB -->
     <section class="space-y-6">
-      <div id="skills-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-yellow-100">
+      <div class="tile-glass p-6">
         <h3 class="font-bold text-gray-800 text-md mb-2 flex items-center gap-2">
           <span>🏅</span> Active Physical Skill
         </h3>
-        <p class="text-sm text-gray-600 mb-3" id="skill-description">Hop 10 times on your left leg without falling!</p>
+        <p class="text-sm text-gray-600 mb-3" id="skill-description">Juggle 3 lightweight balls continuously for 15 seconds!</p>
         <button onclick="requestVerification()" class="w-full py-2 bg-amber-400 hover:bg-amber-500 text-white font-bold rounded-xl text-xs shadow">
           Show Mom / Verify Skill
+        </button>
+      </div>
+
+      <!-- PARENT / CLAUDE LESSON PASTER -->
+      <div class="tile-glass p-6 space-y-3">
+        <h3 class="font-bold text-gray-800 text-xs uppercase tracking-wider flex items-center gap-2">
+          <span>⚙️</span> Claude Lesson Loader
+        </h3>
+        <p class="text-xs text-gray-500">Paste JSON output from Claude here to update interactive worksheets on the fly:</p>
+        <textarea id="claude-json-input" rows="4" placeholder='{"title":"Bridge Unit 2","question":"..."}' class="w-full p-2 text-xs rounded-xl border border-gray-300 font-mono"></textarea>
+        <button onclick="loadClaudeJSON()" class="w-full py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-bold text-xs rounded-xl shadow">
+          Render Interactive Cards
         </button>
       </div>
     </section>
   </main>
 
-  <!-- PERSISTENT LIVE AI COMPANION BAR (FIXED BOTTOM) -->
-  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-pink-300 flex items-center justify-between gap-4 z-50">
+  <!-- PERSISTENT LIVE AI COMPANION BAR -->
+  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-rose-300 flex items-center justify-between gap-4 z-50">
     <div class="flex items-center gap-3">
-      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-2xl shadow-inner bot-active">
-        🤖
+      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-2xl shadow-inner">
+        🏛️
       </div>
       <div>
-        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Joy Bot 🍬</h4>
+        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Cambridge Mentor 🏛️</h4>
         <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Active Companion
         </p>
       </div>
     </div>
     <div class="flex-1 text-xs text-gray-600 italic px-2 border-l border-r border-gray-200 truncate" id="live-bot-speech">
-      "Initializing AI companion..."
+      "Greetings Hanaan. Ready for today's math bridge challenge?"
     </div>
-    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
+    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
       Speak 💬
     </button>
   </div>
@@ -144,23 +170,23 @@
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     const profiles = {
-      hessa: {
-        name: "Hessa",
-        age: 7,
-        themeClass: "theme-hessa",
-        welcomeTitle: "Welcome, Hessa! 🌟",
-        aiName: "Joy Bot 🍬",
-        greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
-        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
+      hanaan: {
+        name: "Hanaan",
+        age: 12,
+        themeClass: "theme-hanaan",
+        welcomeTitle: "Academic Suite: Hanaan ✨",
+        aiName: "Cambridge Mentor 🏛️",
+        greeting: "Greetings Hanaan. Let's build your Grade 7 math bridge step-by-step up to Cambridge O Level!",
+        cardClass: "tile-glass p-6",
         tasks: [
-          { id: 1, time: "06:00 AM", title: "Logic Warm-Up (Brilliant Puzzle)", done: false },
-          { id: 2, time: "06:10 AM", title: "Math Visual Arithmetic & Abacus", done: false },
-          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Question", done: false },
-          { id: 4, time: "07:45 AM", title: "English Phonics Workbook & Tapping", done: false },
-          { id: 5, time: "08:30 AM", title: "Robotics: micro:bit LED Animation", done: false },
-          { id: 6, time: "09:30 AM", title: "Science: Kitchen Chemistry Lab", done: false }
+          { id: 1, time: "06:00 AM", title: "Logic & Advanced Spatial Reasoning", done: false },
+          { id: 2, time: "06:10 AM", title: "Khan Academy Math Bridge: Two-Step Linear Equations", done: false },
+          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Ethics Discussion", done: false },
+          { id: 4, time: "07:45 AM", title: "English Paper 1 Summary Analysis", done: false },
+          { id: 5, time: "08:30 AM", title: "Robotics: Raspberry Pi & Python Automation", done: false },
+          { id: 6, time: "09:30 AM", title: "Physical Science Prep: Kinematics & Motion Labs", done: false }
         ],
-        skill: "Hop 10 times on your left leg without falling!"
+        skill: "Juggle 3 lightweight balls continuously for 15 seconds!"
       },
       junainah: {
         name: "Junainah",
@@ -169,7 +195,7 @@
         welcomeTitle: "Studio Hub: Junainah 🎨",
         aiName: "Artisan AI 🖌️",
         greeting: "Welcome back Junainah! Artisan AI online. Ready to create and code today?",
-        cardClass: "card-sketchbook p-6",
+        cardClass: "tile-glass p-6",
         tasks: [
           { id: 1, time: "06:00 AM", title: "Logic & Spatial Puzzle", done: false },
           { id: 2, time: "06:10 AM", title: "Mathematics Core & Word Problems", done: false },
@@ -180,34 +206,36 @@
         ],
         skill: "Hold a wall handstand steadily for 10 seconds!"
       },
-      hanaan: {
-        name: "Hanaan",
-        age: 12,
-        themeClass: "theme-hanaan",
-        welcomeTitle: "Academic Suite: Hanaan ✨",
-        aiName: "Cambridge Mentor 🏛️",
-        greeting: "Greetings Hanaan. Cambridge Mentor active. Let's maintain focused progress on your schedule.",
+      hessa: {
+        name: "Hessa",
+        age: 7,
+        themeClass: "theme-hessa",
+        welcomeTitle: "Welcome, Hessa! 🌟",
+        aiName: "Joy Bot 🍬",
+        greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
         cardClass: "tile-glass p-6",
         tasks: [
-          { id: 1, time: "06:00 AM", title: "Logic & Advanced Spatial Reasoning", done: false },
-          { id: 2, time: "06:10 AM", title: "Cambridge Math: Algebraic Proofs", done: false },
-          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Ethics Discussion", done: false },
-          { id: 4, time: "07:45 AM", title: "English Paper 1 Summary Analysis", done: false },
-          { id: 5, time: "08:30 AM", title: "Robotics: Raspberry Pi & Python Automation", done: false },
-          { id: 6, time: "09:30 AM", title: "Physics 0625: Kinematics & Virtual Lab", done: false }
+          { id: 1, time: "06:00 AM", title: "Logic Warm-Up (Brilliant Puzzle)", done: false },
+          { id: 2, time: "06:10 AM", title: "Math Visual Arithmetic & Abacus", done: false },
+          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Question", done: false },
+          { id: 4, time: "07:45 AM", title: "English Phonics Workbook & Tapping", done: false },
+          { id: 5, time: "08:30 AM", title: "Robotics: micro:bit LED Animation", done: false },
+          { id: 6, time: "09:30 AM", title: "Science: Kitchen Chemistry Lab", done: false }
         ],
-        skill: "Juggle 3 lightweight balls continuously for 15 seconds!"
+        skill: "Hop 10 times on your left leg without falling!"
       }
     };
 
-    let activeProfile = "hessa";
+    let activeProfile = "hanaan";
+    let currentStepCorrectAnswer = "5";
+    let currentQuizCorrectIndex = 0;
 
     function speakText(text) {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 0.95;
-        utterance.pitch = 1.1;
+        utterance.pitch = 1.05;
         window.speechSynthesis.speak(utterance);
       }
       document.getElementById('live-bot-speech').innerText = `"${text}"`;
@@ -218,31 +246,26 @@
       const data = profiles[profileKey];
 
       document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500`;
-
       document.getElementById('welcome-title').innerText = data.welcomeTitle;
       document.getElementById('welcome-subtitle').innerText = `Daily Rhythm • Age ${data.age} Track`;
       document.getElementById('live-bot-name').innerText = data.aiName;
       document.getElementById('skill-description').innerText = data.skill;
-      document.getElementById('checklist-card').className = data.cardClass;
 
       await loadSavedState();
       renderTasks(data.tasks);
-
-      // Trigger active companion greeting
       speakText(data.greeting);
     }
 
     function renderTasks(tasks) {
       const container = document.getElementById('task-list');
       container.innerHTML = "";
-
       let completedCount = 0;
 
       tasks.forEach((task, index) => {
         if(task.done) completedCount++;
 
         const taskRow = document.createElement('div');
-        taskRow.className = "flex items-center justify-between p-3 rounded-2xl bg-gray-50/80 hover:bg-white transition shadow-sm";
+        taskRow.className = "flex items-center justify-between p-3.5 rounded-2xl bg-white/70 hover:bg-white transition shadow-sm border border-gray-100";
         taskRow.innerHTML = `
           <div class="flex items-center gap-3">
             <input type="checkbox" ${task.done ? "checked" : ""} onchange="toggleTask(${index})" class="task-check">
@@ -251,8 +274,8 @@
               <p class="text-sm font-semibold ${task.done ? 'line-through text-gray-400' : 'text-gray-800'}">${task.title}</p>
             </div>
           </div>
-          <span class="text-xs px-2 py-1 rounded-full ${task.done ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-500'}">
-            ${task.done ? 'Completed ✨' : 'Pending'}
+          <span class="text-xs px-2.5 py-1 rounded-full ${task.done ? 'bg-emerald-100 text-emerald-700 font-bold' : 'bg-gray-100 text-gray-500'}">
+            ${task.done ? 'Done ✨' : 'Pending'}
           </span>
         `;
         container.appendChild(taskRow);
@@ -268,28 +291,86 @@
       await saveCurrentState();
 
       if (task.done) {
-        speakText(`Awesome job finishing ${task.title}! What are we doing next?`);
+        speakText(`Excellent progress finishing ${task.title}! What is our next focus?`);
+      }
+    }
+
+    function checkStepAnswer() {
+      const inputVal = document.getElementById('math-answer-input').value.trim();
+      const feedback = document.getElementById('step-feedback');
+      feedback.classList.remove('hidden');
+
+      if (inputVal === currentStepCorrectAnswer) {
+        feedback.className = "text-xs font-bold text-emerald-600";
+        feedback.innerText = "Correct! 3x = 15, so x = 5. Great job!";
+        speakText("Spot on, Hanaan! 3 times 5 plus 7 equals 22.");
+      } else {
+        feedback.className = "text-xs font-bold text-rose-500";
+        feedback.innerText = "Not quite. First subtract 7 from 22, then divide by 3.";
+        speakText("Let's re-check that. Subtract 7 from 22 first.");
+      }
+    }
+
+    function submitQuizOption(index) {
+      const feedback = document.getElementById('quiz-feedback');
+      feedback.classList.remove('hidden');
+
+      if (index === currentQuizCorrectIndex) {
+        feedback.className = "text-xs font-bold text-emerald-600";
+        feedback.innerText = "Correct! Stage 1 complete! Fetching Stage 2 (Algebraic Expressions)...";
+        speakText("Fantastic! You passed Stage 1. Auto-fetching Stage 2 from Claude now.");
+        
+        // Auto advance stage simulation
+        setTimeout(() => {
+          advanceMathStage();
+        }, 1500);
+      } else {
+        feedback.className = "text-xs font-bold text-rose-500";
+        feedback.innerText = "Try again. Remember to undo subtraction first by adding 4!";
+      }
+    }
+
+    function advanceMathStage() {
+      document.getElementById('math-unit-title').innerText = "Math Bridge Stage 2: Linear Functions & Graphs";
+      document.getElementById('math-stage-badge').innerText = "Stage 2 of 4";
+      document.getElementById('problem-text').innerText = "Find the slope (m) of the line passing through (0,2) and (4,10).";
+      currentStepCorrectAnswer = "2";
+      document.getElementById('math-answer-input').value = "";
+      document.getElementById('step-feedback').classList.add('hidden');
+      
+      document.getElementById('quiz-question').innerText = "What is the y-intercept of the line y = 3x - 5?";
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = `
+        <button onclick="submitQuizOption(0)" class="quiz-option p-3 bg-rose-50 hover:bg-rose-100 text-gray-700 text-xs font-medium rounded-xl border border-rose-200 text-left">A) (0, -5)</button>
+        <button onclick="submitQuizOption(1)" class="quiz-option p-3 bg-rose-50 hover:bg-rose-100 text-gray-700 text-xs font-medium rounded-xl border border-rose-200 text-left">B) (0, 3)</button>
+      `;
+      currentQuizCorrectIndex = 0;
+      document.getElementById('quiz-feedback').classList.add('hidden');
+    }
+
+    function loadClaudeJSON() {
+      try {
+        const raw = document.getElementById('claude-json-input').value;
+        const parsed = JSON.parse(raw);
+        if (parsed.title) document.getElementById('math-unit-title').innerText = parsed.title;
+        if (parsed.problem) document.getElementById('problem-text').innerText = parsed.problem;
+        if (parsed.answer) currentStepCorrectAnswer = String(parsed.answer);
+        if (parsed.question) document.getElementById('quiz-question').innerText = parsed.question;
+        alert("Claude interactive worksheet loaded successfully!");
+      } catch(e) {
+        alert("Please paste valid JSON from Claude.");
       }
     }
 
     async function saveCurrentState() {
       const stateKey = `academy_tasks_${activeProfile}`;
       const taskStates = profiles[activeProfile].tasks.map(t => t.done);
-      
-      await supabaseClient
-        .from('task_states')
-        .upsert({ id: stateKey, states: taskStates, updated_at: new Date() });
+      await supabaseClient.from('task_states').upsert({ id: stateKey, states: taskStates, updated_at: new Date() });
     }
 
     async function loadSavedState() {
       const stateKey = `academy_tasks_${activeProfile}`;
-      
-      const { data } = await supabaseClient
-        .from('task_states')
-        .select('states')
-        .eq('id', stateKey)
-        .single();
-
+      const { data } = await supabaseClient.from('task_states').select('states').eq('id', stateKey).single();
       if (data && data.states) {
         profiles[activeProfile].tasks.forEach((t, i) => {
           if (data.states[i] !== undefined) t.done = data.states[i];
@@ -299,17 +380,14 @@
 
     function triggerVoicePrompt() {
       const promptText = prompt(`Ask ${profiles[activeProfile].aiName} a question:`);
-      if (promptText) {
-        speakText(`That's a great question about ${promptText}! Let's explore it together.`);
-      }
+      if (promptText) speakText(`Great question about ${promptText}! Let's review it together.`);
     }
 
     function requestVerification() {
-      alert(`Verification notification sent to Mom's iPhone for ${profiles[activeProfile].name}'s physical skill!`);
+      alert(`Verification notification sent to Mom's phone!`);
     }
 
-    // Initial Load
-    switchProfile('hessa');
+    switchProfile('hanaan');
   </script>
 </body>
 </html>
