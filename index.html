@@ -1,317 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haka Ranch School - Student Portals</title>
-  
-  <!-- Supabase JS Client -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haka Ranch School</title>
+  <meta name="apple-mobile-web-app-title" content="Haka Ranch">
+  <link rel="apple-touch-icon" href="https://ui-avatars.com/api/?name=HR&background=FF80AB&color=ffffff&size=512&rounded=true&bold=true&font-size=0.45&v=2">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --bg-color: #f7f9fc;
-      --text-color: #2c3e50;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: #1e293b;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #64748b;
-    }
-
-    /* Profiles Container */
-    .profiles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      width: 100%;
-      max-width: 1050px;
-    }
-
-    /* Base Card Style */
-    .profile-card {
-      border-radius: 20px;
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 380px;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
-
-    .avatar {
-      font-size: 4rem;
-      margin-bottom: 15px;
-    }
-
-    .profile-card h2 {
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    .profile-card .age-badge {
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      display: inline-block;
-    }
-
-    .profile-card p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin-bottom: 20px;
-    }
-
-    .enter-btn {
-      border: none;
-      padding: 12px 28px;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 80%;
-      transition: background-color 0.2s ease;
-    }
-
-    /* Theme 1: Hessa - Playful Sunshine Jelly */
     .theme-hessa {
-      background: linear-gradient(135deg, #fff9e6 0%, #ffedb3 100%);
-      border: 3px solid #ffd54f;
+      font-family: 'Fredoka', cursive;
+      background: linear-gradient(135deg, #FFF5F7 0%, #E0F7FA 100%);
     }
-    .theme-hessa h2 { color: #f57f17; }
-    .theme-hessa .age-badge { background: #ffe082; color: #e65100; }
-    .theme-hessa p { color: #8d6e63; }
-    .theme-hessa .enter-btn {
-      background: #ffb300;
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(255, 179, 0, 0.4);
-    }
-    .theme-hessa .enter-btn:hover { background: #ffa000; }
-
-    /* Theme 2: Junainah - Artsy Creative Studio */
     .theme-junainah {
-      background: #ffffff;
-      border: 3px dashed #81c784;
-      box-shadow: 0 8px 20px rgba(129, 199, 132, 0.15);
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #E6FFFA 0%, #F0E6FF 100%);
     }
-    .theme-junainah h2 { color: #2e7d32; }
-    .theme-junainah .age-badge { background: #c8e6c9; color: #1b5e20; }
-    .theme-junainah p { color: #4b6b4e; }
-    .theme-junainah .enter-btn {
-      background: #66bb6a;
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(102, 187, 106, 0.4);
-    }
-    .theme-junainah .enter-btn:hover { background: #4caf50; }
-
-    /* Theme 3: Hanaan - Rose-Gold Glassmorphism */
     .theme-hanaan {
-      background: linear-gradient(135deg, rgba(255, 240, 243, 0.9), rgba(240, 225, 230, 0.7));
-      backdrop-filter: blur(10px);
-      border: 2px solid #f48fb1;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #FAF0F2 0%, #F3E5F5 100%);
     }
-    .theme-hanaan h2 { color: #880e4f; }
-    .theme-hanaan .age-badge { background: #f8bbd0; color: #880e4f; }
-    .theme-hanaan p { color: #6a1b9a; }
-    .theme-hanaan .enter-btn {
-      background: #ec407a;
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(236, 64, 122, 0.4);
-    }
-    .theme-hanaan .enter-btn:hover { background: #d81b60; }
 
-    /* Active Dashboard View */
-    #dashboard-view {
-      display: none;
-      width: 100%;
-      max-width: 900px;
-      background: #fff;
-      padding: 30px;
+    .btn-jelly {
+      background: linear-gradient(180deg, #FF80AB 0%, #FF4081 100%);
+      box-shadow: 0 8px 0 #C2185B, 0 12px 20px rgba(255, 64, 129, 0.4);
+      transition: all 0.1s ease;
+    }
+    .btn-jelly:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #C2185B, 0 4px 10px rgba(255, 64, 129, 0.4);
+    }
+
+    .card-sketchbook {
+      background: #FFFFFF;
+      border: 3px solid #1DE9B6;
+      border-radius: 24px;
+      box-shadow: 8px 8px 0px #FF7300;
+    }
+
+    .tile-glass {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(226, 149, 120, 0.4);
       border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(226, 149, 120, 0.15);
     }
 
-    .nav-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #f0f0f0;
-    }
-
-    .back-btn {
-      background: #e2e8f0;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
+    .task-check {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #CBD5E1;
       cursor: pointer;
-      font-weight: 600;
-      color: #475569;
+      transition: all 0.2s ease;
+    }
+    .task-check:checked {
+      background-color: #10B981;
+      border-color: #10B981;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     }
 
-    .back-btn:hover { background: #cbd5e1; }
-
-    .schedule-list {
-      margin-top: 20px;
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-
-    .task-item {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      background: #f8fafc;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      border-left: 5px solid #cbd5e1;
-    }
-
-    .task-item.completed {
-      text-decoration: line-through;
-      opacity: 0.6;
+    .bot-active {
+      animation: pulse-ring 2s infinite;
     }
   </style>
 </head>
-<body>
+<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500">
 
-  <!-- Landing / Profile Selection View -->
-  <header id="app-header">
-    <h1>Haka Ranch School</h1>
-    <p>Select your profile to start today's learning journey</p>
+  <!-- TOP PROFILE SELECTOR BAR -->
+  <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-800" id="welcome-title">Welcome, Hessa! 🌟</h1>
+      <p class="text-sm text-gray-600" id="welcome-subtitle">Daily Rhythm • Age 7 Track</p>
+    </div>
+    
+    <div class="flex gap-3 bg-white/80 p-2 rounded-full shadow-md backdrop-blur-sm">
+      <button onclick="switchProfile('hessa')" class="px-4 py-2 rounded-full font-bold text-sm bg-pink-400 text-white shadow-sm hover:opacity-90">Hessa (7)</button>
+      <button onclick="switchProfile('junainah')" class="px-4 py-2 rounded-full font-bold text-sm bg-teal-400 text-white shadow-sm hover:opacity-90">Junainah (10)</button>
+      <button onclick="switchProfile('hanaan')" class="px-4 py-2 rounded-full font-bold text-sm bg-rose-300 text-white shadow-sm hover:opacity-90">Hanaan (12)</button>
+    </div>
   </header>
 
-  <main class="profiles-grid" id="profiles-grid">
-    
-    <!-- Hessa's Profile -->
-    <div class="profile-card theme-hessa" onclick="selectProfile('Hessa')">
-      <div>
-        <div class="avatar">☀️</div>
-        <h2>Hessa</h2>
-        <span class="age-badge">Age 7</span>
-        <p>Playful Sunshine & Phonics Fun! Let's build and learn together.</p>
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section class="md:col-span-2 space-y-4">
+      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+            <span>📋</span> Morning Schedule Checklist
+          </h2>
+          <span class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full" id="progress-badge">0 of 6 Completed</span>
+        </div>
+        <div class="space-y-3" id="task-list"></div>
       </div>
-      <button class="enter-btn">Open Hessa's Space</button>
-    </div>
+    </section>
 
-    <!-- Junainah's Profile -->
-    <div class="profile-card theme-junainah" onclick="selectProfile('Junainah')">
-      <div>
-        <div class="avatar">🎨</div>
-        <h2>Junainah</h2>
-        <span class="age-badge">Age 10</span>
-        <p>Creative Studio & Logic Discovery. Express your ideas today!</p>
+    <section class="space-y-6">
+      <div id="skills-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-yellow-100">
+        <h3 class="font-bold text-gray-800 text-md mb-2 flex items-center gap-2">
+          <span>🏅</span> Active Physical Skill
+        </h3>
+        <p class="text-sm text-gray-600 mb-3" id="skill-description">Hop 10 times on your left leg without falling!</p>
+        <button onclick="requestVerification()" class="w-full py-2 bg-amber-400 hover:bg-amber-500 text-white font-bold rounded-xl text-xs shadow">
+          Show Mom / Verify Skill
+        </button>
       </div>
-      <button class="enter-btn">Open Junainah's Space</button>
-    </div>
-
-    <!-- Hanaan's Profile -->
-    <div class="profile-card theme-hanaan" onclick="selectProfile('Hanaan')">
-      <div>
-        <div class="avatar">✨</div>
-        <h2>Hanaan</h2>
-        <span class="age-badge">Age 12</span>
-        <p>Academic Excellence & Coding Hub. Achieve your daily targets.</p>
-      </div>
-      <button class="enter-btn">Open Hanaan's Space</button>
-    </div>
-
+    </section>
   </main>
 
-  <!-- Active Student Dashboard View -->
-  <section id="dashboard-view">
-    <div class="nav-header">
-      <button class="back-btn" onclick="goBack()">← Back to Profiles</button>
-      <h2 id="current-student-title">Student Dashboard</h2>
+  <!-- PERSISTENT LIVE AI COMPANION BAR (FIXED BOTTOM) -->
+  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-pink-300 flex items-center justify-between gap-4 z-50">
+    <div class="flex items-center gap-3">
+      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-2xl shadow-inner bot-active">
+        🤖
+      </div>
+      <div>
+        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Joy Bot 🍬</h4>
+        <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Active Companion
+        </p>
+      </div>
     </div>
-
-    <h3>Morning Schedule (6:00 AM - 11:30 AM)</h3>
-    <div class="schedule-list" id="schedule-container">
-      <!-- Tasks dynamically render here -->
+    <div class="flex-1 text-xs text-gray-600 italic px-2 border-l border-r border-gray-200 truncate" id="live-bot-speech">
+      "Initializing AI companion..."
     </div>
-  </section>
+    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
+      Speak 💬
+    </button>
+  </div>
 
   <script>
-    // Supabase Initialization
-    const SUPABASE_URL = "YOUR_SUPABASE_URL";
-    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
-    let supabase = null;
+    const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    if (SUPABASE_URL !== "YOUR_SUPABASE_URL") {
-      supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const profiles = {
+      hessa: {
+        name: "Hessa",
+        age: 7,
+        themeClass: "theme-hessa",
+        welcomeTitle: "Welcome, Hessa! 🌟",
+        aiName: "Joy Bot 🍬",
+        greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
+        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
+        tasks: [
+          { id: 1, time: "06:00 AM", title: "Logic Warm-Up (Brilliant Puzzle)", done: false },
+          { id: 2, time: "06:10 AM", title: "Math Visual Arithmetic & Abacus", done: false },
+          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Question", done: false },
+          { id: 4, time: "07:45 AM", title: "English Phonics Workbook & Tapping", done: false },
+          { id: 5, time: "08:30 AM", title: "Robotics: micro:bit LED Animation", done: false },
+          { id: 6, time: "09:30 AM", title: "Science: Kitchen Chemistry Lab", done: false }
+        ],
+        skill: "Hop 10 times on your left leg without falling!"
+      },
+      junainah: {
+        name: "Junainah",
+        age: 10,
+        themeClass: "theme-junainah",
+        welcomeTitle: "Studio Hub: Junainah 🎨",
+        aiName: "Artisan AI 🖌️",
+        greeting: "Welcome back Junainah! Artisan AI online. Ready to create and code today?",
+        cardClass: "card-sketchbook p-6",
+        tasks: [
+          { id: 1, time: "06:00 AM", title: "Logic & Spatial Puzzle", done: false },
+          { id: 2, time: "06:10 AM", title: "Mathematics Core & Word Problems", done: false },
+          { id: 3, time: "07:00 AM", title: "Breakfast & Ethics Debate", done: false },
+          { id: 4, time: "07:45 AM", title: "English Grammar & Directed Writing", done: false },
+          { id: 5, time: "08:30 AM", title: "Coding: Python Loops & Breadboards", done: false },
+          { id: 6, time: "09:30 AM", title: "Biology: Plant Cell Microscopy", done: false }
+        ],
+        skill: "Hold a wall handstand steadily for 10 seconds!"
+      },
+      hanaan: {
+        name: "Hanaan",
+        age: 12,
+        themeClass: "theme-hanaan",
+        welcomeTitle: "Academic Suite: Hanaan ✨",
+        aiName: "Cambridge Mentor 🏛️",
+        greeting: "Greetings Hanaan. Cambridge Mentor active. Let's maintain focused progress on your schedule.",
+        cardClass: "tile-glass p-6",
+        tasks: [
+          { id: 1, time: "06:00 AM", title: "Logic & Advanced Spatial Reasoning", done: false },
+          { id: 2, time: "06:10 AM", title: "Cambridge Math: Algebraic Proofs", done: false },
+          { id: 3, time: "07:00 AM", title: "Breakfast & Socratic Ethics Discussion", done: false },
+          { id: 4, time: "07:45 AM", title: "English Paper 1 Summary Analysis", done: false },
+          { id: 5, time: "08:30 AM", title: "Robotics: Raspberry Pi & Python Automation", done: false },
+          { id: 6, time: "09:30 AM", title: "Physics 0625: Kinematics & Virtual Lab", done: false }
+        ],
+        skill: "Juggle 3 lightweight balls continuously for 15 seconds!"
+      }
+    };
+
+    let activeProfile = "hessa";
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.1;
+        window.speechSynthesis.speak(utterance);
+      }
+      document.getElementById('live-bot-speech').innerText = `"${text}"`;
     }
 
-    const defaultTasks = [
-      { time: "06:00 AM", task: "Morning Routine & Reading" },
-      { time: "07:00 AM", task: "Breakfast Break" },
-      { time: "08:00 AM", task: "Math Academy / Core Math" },
-      { time: "09:15 AM", task: "Phonics & Language Practice" },
-      { time: "10:15 AM", task: "Science Exploration & Coding" },
-      { time: "11:00 AM", task: "Reflection & Wrap-Up" }
-    ];
+    async function switchProfile(profileKey) {
+      activeProfile = profileKey;
+      const data = profiles[profileKey];
 
-    function selectProfile(name) {
-      document.getElementById('app-header').style.display = 'none';
-      document.getElementById('profiles-grid').style.display = 'none';
+      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500`;
+
+      document.getElementById('welcome-title').innerText = data.welcomeTitle;
+      document.getElementById('welcome-subtitle').innerText = `Daily Rhythm • Age ${data.age} Track`;
+      document.getElementById('live-bot-name').innerText = data.aiName;
+      document.getElementById('skill-description').innerText = data.skill;
+      document.getElementById('checklist-card').className = data.cardClass;
+
+      await loadSavedState();
+      renderTasks(data.tasks);
+
+      // Trigger active companion greeting
+      speakText(data.greeting);
+    }
+
+    function renderTasks(tasks) {
+      const container = document.getElementById('task-list');
+      container.innerHTML = "";
+
+      let completedCount = 0;
+
+      tasks.forEach((task, index) => {
+        if(task.done) completedCount++;
+
+        const taskRow = document.createElement('div');
+        taskRow.className = "flex items-center justify-between p-3 rounded-2xl bg-gray-50/80 hover:bg-white transition shadow-sm";
+        taskRow.innerHTML = `
+          <div class="flex items-center gap-3">
+            <input type="checkbox" ${task.done ? "checked" : ""} onchange="toggleTask(${index})" class="task-check">
+            <div>
+              <p class="text-xs text-gray-400 font-bold">${task.time}</p>
+              <p class="text-sm font-semibold ${task.done ? 'line-through text-gray-400' : 'text-gray-800'}">${task.title}</p>
+            </div>
+          </div>
+          <span class="text-xs px-2 py-1 rounded-full ${task.done ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-100 text-gray-500'}">
+            ${task.done ? 'Completed ✨' : 'Pending'}
+          </span>
+        `;
+        container.appendChild(taskRow);
+      });
+
+      document.getElementById('progress-badge').innerText = `${completedCount} of ${tasks.length} Completed`;
+    }
+
+    async function toggleTask(index) {
+      const task = profiles[activeProfile].tasks[index];
+      task.done = !task.done;
+      renderTasks(profiles[activeProfile].tasks);
+      await saveCurrentState();
+
+      if (task.done) {
+        speakText(`Awesome job finishing ${task.title}! What are we doing next?`);
+      }
+    }
+
+    async function saveCurrentState() {
+      const stateKey = `academy_tasks_${activeProfile}`;
+      const taskStates = profiles[activeProfile].tasks.map(t => t.done);
       
-      const dashboard = document.getElementById('dashboard-view');
-      const title = document.getElementById('current-student-title');
-      const container = document.getElementById('schedule-container');
-
-      dashboard.style.display = 'block';
-      title.innerText = `${name}'s Learning Dashboard`;
-
-      container.innerHTML = defaultTasks.map((t, index) => `
-        <div class="task-item">
-          <input type="checkbox" id="task-${index}" style="margin-right: 15px; transform: scale(1.3);">
-          <label for="task-${index}"><strong>${t.time}</strong> — ${t.task}</label>
-        </div>
-      `).join('');
+      await supabaseClient
+        .from('task_states')
+        .upsert({ id: stateKey, states: taskStates, updated_at: new Date() });
     }
 
-    function goBack() {
-      document.getElementById('dashboard-view').style.display = 'none';
-      document.getElementById('app-header').style.display = 'block';
-      document.getElementById('profiles-grid').style.display = 'grid';
+    async function loadSavedState() {
+      const stateKey = `academy_tasks_${activeProfile}`;
+      
+      const { data } = await supabaseClient
+        .from('task_states')
+        .select('states')
+        .eq('id', stateKey)
+        .single();
+
+      if (data && data.states) {
+        profiles[activeProfile].tasks.forEach((t, i) => {
+          if (data.states[i] !== undefined) t.done = data.states[i];
+        });
+      }
     }
+
+    function triggerVoicePrompt() {
+      const promptText = prompt(`Ask ${profiles[activeProfile].aiName} a question:`);
+      if (promptText) {
+        speakText(`That's a great question about ${promptText}! Let's explore it together.`);
+      }
+    }
+
+    function requestVerification() {
+      alert(`Verification notification sent to Mom's iPhone for ${profiles[activeProfile].name}'s physical skill!`);
+    }
+
+    // Initial Load
+    switchProfile('hessa');
   </script>
 </body>
 </html>
