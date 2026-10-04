@@ -6,6 +6,11 @@
   <title>Hanaan's Math Portal - Khan Academy Style</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- KaTeX for math symbol rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,15 +18,7 @@
       background-color: #F8F9FA;
       color: #212529;
     }
-    .khan-navy {
-      background-color: #142a53;
-    }
-    .khan-blue {
-      background-color: #1865f2;
-    }
-    .khan-blue-text {
-      color: #1865f2;
-    }
+    .khan-navy { background-color: #142a53; }
     .khan-card {
       background: #FFFFFF;
       border: 1px solid #E3E8EE;
@@ -41,7 +38,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- KHAN ACADEMY BRAND HEADER -->
+  <!-- HEADER -->
   <header class="khan-navy text-white py-3 px-4 md:px-8 shadow-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-4">
@@ -50,10 +47,9 @@
           <span class="text-xs bg-emerald-500 text-white font-bold px-2 py-0.5 rounded">ACADEMY</span>
         </a>
         <span class="hidden md:inline-block text-slate-400 text-sm">|</span>
-        <span class="hidden md:inline-block text-sm font-semibold text-slate-200">Cambridge O Level (4024) • Hanaan</span>
+        <span class="hidden md:inline-block text-sm font-semibold text-slate-200">Grade 7–8 & Cambridge O Level (4024)</span>
       </div>
 
-      <!-- XP & STREAK TRACKER -->
       <div class="flex items-center gap-4 text-sm font-bold">
         <div class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
           <span class="text-amber-400 text-base">⚡</span>
@@ -68,62 +64,50 @@
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
+  <!-- MAIN LAYOUT -->
   <div class="max-w-6xl mx-auto w-full p-4 md:p-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-    <!-- LEFT COLUMN: UNIT MASTERY TREE -->
+    <!-- UNIT TREE -->
     <aside class="lg:col-span-4 space-y-4">
       <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="font-extrabold text-lg text-slate-800">Unit Mastery</h2>
-          <span class="text-xs font-bold text-slate-500" id="total-mastery-text">1 of 4 Mastered</span>
+          <h2 class="font-extrabold text-lg text-slate-800">Grade 7–8 Curriculum</h2>
+          <span class="text-xs font-bold text-slate-500" id="total-mastery-text">0 of 8 Mastered</span>
         </div>
-
-        <div class="space-y-3" id="units-tree">
-          <!-- Dynamically generated unit cards -->
-        </div>
+        <div class="space-y-2.5 max-h-[600px] overflow-y-auto pr-1" id="units-tree"></div>
       </div>
     </aside>
 
-    <!-- RIGHT COLUMN: INTERACTIVE PRACTICE ARENA -->
+    <!-- PRACTICE ARENA -->
     <main class="lg:col-span-8 flex flex-col">
       <div class="khan-card p-6 md:p-8 flex-1 flex flex-col justify-between" id="practice-card">
         
-        <!-- HEADER / BREADCRUMB -->
         <div>
           <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
             <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-400" id="active-unit-title">Unit 1: Linear Equations</span>
-              <h3 class="text-xl font-black text-slate-800" id="active-skill-title">Solving Two-Step Linear Equations</h3>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400" id="active-unit-title">Unit 1</span>
+              <h3 class="text-xl font-black text-slate-800" id="active-skill-title">Skill Title</h3>
             </div>
             <button onclick="toggleScratchpad()" class="text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg flex items-center gap-1">
               ✏️ Scratchpad
             </button>
           </div>
 
-          <!-- QUESTION DISPLAY -->
           <div class="space-y-4 my-4">
-            <div class="text-sm text-slate-500 font-semibold">Cambridge 4024 Style Practice Question:</div>
+            <div class="text-sm text-slate-500 font-semibold">Khan Practice Question:</div>
             <div class="text-xl md:text-2xl font-bold text-slate-900 bg-slate-50 p-6 rounded-xl border border-slate-200" id="question-text">
-              Loading question...
+              Loading...
             </div>
           </div>
 
-          <!-- MULTIPLE CHOICE / INPUT OPTIONS -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6" id="options-container">
-            <!-- Dynamically populated options -->
-          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6" id="options-container"></div>
 
-          <!-- PROGRESSIVE HINTS BOX -->
           <div id="hints-box" class="mt-6 hidden bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900 space-y-2">
-            <div class="font-bold flex items-center gap-1 text-amber-800">
-              💡 Step-by-Step Hint:
-            </div>
+            <div class="font-bold flex items-center gap-1 text-amber-800">💡 Step-by-Step Hint:</div>
             <div id="hint-text" class="leading-relaxed"></div>
           </div>
         </div>
 
-        <!-- FOOTER / ACTION BAR -->
         <div class="border-t border-slate-100 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <button onclick="showNextHint()" class="text-xs font-bold text-slate-500 hover:text-slate-800 underline">
             Get a hint (Step-by-step)
@@ -142,11 +126,11 @@
 
   </div>
 
-  <!-- SCRATCHPAD DRAWER (OVERLAY) -->
+  <!-- SCRATCHPAD -->
   <div id="scratchpad-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
     <div class="bg-white rounded-2xl max-w-2xl w-full p-4 shadow-2xl flex flex-col h-[500px]">
       <div class="flex justify-between items-center pb-2 border-b">
-        <h4 class="font-bold text-slate-800">Scratchpad / Working Area</h4>
+        <h4 class="font-bold text-slate-800">Scratchpad</h4>
         <div class="flex items-center gap-2">
           <button onclick="clearScratchpad()" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded font-semibold text-slate-600">Clear</button>
           <button onclick="toggleScratchpad()" class="text-xs bg-rose-500 text-white px-3 py-1 rounded font-semibold">Close</button>
@@ -157,127 +141,115 @@
   </div>
 
   <script>
-    // --- CURRICULUM DATA (Cambridge 4024 Grade 7-8 Level) ---
+    // FULL KHAN ACADEMY GRADE 7-8 TOPIC TREE
     const units = [
       {
         id: "unit-1",
-        title: "Unit 1: Linear Equations",
-        skillTitle: "Two-Step Equations",
-        masteryState: "practiced", // not-started, practiced, mastered
-        questions: [
-          {
-            q: "Solve for $x$: 3x + 7 = 22",
-            options: ["x = 5", "x = 4", "x = 6", "x = 7"],
-            correct: 0,
-            hints: [
-              "First, isolate the variable term by subtracting 7 from both sides: 3x = 15.",
-              "Next, divide both sides by 3 to solve for x: x = 15 / 3 = 5."
-            ]
-          },
-          {
-            q: "Solve for $y$: 5y - 12 = 28",
-            options: ["y = 6", "y = 8", "y = 7", "y = 10"],
-            correct: 1,
-            hints: [
-              "Add 12 to both sides of the equation: 5y = 40.",
-              "Divide both sides by 5: y = 40 / 5 = 8."
-            ]
-          }
-        ]
+        title: "Unit 1: Rational Numbers",
+        skillTitle: "Operations with Negative Numbers",
+        masteryState: "practiced",
+        questions: [{
+          q: "Solve: -15 + (-8) - (-12)",
+          options: ["-11", "-35", "5", "-11.5"],
+          correct: 0,
+          hints: ["Combine initial negatives: -15 + (-8) = -23.", "Subtracting a negative is adding: -23 + 12 = -11."]
+        }]
       },
       {
         id: "unit-2",
-        title: "Unit 2: Algebraic Expansion",
-        skillTitle: "Expanding Single & Double Brackets",
-        masteryState: "mastered",
-        questions: [
-          {
-            q: "Expand and simplify: 4(2x - 3) + 5",
-            options: ["8x - 7", "8x - 12", "8x + 7", "6x - 7"],
-            correct: 0,
-            hints: [
-              "Multiply 4 by both terms inside the bracket: 4(2x) - 4(3) = 8x - 12.",
-              "Add 5 to the constant term: 8x - 12 + 5 = 8x - 7."
-            ]
-          }
-        ]
+        title: "Unit 2: Rates & Ratios",
+        skillTitle: "Unit Rates & Proportions",
+        masteryState: "not-started",
+        questions: [{
+          q: "If 4 kg of apples cost $18, what is the cost of 7 kg?",
+          options: ["$31.50", "$28.00", "$32.00", "$30.50"],
+          correct: 0,
+          hints: ["Find the unit rate per kg: $18 / 4 = $4.50 per kg.", "Multiply by 7: 7 × $4.50 = $31.50."]
+        }]
       },
       {
         id: "unit-3",
-        title: "Unit 3: Fractions & Ratio",
-        skillTitle: "Simplifying & Dividing Ratios",
-        masteryState: "not-started",
-        questions: [
-          {
-            q: "Divide $60 in the ratio 3 : 2.",
-            options: ["$36 and $24", "$30 and $30", "$40 and $20", "$35 and $25"],
-            correct: 0,
-            hints: [
-              "Find total parts: 3 + 2 = 5 parts.",
-              "Find the value of 1 part: $60 / 5 = $12.",
-              "Multiply each ratio part by $12: 3 × $12 = $36 and 2 × $12 = $24."
-            ]
-          }
-        ]
+        title: "Unit 3: Linear Equations",
+        skillTitle: "Two-Step Equations",
+        masteryState: "practiced",
+        questions: [{
+          q: "Solve for x: 3x + 7 = 22",
+          options: ["x = 5", "x = 4", "x = 6", "x = 7"],
+          correct: 0,
+          hints: ["Subtract 7 from both sides: 3x = 15.", "Divide by 3: x = 5."]
+        }]
       },
       {
         id: "unit-4",
-        title: "Unit 4: Geometry & Angles",
-        skillTitle: "Angles in Parallel Lines",
+        title: "Unit 4: Expressions & Brackets",
+        skillTitle: "Expanding & Factoring Expressions",
+        masteryState: "mastered",
+        questions: [{
+          q: "Expand and simplify: 4(2x - 3) + 5",
+          options: ["8x - 7", "8x - 12", "8x + 7", "6x - 7"],
+          correct: 0,
+          hints: ["Multiply across brackets: 4(2x) - 12 = 8x - 12.", "Add constant term: 8x - 12 + 5 = 8x - 7."]
+        }]
+      },
+      {
+        id: "unit-5",
+        title: "Unit 5: Linear Functions",
+        skillTitle: "Slope & y-intercept (y = mx + c)",
         masteryState: "not-started",
-        questions: [
-          {
-            q: "Two interior angles on the same side of a transversal line add up to:",
-            options: ["180°", "360°", "90°", "270°"],
-            correct: 0,
-            hints: [
-              "Co-interior (or allied) angles between parallel lines are supplementary.",
-              "Supplementary angles always sum up to 180°."
-            ]
-          }
-        ]
+        questions: [{
+          q: "What is the slope (m) of the line y = -3x + 8?",
+          options: ["-3", "8", "3", "-8"],
+          correct: 0,
+          hints: ["In equation form y = mx + c, the coefficient of x is the slope m.", "Here m = -3."]
+        }]
+      },
+      {
+        id: "unit-6",
+        title: "Unit 6: Geometry & Angles",
+        skillTitle: "Parallel Lines & Polygons",
+        masteryState: "not-started",
+        questions: [{
+          q: "Two co-interior angles between parallel lines add up to:",
+          options: ["180°", "360°", "90°", "270°"],
+          correct: 0,
+          hints: ["Co-interior (allied) angles on the same side of a transversal are supplementary.", "Supplementary angles sum to 180°."]
+        }]
+      },
+      {
+        id: "unit-7",
+        title: "Unit 7: Pythagorean Theorem",
+        skillTitle: "Right-Angled Triangle Calculations",
+        masteryState: "not-started",
+        questions: [{
+          q: "Find the hypotenuse if side a = 6 and side b = 8.",
+          options: ["10", "14", "12", "100"],
+          correct: 0,
+          hints: ["Use a² + b² = c².", "6² + 8² = 36 + 64 = 100.", "c = √100 = 10."]
+        }]
+      },
+      {
+        id: "unit-8",
+        title: "Unit 8: Statistics & Probability",
+        skillTitle: "Probability & Data Modeling",
+        masteryState: "not-started",
+        questions: [{
+          q: "A fair die is rolled. What is the probability of getting an even prime number?",
+          options: ["1/6", "1/3", "1/2", "2/6"],
+          correct: 0,
+          hints: ["Prime numbers on a die: 2, 3, 5.", "Even prime number: only 2.", "Probability = 1 outcome out of 6 possible = 1/6."]
+        }]
       }
     ];
 
-    // --- STATE ENGINE ---
     let currentUnitIndex = 0;
     let currentQuestionIndex = 0;
     let currentHintIndex = 0;
     let selectedOptionIndex = null;
     let userXP = 1250;
-    let userStreak = 5;
 
-    // --- AUDIO SYNTHESIZER ---
-    function playAudio(type) {
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        if (type === 'correct') {
-          osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
-          osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
-          gain.gain.setValueAtTime(0.2, ctx.currentTime);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.3);
-        } else if (type === 'incorrect') {
-          osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
-          gain.gain.setValueAtTime(0.2, ctx.currentTime);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.2);
-        }
-      } catch (e) {
-        // Fallback if audio blocked
-      }
-    }
-
-    // --- RENDER FUNCTIONS ---
     function renderTree() {
       const container = document.getElementById('units-tree');
       container.innerHTML = '';
-
       let masteredCount = 0;
 
       units.forEach((u, idx) => {
@@ -286,7 +258,7 @@
         const isSelected = idx === currentUnitIndex;
         const div = document.createElement('div');
         div.onclick = () => selectUnit(idx);
-        div.className = `p-4 rounded-xl border cursor-pointer transition flex items-center justify-between ${
+        div.className = `p-3 rounded-xl border cursor-pointer transition flex items-center justify-between ${
           isSelected ? 'border-emerald-500 bg-emerald-50/50 shadow-sm' : 'border-slate-200 hover:border-slate-300 bg-white'
         }`;
 
@@ -297,8 +269,8 @@
 
         div.innerHTML = `
           <div>
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">${u.title.split(':')[0]}</p>
-            <p class="text-sm font-bold text-slate-800">${u.skillTitle}</p>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">${u.title.split(':')[0]}</p>
+            <p class="text-xs font-bold text-slate-800">${u.skillTitle}</p>
           </div>
           <span class="mastery-pill ${pillClass}">${pillText}</span>
         `;
@@ -314,9 +286,15 @@
 
       document.getElementById('active-unit-title').innerText = unit.title;
       document.getElementById('active-skill-title').innerText = unit.skillTitle;
-      document.getElementById('question-text').innerText = qData.q;
+      
+      const qElem = document.getElementById('question-text');
+      qElem.innerText = qData.q;
 
-      // Reset state
+      // Render math if KaTeX is loaded
+      if (window.katex) {
+        katex.render(qData.q, qElem, { throwOnError: false });
+      }
+
       selectedOptionIndex = null;
       currentHintIndex = 0;
       document.getElementById('hints-box').classList.add('hidden');
@@ -329,26 +307,19 @@
         const btn = document.createElement('button');
         btn.onclick = () => selectOption(idx);
         btn.id = `opt-btn-${idx}`;
-        btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left flex items-center justify-between';
-        btn.innerHTML = `
-          <span>${opt}</span>
-          <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs opacity-0 check-mark">✓</span>
-        `;
+        btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left';
+        btn.innerText = opt;
         optionsContainer.appendChild(btn);
       });
     }
 
     function selectOption(idx) {
       selectedOptionIndex = idx;
-      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
-
-      qData.options.forEach((_, i) => {
+      units[currentUnitIndex].questions[currentQuestionIndex].options.forEach((_, i) => {
         const btn = document.getElementById(`opt-btn-${i}`);
-        if (i === idx) {
-          btn.className = 'p-4 rounded-xl border-2 border-emerald-600 bg-emerald-50 font-bold text-emerald-900 transition text-left flex items-center justify-between';
-        } else {
-          btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left flex items-center justify-between';
-        }
+        btn.className = (i === idx) 
+          ? 'p-4 rounded-xl border-2 border-emerald-600 bg-emerald-50 font-bold text-emerald-900 transition text-left'
+          : 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left';
       });
     }
 
@@ -370,27 +341,17 @@
       const feedback = document.getElementById('feedback-message');
 
       if (isCorrect) {
-        playAudio('correct');
         feedback.innerText = "Correct! Great job! 🎉";
         feedback.className = "text-sm font-bold text-emerald-600";
 
-        // Reward XP
         userXP += 100;
         document.getElementById('xp-counter').innerText = userXP.toLocaleString();
 
-        // Update Unit Mastery State
         units[currentUnitIndex].masteryState = "mastered";
         renderTree();
 
-        // Confetti burst
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.8 }
-        });
-
+        confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
       } else {
-        playAudio('incorrect');
         feedback.innerText = "Not quite. Try getting a hint!";
         feedback.className = "text-sm font-bold text-rose-500";
       }
@@ -406,11 +367,11 @@
         hintText.innerText = qData.hints[currentHintIndex];
         currentHintIndex++;
       } else {
-        alert("No more hints available for this question!");
+        alert("No more hints available!");
       }
     }
 
-    // --- SCRATCHPAD LOGIC ---
+    // Scratchpad
     let canvas, ctx, drawing = false;
 
     function toggleScratchpad() {
@@ -445,9 +406,11 @@
       if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    // --- INITIALIZE ---
-    renderTree();
-    renderQuestion();
+    // Init
+    window.onload = () => {
+      renderTree();
+      renderQuestion();
+    };
   </script>
 </body>
 </html>
