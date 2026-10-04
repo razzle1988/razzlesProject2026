@@ -7,131 +7,155 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Fredoka', cursive; }
-  </style>
+  <style> body { font-family: 'Fredoka', cursive; } </style>
 </head>
 <body class="bg-pink-50 text-slate-800 p-4 md:p-8 min-h-screen">
   <div class="max-w-4xl mx-auto space-y-6">
 
-    <!-- Header Navigation -->
+    <!-- Navigation Header -->
     <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-pink-200 shadow-sm">
       <div>
         <h1 class="text-3xl font-extrabold text-purple-700">Hessa's Science Explorer 🌟</h1>
-        <p class="text-xs text-slate-500 font-medium">7 Years Old • Junior Science Plan</p>
+        <p class="text-xs text-slate-500 font-medium">7 Years Old • Interactive Science Workbook</p>
       </div>
       <a href="index.html" class="text-xs font-bold bg-pink-100 hover:bg-pink-200 text-pink-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
     </div>
 
-    <!-- WEEK 1 INTERACTIVE MODULE -->
-    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 shadow-md space-y-6">
+    <!-- WEEK 1 DIGITAL WORKBOOK -->
+    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 shadow-md space-y-8">
       
-      <!-- Module Header -->
+      <!-- Banner -->
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b pb-4 border-slate-100">
         <div>
-          <div class="flex items-center gap-2">
-            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">Week 1</span>
-            <span class="text-xs text-slate-400">Junior Level</span>
-          </div>
-          <h2 class="text-2xl font-extrabold text-slate-800 mt-1">My Five Senses Explorer</h2>
+          <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full">Week 1 Workbook</span>
+          <h2 class="text-2xl font-extrabold text-slate-800 mt-2">My Five Senses Discovery</h2>
         </div>
-        <span id="week1-status-badge" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
+        <span id="hessa-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
       </div>
 
-      <!-- PDF Download Button -->
+      <!-- Resource Bar -->
       <div class="bg-purple-50 p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-purple-200">
         <div class="flex items-center gap-3">
           <span class="text-2xl">📄</span>
           <div>
-            <p class="text-xs font-bold text-purple-900">Week 1 Printable Activity Pack</p>
-            <p class="text-xs text-purple-700">View or print Hessa's five senses workbook</p>
+            <p class="text-xs font-bold text-purple-900">Printable Companion PDF</p>
+            <p class="text-xs text-purple-700">Open or print the full coloring workbook</p>
           </div>
         </div>
         <a href="Science_Week01_My_Five_Senses_7yo.pdf" target="_blank" class="text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 rounded-xl transition shadow-sm w-full md:w-auto text-center">
-          Open PDF Workbook ↗
+          Open PDF ↗
         </a>
       </div>
 
-      <!-- Interactive Lesson & Notes -->
+      <!-- PART 1: INTERACTIVE SENSE MATCHING -->
       <div class="space-y-4">
-        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-          <span>👀</span> Fun Sensory Discovery Notes
+        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
+          <span>👀</span> Part 1: Tap to Match Senses
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 bg-purple-50/50 rounded-2xl border border-purple-100">
-            <h4 class="font-bold text-sm text-purple-900 mb-1">1. Light & Pupil Experiment</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              When you look into a dim room, your pupils grow larger to catch more light! In bright sunlight, pupils shrink to protect your eyes.
-            </p>
+
+        <!-- Interactive Sense Item 1 -->
+        <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <span class="text-xs font-bold text-slate-700">1. Listening to a bird singing outside 🐦</span>
+          <div class="flex gap-2">
+            <button onclick="checkMatch(this, false, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Sight</button>
+            <button onclick="checkMatch(this, true, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Hearing 👂</button>
+            <button onclick="checkMatch(this, false, 'm1')" class="m1 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Smell</button>
           </div>
-          <div class="p-4 bg-purple-50/50 rounded-2xl border border-purple-100">
-            <h4 class="font-bold text-sm text-purple-900 mb-1">2. Super Animal Senses</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Eagles can see tiny mice from 2 miles away! Dogs can smell up to 100,000 times better than humans.
-            </p>
+        </div>
+
+        <!-- Interactive Sense Item 2 -->
+        <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <span class="text-xs font-bold text-slate-700">2. Feeling a fluffy soft teddy bear 🧸</span>
+          <div class="flex gap-2">
+            <button onclick="checkMatch(this, true, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Touch ✋</button>
+            <button onclick="checkMatch(this, false, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Taste</button>
+            <button onclick="checkMatch(this, false, 'm2')" class="m2 text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg">Sight</button>
           </div>
         </div>
       </div>
 
-      <!-- Educational Media Links -->
+      <!-- PART 2: MINI QUIZ TIME -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
+          <span>⭐</span> Part 2: Super Senses Quiz
+        </h3>
+        <div class="p-4 bg-purple-50/60 rounded-2xl space-y-2">
+          <p class="text-xs font-bold text-slate-800">Which body part do you use to smell delicious freshly baked cookies?</p>
+          <div class="flex gap-2">
+            <button onclick="checkMatch(this, false, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Ears</button>
+            <button onclick="checkMatch(this, true, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Nose 👃</button>
+            <button onclick="checkMatch(this, false, 'q1')" class="q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl">Hands</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 3: WRITTEN & DRAWING REFLECTION -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
+          <span>✏️</span> Part 3: Written Explorer Journal
+        </h3>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">
+              Task 1: What is your absolute favorite thing to taste, and how does it taste (sweet, salty, sour)?
+            </label>
+            <textarea id="hessa_ans1" rows="2" class="w-full text-xs p-3 border border-pink-200 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Type here..."></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">
+              Task 2: Look around the room right now. List 3 things you can SEE using your eyes!
+            </label>
+            <textarea id="hessa_ans2" rows="2" class="w-full text-xs p-3 border border-pink-200 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="1. ... 2. ... 3. ..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 4: FUN VIDEOS -->
       <div class="space-y-3">
-        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-          <span>🎬</span> Fun Videos & Songs
+        <h3 class="text-lg font-bold text-purple-800 flex items-center gap-2 border-b pb-2">
+          <span>🎬</span> Fun Songs & Video Links
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <a href="https://www.youtube.com/results?search_query=five+senses+song+for+kids" target="_blank" class="p-3 bg-pink-50 hover:bg-pink-100 rounded-2xl border border-pink-200 flex items-center gap-3 transition">
             <span class="text-xl">🎵</span>
             <div>
-              <p class="text-xs font-bold text-pink-900">Song: The Five Senses Song</p>
-              <p class="text-xs text-pink-600">Sing along and learn sight, hearing & touch</p>
+              <p class="text-xs font-bold text-pink-900">Song: Five Senses Sing-Along</p>
+              <p class="text-xs text-pink-600">Catchy musical guide to the 5 senses</p>
             </div>
           </a>
           <a href="https://www.youtube.com/results?search_query=animal+super+senses+for+kids" target="_blank" class="p-3 bg-yellow-50 hover:bg-yellow-100 rounded-2xl border border-yellow-200 flex items-center gap-3 transition">
             <span class="text-xl">🦅</span>
             <div>
-              <p class="text-xs font-bold text-yellow-900">Video: Amazing Animal Senses</p>
-              <p class="text-xs text-yellow-700">Discover super sight and hearing in nature</p>
+              <p class="text-xs font-bold text-yellow-900">Video: Super Animal Senses</p>
+              <p class="text-xs text-yellow-700">How animals use super sight and smell!</p>
             </div>
           </a>
         </div>
       </div>
 
-      <!-- Quick Interactive Quiz -->
-      <div class="bg-purple-50/60 p-5 rounded-2xl border border-purple-100 space-y-4">
-        <h3 class="text-sm font-bold text-purple-900 flex items-center gap-2">
-          <span>⭐</span> Quiz Time!
-        </h3>
-        
-        <div class="space-y-2">
-          <p class="text-xs font-semibold text-slate-700">Which sense do you use to hear music?</p>
-          <div class="flex gap-2">
-            <button onclick="checkQuiz(this, false)" class="text-xs bg-white border border-slate-300 hover:bg-slate-100 py-1.5 px-3 rounded-lg">Sight</button>
-            <button onclick="checkQuiz(this, true)" class="text-xs bg-white border border-slate-300 hover:bg-slate-100 py-1.5 px-3 rounded-lg">Hearing 🎧</button>
-            <button onclick="checkQuiz(this, false)" class="text-xs bg-white border border-slate-300 hover:bg-slate-100 py-1.5 px-3 rounded-lg">Taste</button>
-          </div>
+      <!-- SUBMIT WORKBOOK -->
+      <div class="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-xs font-bold text-slate-700">Finished your workbook tasks?</p>
+          <p class="text-xs text-slate-500">Tap below to submit your answers and unlock Week 2!</p>
         </div>
-      </div>
-
-      <!-- Completion Action Bar -->
-      <div class="pt-4 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-xs text-slate-500">Tap below when Week 1 is done to unlock Week 2!</p>
-        <button id="complete-btn-week1" onclick="markWeekComplete('week1')" class="w-full md:w-auto text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-xl transition shadow-md">
-          Mark Complete & Unlock Week 2 🌟
+        <button id="hessa-submit-btn" onclick="saveHessaWorkbook()" class="w-full md:w-auto text-xs font-bold bg-purple-600 hover:bg-purple-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
+          Save Workbook & Unlock Week 2 🌟
         </button>
       </div>
 
     </div>
 
-    <!-- WEEK 2 LOCKED / UNLOCKED CONTAINER -->
-    <div id="week2-card" class="bg-slate-100 rounded-3xl p-6 md:p-8 border-2 border-slate-200 text-slate-400 space-y-4 opacity-75">
+    <!-- WEEK 2 UNLOCKED / LOCKED CONTAINER -->
+    <div id="hessa-w2-container" class="bg-slate-100 rounded-3xl p-6 md:p-8 border-2 border-slate-200 text-slate-400 space-y-4 opacity-75">
       <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2">
-          <span class="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">Week 2</span>
-          <span id="week2-lock-label" class="text-xs font-bold text-slate-400">🔒 Locked</span>
-        </div>
+        <span class="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">Week 2 Topic</span>
+        <span id="hessa-w2-status" class="text-xs font-bold text-slate-400">🔒 Locked</span>
       </div>
-      <h3 class="text-xl font-bold text-slate-700">Living vs Non-Living & Plants Around Us</h3>
-      <p class="text-xs text-slate-500">Finish Week 1 above to unlock Week 2 videos, games, and quizzes!</p>
+      <h3 class="text-xl font-bold text-slate-700">Living vs. Non-Living Things & Plants</h3>
+      <p class="text-xs text-slate-500">Finish Week 1 above to unlock Week 2!</p>
     </div>
 
   </div>
@@ -141,45 +165,66 @@
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    function checkQuiz(btn, isCorrect) {
+    function checkMatch(btn, isCorrect, groupClass) {
+      document.querySelectorAll('.' + groupClass).forEach(b => {
+        b.className = groupClass + " text-xs bg-white border border-slate-300 py-1.5 px-3 rounded-lg";
+      });
       if (isCorrect) {
-        btn.className = "text-xs bg-purple-600 text-white font-bold py-1.5 px-3 rounded-lg";
-        btn.innerText = "Great Job! ⭐";
+        btn.className = groupClass + " text-xs bg-purple-600 text-white font-bold py-1.5 px-3 rounded-lg";
       } else {
-        btn.className = "text-xs bg-pink-500 text-white font-bold py-1.5 px-3 rounded-lg";
-        btn.innerText = "Try Again ✕";
+        btn.className = groupClass + " text-xs bg-pink-500 text-white font-bold py-1.5 px-3 rounded-lg";
       }
     }
 
-    async function markWeekComplete(weekId) {
-      const badge = document.getElementById('week1-status-badge');
-      const completeBtn = document.getElementById('complete-btn-week1');
-      const week2Card = document.getElementById('week2-card');
-      const week2LockLabel = document.getElementById('week2-lock-label');
+    async function saveHessaWorkbook() {
+      const a1 = document.getElementById('hessa_ans1').value;
+      const a2 = document.getElementById('hessa_ans2').value;
 
-      badge.className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full";
-      badge.innerText = "Completed ✨";
-      completeBtn.disabled = true;
-      completeBtn.innerText = "Topic Completed ✓";
-      completeBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3 px-6 rounded-xl cursor-not-allowed";
+      if(!a1.trim() || !a2.trim()) {
+        alert("Please fill in both journal answers before submitting!");
+        return;
+      }
 
-      // Unlock Week 2 Card UI
-      week2Card.className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 text-slate-800 space-y-4 shadow-md transition-all";
-      week2LockLabel.className = "text-xs font-bold text-purple-600";
-      week2LockLabel.innerText = "🔓 Unlocked";
+      document.getElementById('hessa-status').className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full";
+      document.getElementById('hessa-status').innerText = "Completed ✨";
+      
+      const submitBtn = document.getElementById('hessa-submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Workbook Submitted ✓";
+      submitBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
 
-      // Save state to Supabase
-      await supabaseClient.from('task_states').upsert({ id: 'science_hessa_week1', states: [true], updated_at: new Date() });
+      document.getElementById('hessa-w2-container').className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 text-slate-800 space-y-4 shadow-md transition-all";
+      document.getElementById('hessa-w2-status').className = "text-xs font-bold text-purple-600";
+      document.getElementById('hessa-w2-status').innerText = "🔓 Unlocked for Week 2";
+
+      await supabaseClient.from('task_states').upsert({
+        id: 'science_hessa_week1',
+        states: [true, a1, a2],
+        updated_at: new Date()
+      });
     }
 
-    async function loadScienceProgress() {
+    async function loadSavedData() {
       const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_hessa_week1').single();
       if (data && data.states && data.states[0]) {
-        markWeekComplete('week1');
+        if(data.states[1]) document.getElementById('hessa_ans1').value = data.states[1];
+        if(data.states[2]) document.getElementById('hessa_ans2').value = data.states[2];
+
+        document.getElementById('hessa-status').className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full";
+        document.getElementById('hessa-status').innerText = "Completed ✨";
+        
+        const submitBtn = document.getElementById('hessa-submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Workbook Submitted ✓";
+        submitBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
+
+        document.getElementById('hessa-w2-container').className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-purple-100 text-slate-800 space-y-4 shadow-md transition-all";
+        document.getElementById('hessa-w2-status').className = "text-xs font-bold text-purple-600";
+        document.getElementById('hessa-w2-status').innerText = "🔓 Unlocked for Week 2";
       }
     }
 
-    loadScienceProgress();
+    loadSavedData();
   </script>
 </body>
 </html>
