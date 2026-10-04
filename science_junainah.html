@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junainah's Interactive Science Lab</title>
+  <title>Junainah's Interactive Science Workbook</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,167 +12,150 @@
 <body class="bg-slate-50 text-slate-800 p-4 md:p-8 min-h-screen">
   <div class="max-w-4xl mx-auto space-y-6">
 
-    <!-- Navigation Header -->
+    <!-- Header -->
     <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
       <div>
         <h1 class="text-3xl font-extrabold text-emerald-700">Junainah's Science Lab 🔬</h1>
-        <p class="text-xs text-slate-500 font-medium">10 Years Old • Integrated Science Workbook</p>
+        <p class="text-xs text-slate-500 font-medium">Integrated Science • Week 1 Interactive Workbook</p>
       </div>
       <a href="index.html" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
     </div>
 
-    <!-- WEEK 1 DIGITAL WORKBOOK -->
+    <!-- MAIN WORKBOOK CONTAINER -->
     <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 shadow-md space-y-8">
       
-      <!-- Module Banner -->
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b pb-4 border-slate-100">
+      <!-- Module Title -->
+      <div class="flex justify-between items-center border-b pb-4 border-slate-100">
         <div>
-          <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Week 1 Module</span>
+          <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Unit 1</span>
           <h2 class="text-2xl font-extrabold text-slate-800 mt-2">Sensory Receptors & MRS GREN Classification</h2>
         </div>
-        <span id="junainah-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
+        <span id="j-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
       </div>
 
-      <!-- Resource Bar -->
-      <div class="bg-emerald-50 p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-emerald-200">
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">📄</span>
-          <div>
-            <p class="text-xs font-bold text-emerald-900">Printable Companion PDF</p>
-            <p class="text-xs text-emerald-700">View or print the full original layout</p>
-          </div>
-        </div>
-        <a href="Science_Week01_Senses_and_Living_NonLiving_10yo.pdf" target="_blank" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl transition shadow-sm w-full md:w-auto text-center">
-          Open PDF ↗
-        </a>
-      </div>
-
-      <!-- PART 1: LESSON & INTERACTIVE NOTES -->
+      <!-- SECTION 1: READING & CORE CONCEPT NOTES -->
       <div class="space-y-4">
         <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          <span>📚</span> Part 1: Interactive Core Notes
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-            <h4 class="font-bold text-sm text-slate-800">1. Sensory Receptors</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Specialized neural structures detect energy changes in the environment:
-            </p>
-            <ul class="text-xs text-slate-600 list-disc list-inside space-y-1">
-              <li><strong>Photoreceptors:</strong> Light detection (Eyes)</li>
-              <li><strong>Mechanoreceptors:</strong> Touch, pressure, sound waves (Skin/Ears)</li>
-              <li><strong>Chemoreceptors:</strong> Chemical signals (Tongue/Nose)</li>
-            </ul>
-          </div>
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-            <h4 class="font-bold text-sm text-slate-800">2. Life Processes (MRS GREN)</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              All 7 characteristics must be present for an organism to be classified as living:
-            </p>
-            <p class="text-xs font-mono bg-emerald-100 text-emerald-900 p-2 rounded-lg font-bold">
-              M - Movement | R - Respiration | S - Sensitivity<br>
-              G - Growth | R - Reproduction | E - Excretion | N - Nutrition
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PART 2: INTERACTIVE QUIZ -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          <span>⚡</span> Part 2: Quick Self-Check Quiz
-        </h3>
-
-        <!-- Q1 -->
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-          <p class="text-xs font-bold text-slate-800">Q1. Which receptor type allows you to hear music from a speaker?</p>
-          <div class="flex flex-wrap gap-2">
-            <button onclick="checkMCQ(this, false, 'j-q1')" class="j-q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
-            <button onclick="checkMCQ(this, true, 'j-q1')" class="j-q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
-            <button onclick="checkMCQ(this, false, 'j-q1')" class="j-q1 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
-          </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="p-4 bg-slate-50 rounded-2xl space-y-2">
-          <p class="text-xs font-bold text-slate-800">Q2. Plant roots growing downwards towards gravity is an example of which MRS GREN process?</p>
-          <div class="flex flex-wrap gap-2">
-            <button onclick="checkMCQ(this, false, 'j-q2')" class="j-q2 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Excretion</button>
-            <button onclick="checkMCQ(this, false, 'j-q2')" class="j-q2 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Nutrition</button>
-            <button onclick="checkMCQ(this, true, 'j-q2')" class="j-q2 text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl hover:bg-slate-100 transition">Sensitivity / Movement</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- PART 3: WRITTEN WORKSHEET -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          <span>✍</span> Part 3: Written Investigation & Analysis
+          📖 Section 1: Lesson Notes & Key Concepts
         </h3>
         
-        <div class="space-y-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">
-              Task 1: Explain why a candle flame shows movement and consumes energy, but is STILL classified as non-living.
-            </label>
-            <textarea id="junainah_ans1" rows="3" class="w-full text-xs p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Type your answer here..."></textarea>
+        <div class="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100 space-y-3 text-xs leading-relaxed">
+          <h4 class="font-extrabold text-emerald-900 text-sm">Part A: How Our Senses Work (Sensory Receptors)</h4>
+          <p>
+            Your body collects information about the world using specialized cells called <strong>Sensory Receptors</strong>. These receptors detect stimulus (energy changes) in your environment and send electrical signals along neural pathways directly to your brain.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+            <div class="bg-white p-3 rounded-xl border border-emerald-200">
+              <p class="font-bold text-emerald-800">Photoreceptors</p>
+              <p class="text-slate-600 mt-1">Located in the eyes. They detect light energy and allow you to perceive color, movement, and shapes.</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-emerald-200">
+              <p class="font-bold text-emerald-800">Mechanoreceptors</p>
+              <p class="text-slate-600 mt-1">Located in skin and inner ears. They detect physical pressure, sound vibrations, touch, and balance.</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-emerald-200">
+              <p class="font-bold text-emerald-800">Chemoreceptors</p>
+              <p class="text-slate-600 mt-1">Located in the nose and tongue. They detect chemical molecules in air (smell) and food (taste).</p>
+            </div>
           </div>
+        </div>
 
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">
-              Task 2: Describe what happens to signal transmission from your fingertips to your brain when you touch something hot.
-            </label>
-            <textarea id="junainah_ans2" rows="3" class="w-full text-xs p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Type your answer here..."></textarea>
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3 text-xs leading-relaxed">
+          <h4 class="font-extrabold text-slate-800 text-sm">Part B: Living vs. Non-Living (MRS GREN)</h4>
+          <p>
+            To decide if something is scientifically "living," biologists check if it carries out <strong>all seven life processes</strong>. We remember them using the acronym <strong>MRS GREN</strong>:
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 font-mono text-[11px]">
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>M</strong> - Movement</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>R</strong> - Respiration</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>S</strong> - Sensitivity</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>G</strong> - Growth</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>R</strong> - Reproduction</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>E</strong> - Excretion</div>
+            <div class="bg-white p-2 rounded-lg border border-slate-200"><strong>N</strong> - Nutrition</div>
           </div>
         </div>
       </div>
 
-      <!-- PART 4: MEDIA CONTENT -->
-      <div class="space-y-3">
+      <!-- SECTION 2: INTERACTIVE PRACTICE & CLASSIFICATION -->
+      <div class="space-y-4">
         <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
-          <span>🎥</span> Interactive Visual Resources
+          🧩 Section 2: Interactive Receptor Matching
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <a href="https://www.youtube.com/results?search_query=sensory+receptors+nervous+system+for+kids" target="_blank" class="p-3 bg-red-50 hover:bg-red-100 rounded-2xl border border-red-200 flex items-center gap-3 transition">
-            <span class="text-xl">▶</span>
-            <div>
-              <p class="text-xs font-bold text-red-900">Watch: How Sensory Receptors Signal the Brain</p>
-              <p class="text-xs text-red-600">3D visual tour of human nerve pathways</p>
+        <p class="text-xs text-slate-600">Select the correct sensory receptor responsible for each situation:</p>
+
+        <div class="space-y-3 text-xs">
+          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
+            <span class="font-medium text-slate-800">1. Spotting a flashing red traffic light from 50 meters away:</span>
+            <div class="flex gap-2">
+              <button onclick="checkMatch(this, true, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
+              <button onclick="checkMatch(this, false, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
+              <button onclick="checkMatch(this, false, 'j-m1')" class="j-m1 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
             </div>
-          </a>
-          <a href="https://www.youtube.com/results?search_query=MRS+GREN+life+processes+biology" target="_blank" class="p-3 bg-blue-50 hover:bg-blue-100 rounded-2xl border border-blue-200 flex items-center gap-3 transition">
-            <span class="text-xl">🔬</span>
-            <div>
-              <p class="text-xs font-bold text-blue-900">Watch: The 7 Characteristics of Life</p>
-              <p class="text-xs text-blue-600">Detailed breakdown with real animal/plant examples</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
+            <span class="font-medium text-slate-800">2. Feeling the bass drum vibrations at a concert:</span>
+            <div class="flex gap-2">
+              <button onclick="checkMatch(this, false, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
+              <button onclick="checkMatch(this, true, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
+              <button onclick="checkMatch(this, false, 'j-m2')" class="j-m2 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
             </div>
-          </a>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-slate-200">
+            <span class="font-medium text-slate-800">3. Smelling fresh peppermint essential oil:</span>
+            <div class="flex gap-2">
+              <button onclick="checkMatch(this, false, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Photoreceptor</button>
+              <button onclick="checkMatch(this, false, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Mechanoreceptor</button>
+              <button onclick="checkMatch(this, true, 'j-m3')" class="j-m3 bg-white border border-slate-300 py-1.5 px-3 rounded-xl hover:bg-slate-100 transition">Chemoreceptor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: WRITTEN ANALYSIS WORKSHEET -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 border-b pb-2">
+          ✍ Section 3: Deep Dive Investigation & Analysis
+        </h3>
+
+        <div class="space-y-4 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">
+              Task 1: Fire Analysis — A candle flame grows, moves, consumes oxygen, and releases heat. Explain using MRS GREN why a flame is scientifically non-living.
+            </label>
+            <textarea id="j_ans1" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Write your explanation here..."></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">
+              Task 2: Neural Pathway — Trace the exact step-by-step path from touching a hot stove to pulling your hand away (Include: stimulus, receptor, nerve, brain, muscle action).
+            </label>
+            <textarea id="j_ans2" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Step 1: ... Step 2: ..."></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">
+              Task 3: Plant Sensitivity — How do plants show sensitivity without having a brain or nervous system? (Hint: Think about sunlight or gravity).
+            </label>
+            <textarea id="j_ans3" rows="3" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Type your observation..."></textarea>
+          </div>
         </div>
       </div>
 
       <!-- SUBMIT WORKBOOK -->
       <div class="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <p class="text-xs font-bold text-slate-700">Finished your workbook questions?</p>
-          <p class="text-xs text-slate-500">Submitting will save your answers and unlock Week 2 for Claude's next lesson.</p>
+          <p class="text-xs font-bold text-slate-700">Finished all tasks?</p>
+          <p class="text-xs text-slate-500">Submitting will record your answers into your lab ledger and mark Week 1 complete.</p>
         </div>
-        <button id="submit-btn" onclick="saveJunainahWorkbook()" class="w-full md:w-auto text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
-          Save Workbook & Unlock Next Week ✨
+        <button id="j-submit" onclick="saveJunainahWorkbook()" class="w-full md:w-auto text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-8 rounded-xl transition shadow-md">
+          Save & Submit Workbook ✨
         </button>
       </div>
 
     </div>
-
-    <!-- WEEK 2 UNLOCKED / LOCKED TOPIC CONTAINER -->
-    <div id="week2-container" class="bg-slate-100 rounded-3xl p-6 md:p-8 border-2 border-slate-200 text-slate-400 space-y-4 opacity-75">
-      <div class="flex justify-between items-center">
-        <span class="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">Week 2 Topic</span>
-        <span id="week2-lock-status" class="text-xs font-bold text-slate-400">🔒 Locked</span>
-      </div>
-      <h3 class="text-xl font-bold text-slate-700">Plant Anatomy, Photosynthesis & Animal Habitats</h3>
-      <p class="text-xs text-slate-500">Complete and submit Week 1 above to unlock this section for Claude's Week 2 material!</p>
-    </div>
-
   </div>
 
   <script>
@@ -180,44 +163,38 @@
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    function checkMCQ(btn, isCorrect, groupClass) {
+    function checkMatch(btn, isCorrect, groupClass) {
       document.querySelectorAll('.' + groupClass).forEach(b => {
-        b.className = groupClass + " text-xs bg-white border border-slate-300 py-2 px-4 rounded-xl transition";
+        b.className = groupClass + " bg-white border border-slate-300 py-1.5 px-3 rounded-xl transition";
       });
       if (isCorrect) {
-        btn.className = groupClass + " text-xs bg-emerald-600 text-white font-bold py-2 px-4 rounded-xl transition";
+        btn.className = groupClass + " bg-emerald-600 text-white font-bold py-1.5 px-3 rounded-xl transition";
       } else {
-        btn.className = groupClass + " text-xs bg-red-500 text-white font-bold py-2 px-4 rounded-xl transition";
+        btn.className = groupClass + " bg-red-500 text-white font-bold py-1.5 px-3 rounded-xl transition";
       }
     }
 
     async function saveJunainahWorkbook() {
-      const a1 = document.getElementById('junainah_ans1').value;
-      const a2 = document.getElementById('junainah_ans2').value;
+      const a1 = document.getElementById('j_ans1').value;
+      const a2 = document.getElementById('j_ans2').value;
+      const a3 = document.getElementById('j_ans3').value;
 
-      if(!a1.trim() || !a2.trim()) {
-        alert("Please answer both written questions before marking complete!");
+      if(!a1.trim() || !a2.trim() || !a3.trim()) {
+        alert("Please complete all three investigation tasks before submitting!");
         return;
       }
 
-      const statusBadge = document.getElementById('junainah-status');
-      const submitBtn = document.getElementById('submit-btn');
-      const w2Container = document.getElementById('week2-container');
-      const w2LockStatus = document.getElementById('week2-lock-status');
+      document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
+      document.getElementById('j-status').innerText = "Completed ✨";
 
-      statusBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
-      statusBadge.innerText = "Completed ✨";
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Workbook Submitted ✓";
-      submitBtn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
-
-      w2Container.className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 text-slate-800 space-y-4 shadow-md transition-all";
-      w2LockStatus.className = "text-xs font-bold text-emerald-600";
-      w2LockStatus.innerText = "🔓 Unlocked for Week 2";
+      const btn = document.getElementById('j-submit');
+      btn.disabled = true;
+      btn.innerText = "Workbook Submitted ✓";
+      btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
 
       await supabaseClient.from('task_states').upsert({
         id: 'science_junainah_week1',
-        states: [true, a1, a2],
+        states: [true, a1, a2, a3],
         updated_at: new Date()
       });
     }
@@ -225,18 +202,16 @@
     async function loadSavedData() {
       const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_junainah_week1').single();
       if (data && data.states && data.states[0]) {
-        if(data.states[1]) document.getElementById('junainah_ans1').value = data.states[1];
-        if(data.states[2]) document.getElementById('junainah_ans2').value = data.states[2];
-        
-        document.getElementById('junainah-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
-        document.getElementById('junainah-status').innerText = "Completed ✨";
-        document.getElementById('submit-btn').disabled = true;
-        document.getElementById('submit-btn').innerText = "Workbook Submitted ✓";
-        document.getElementById('submit-btn').className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
+        if(data.states[1]) document.getElementById('j_ans1').value = data.states[1];
+        if(data.states[2]) document.getElementById('j_ans2').value = data.states[2];
+        if(data.states[3]) document.getElementById('j_ans3').value = data.states[3];
 
-        document.getElementById('week2-container').className = "bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 text-slate-800 space-y-4 shadow-md transition-all";
-        document.getElementById('week2-lock-status').className = "text-xs font-bold text-emerald-600";
-        document.getElementById('week2-lock-status').innerText = "🔓 Unlocked for Week 2";
+        document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
+        document.getElementById('j-status').innerText = "Completed ✨";
+        const btn = document.getElementById('j-submit');
+        btn.disabled = true;
+        btn.innerText = "Workbook Submitted ✓";
+        btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
       }
     }
 
