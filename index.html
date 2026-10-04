@@ -74,7 +74,7 @@
     }
   </style>
 </head>
-<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500">
+<body id="app-body" class="theme-hessa min-h-screen p-4 md:p-8 pb-48 transition-colors duration-500">
 
   <!-- TOP PROFILE SELECTOR BAR -->
   <header class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
@@ -90,6 +90,20 @@
     </div>
   </header>
 
+  <!-- LEGEND HUNTER DEDICATED HEADER BOX -->
+  <div class="max-w-4xl mx-auto mb-6 bg-amber-500/10 border-2 border-amber-400 p-4 rounded-3xl shadow-md backdrop-blur-md flex items-center gap-4">
+    <div class="relative w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl shadow-lg shrink-0">
+      🤠
+      <span class="absolute -bottom-1 -right-1 text-base">🧭</span>
+    </div>
+    <div class="flex-1">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-100 px-2.5 py-0.5 rounded-full">Legend Hunter Quest Companion</span>
+      </div>
+      <p class="text-xs text-gray-600 font-medium mt-1">Ready to guide your next discovery quest across all daily modules!</p>
+    </div>
+  </div>
+
   <!-- MAIN DASHBOARD CONTENT -->
   <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
     <section class="md:col-span-2 space-y-6">
@@ -103,7 +117,7 @@
       </div>
 
       <!-- SCHEDULE CHECKLIST -->
-      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100">
+      <div id="checklist-card" class="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100 mb-12">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
             <span>📋</span> Morning Schedule Checklist
@@ -128,22 +142,22 @@
   </main>
 
   <!-- PERSISTENT LIVE AI COMPANION BAR (FIXED BOTTOM) -->
-  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-pink-300 flex items-center justify-between gap-4 z-50">
+  <div class="fixed bottom-4 left-4 right-4 max-w-2xl mx-auto bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-2xl border-2 border-amber-400 flex items-center justify-between gap-4 z-50">
     <div class="flex items-center gap-3">
-      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-2xl shadow-inner bot-active">
-        🤖
+      <div id="bot-avatar" class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-2xl shadow-inner bot-active">
+        🤠
       </div>
       <div>
-        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Joy Bot 🍬</h4>
+        <h4 class="font-bold text-sm text-gray-800" id="live-bot-name">Legend Hunter Companion 🤠</h4>
         <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Active Companion
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Quest Guide Active
         </p>
       </div>
     </div>
     <div class="flex-1 text-xs text-gray-600 italic px-2 border-l border-r border-gray-200 truncate" id="live-bot-speech">
       "Initializing AI companion..."
     </div>
-    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-pink-500 to-rose-400 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
+    <button onclick="triggerVoicePrompt()" class="bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold px-4 py-2 rounded-full text-xs shadow hover:opacity-90">
       Speak 💬
     </button>
   </div>
@@ -159,9 +173,9 @@
         age: 7,
         themeClass: "theme-hessa",
         welcomeTitle: "Welcome, Hessa! 🌟",
-        aiName: "Joy Bot 🍬",
-        greeting: "Hello Hessa! I'm Joy Bot. I'm right here with you today! What task shall we do first?",
-        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100",
+        aiName: "Legend Hunter Companion 🤠",
+        greeting: "Hello Hessa! Legend Hunter Companion online. Ready to go on our next learning quest?",
+        cardClass: "bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-100 mb-12",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 flex justify-between items-center">
             <div>
@@ -195,9 +209,9 @@
         age: 10,
         themeClass: "theme-junainah",
         welcomeTitle: "Studio Hub: Junainah 🎨",
-        aiName: "Artisan AI 🖌️",
-        greeting: "Welcome back Junainah! Artisan AI online. Ready to create and code today?",
-        cardClass: "card-sketchbook p-6",
+        aiName: "Legend Hunter Companion 🤠",
+        greeting: "Welcome back Junainah! Legend Hunter Companion online. What quest shall we take on today?",
+        cardClass: "card-sketchbook p-6 mb-12",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-teal-50 border border-teal-200 flex justify-between items-center">
             <div>
@@ -231,9 +245,9 @@
         age: 12,
         themeClass: "theme-hanaan",
         welcomeTitle: "Academic Suite: Hanaan ✨",
-        aiName: "Cambridge Mentor 🏛️",
-        greeting: "Greetings Hanaan. Cambridge Mentor active. Let's maintain focused progress on your schedule.",
-        cardClass: "tile-glass p-6",
+        aiName: "Legend Hunter Companion 🤠",
+        greeting: "Greetings Hanaan. Legend Hunter Companion online. Ready to focus on today's goals.",
+        cardClass: "tile-glass p-6 mb-12",
         subjectHTML: `
           <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
             <div>
@@ -274,7 +288,7 @@
       activeProfile = profileKey;
       const data = profiles[profileKey];
 
-      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-32 transition-colors duration-500`;
+      document.body.className = `${data.themeClass} min-h-screen p-4 md:p-8 pb-48 transition-colors duration-500`;
 
       document.getElementById('welcome-title').innerText = data.welcomeTitle;
       document.getElementById('welcome-subtitle').innerText = `Daily Rhythm • Age ${data.age} Track`;
