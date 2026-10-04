@@ -1,270 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanaan's Adaptive Math Bridge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanaan's Math Portal - Khan Academy Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #fdf2f8;
-      --card-bg: #ffffff;
-      --primary: #ec407a;
-      --primary-dark: #880e4f;
-      --text: #374151;
-      --accent: #fbcfe8;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 20px;
+      font-family: 'Lato', sans-serif;
+      background-color: #F8F9FA;
+      color: #212529;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .khan-navy {
+      background-color: #142a53;
     }
-
-    header {
-      background: linear-gradient(135deg, #f48fb1, #ec407a);
-      color: white;
-      padding: 24px;
-      border-radius: 16px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 15px rgba(236, 64, 122, 0.2);
+    .khan-blue {
+      background-color: #1865f2;
     }
-
-    .nav-btn {
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .khan-blue-text {
+      color: #1865f2;
     }
-
-    .nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
-
-    /* Progression Roadmap Bar */
-    .roadmap {
-      display: flex;
-      justify-content: space-between;
-      background: white;
-      padding: 16px;
+    .khan-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E8EE;
       border-radius: 12px;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
     }
-
-    .stage-node {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: #9ca3af;
-      border-bottom: 4px solid #e5e7eb;
+    .mastery-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
     }
-
-    .stage-node.active {
-      color: var(--primary-dark);
-      border-color: var(--primary);
-    }
-
-    .stage-node.completed {
-      color: #10b981;
-      border-color: #10b981;
-    }
-
-    /* Worksheet & Quiz Box */
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-
-    .question-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--primary-dark);
-    }
-
-    .options-grid {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .option-btn {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      padding: 14px 20px;
-      border-radius: 10px;
-      text-align: left;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .option-btn:hover {
-      border-color: var(--primary);
-      background: var(--bg);
-    }
-
-    .option-btn.selected {
-      border-color: var(--primary);
-      background: var(--accent);
-    }
-
-    .feedback {
-      margin-top: 16px;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: none;
-    }
-
-    .feedback.correct {
-      background: #d1fae5;
-      color: #065f46;
-    }
-
-    .feedback.incorrect {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .action-btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    .action-btn:hover { background: var(--primary-dark); }
+    .state-not-started { background-color: #F1F5F9; color: #64748B; }
+    .state-practiced { background-color: #FEF3C7; color: #D97706; }
+    .state-mastered { background-color: #D1FAE5; color: #059669; }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-  <div class="container">
-    <header>
-      <button class="nav-btn" onclick="window.location.href='index.html'">← Back to Profiles</button>
-      <h1>Hanaan's Adaptive Math Bridge</h1>
-      <p>Target: Cambridge O Level (4024)</p>
-    </header>
+  <!-- KHAN ACADEMY BRAND HEADER -->
+  <header class="khan-navy text-white py-3 px-4 md:px-8 shadow-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
+          <span class="text-xl font-black tracking-wider text-white">KHAN</span>
+          <span class="text-xs bg-emerald-500 text-white font-bold px-2 py-0.5 rounded">ACADEMY</span>
+        </a>
+        <span class="hidden md:inline-block text-slate-400 text-sm">|</span>
+        <span class="hidden md:inline-block text-sm font-semibold text-slate-200">Cambridge O Level (4024) • Hanaan</span>
+      </div>
 
-    <!-- Stage Progression Roadmap -->
-    <div class="roadmap">
-      <div class="stage-node active" id="node-1">Stage 1<br>Grade 7 Core</div>
-      <div class="stage-node" id="node-2">Stage 2<br>Grade 8 Bridge</div>
-      <div class="stage-node" id="node-3">Stage 3<br>Algebra & Trig</div>
-      <div class="stage-node" id="node-4">Stage 4<br>O Level Target</div>
+      <!-- XP & STREAK TRACKER -->
+      <div class="flex items-center gap-4 text-sm font-bold">
+        <div class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
+          <span class="text-amber-400 text-base">⚡</span>
+          <span id="xp-counter">1,250</span> <span class="text-xs text-slate-400">XP</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
+          <span class="text-rose-500 text-base">🔥</span>
+          <span id="streak-counter">5</span> <span class="text-xs text-slate-400">Days</span>
+        </div>
+        <a href="index.html" class="text-xs text-slate-300 hover:text-white underline ml-2">Back to Hub</a>
+      </div>
     </div>
+  </header>
 
-    <!-- Dynamic Lesson Worksheet Container -->
-    <div id="worksheet-area" class="card">
-      <h2 id="lesson-header">Loading Stage 1 Data...</h2>
-      <div id="quiz-content"></div>
+  <!-- MAIN CONTAINER -->
+  <div class="max-w-6xl mx-auto w-full p-4 md:p-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+    <!-- LEFT COLUMN: UNIT MASTERY TREE -->
+    <aside class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-extrabold text-lg text-slate-800">Unit Mastery</h2>
+          <span class="text-xs font-bold text-slate-500" id="total-mastery-text">1 of 4 Mastered</span>
+        </div>
+
+        <div class="space-y-3" id="units-tree">
+          <!-- Dynamically generated unit cards -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN: INTERACTIVE PRACTICE ARENA -->
+    <main class="lg:col-span-8 flex flex-col">
+      <div class="khan-card p-6 md:p-8 flex-1 flex flex-col justify-between" id="practice-card">
+        
+        <!-- HEADER / BREADCRUMB -->
+        <div>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400" id="active-unit-title">Unit 1: Linear Equations</span>
+              <h3 class="text-xl font-black text-slate-800" id="active-skill-title">Solving Two-Step Linear Equations</h3>
+            </div>
+            <button onclick="toggleScratchpad()" class="text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg flex items-center gap-1">
+              ✏️ Scratchpad
+            </button>
+          </div>
+
+          <!-- QUESTION DISPLAY -->
+          <div class="space-y-4 my-4">
+            <div class="text-sm text-slate-500 font-semibold">Cambridge 4024 Style Practice Question:</div>
+            <div class="text-xl md:text-2xl font-bold text-slate-900 bg-slate-50 p-6 rounded-xl border border-slate-200" id="question-text">
+              Loading question...
+            </div>
+          </div>
+
+          <!-- MULTIPLE CHOICE / INPUT OPTIONS -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6" id="options-container">
+            <!-- Dynamically populated options -->
+          </div>
+
+          <!-- PROGRESSIVE HINTS BOX -->
+          <div id="hints-box" class="mt-6 hidden bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900 space-y-2">
+            <div class="font-bold flex items-center gap-1 text-amber-800">
+              💡 Step-by-Step Hint:
+            </div>
+            <div id="hint-text" class="leading-relaxed"></div>
+          </div>
+        </div>
+
+        <!-- FOOTER / ACTION BAR -->
+        <div class="border-t border-slate-100 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <button onclick="showNextHint()" class="text-xs font-bold text-slate-500 hover:text-slate-800 underline">
+            Get a hint (Step-by-step)
+          </button>
+          
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <span id="feedback-message" class="text-sm font-bold"></span>
+            <button id="check-btn" onclick="checkAnswer()" class="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-xl text-sm shadow-md transition">
+              Check Answer
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- SCRATCHPAD DRAWER (OVERLAY) -->
+  <div id="scratchpad-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-4 shadow-2xl flex flex-col h-[500px]">
+      <div class="flex justify-between items-center pb-2 border-b">
+        <h4 class="font-bold text-slate-800">Scratchpad / Working Area</h4>
+        <div class="flex items-center gap-2">
+          <button onclick="clearScratchpad()" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded font-semibold text-slate-600">Clear</button>
+          <button onclick="toggleScratchpad()" class="text-xs bg-rose-500 text-white px-3 py-1 rounded font-semibold">Close</button>
+        </div>
+      </div>
+      <canvas id="scratch-canvas" class="flex-1 w-full bg-amber-50/30 cursor-crosshair rounded-xl mt-2 border border-slate-200"></canvas>
     </div>
   </div>
 
   <script>
-    let currentStageData = null;
-    let currentQuestionIndex = 0;
-    let selectedOptionIndex = null;
-
-    async function loadStage(stageNum) {
-      try {
-        const response = await fetch(`data/hanaan_math_stage${stageNum}.json`);
-        if (!response.ok) throw new Error("Stage file not found");
-        currentStageData = await response.json();
-        currentQuestionIndex = 0;
-        renderQuestion();
-      } catch (err) {
-        document.getElementById('worksheet-area').innerHTML = `
-          <h2>Ready for Stage ${stageNum} JSON Data</h2>
-          <p>Please upload <code>data/hanaan_math_stage${stageNum}.json</code> to GitHub to populate this module.</p>
-        `;
+    // --- CURRICULUM DATA (Cambridge 4024 Grade 7-8 Level) ---
+    const units = [
+      {
+        id: "unit-1",
+        title: "Unit 1: Linear Equations",
+        skillTitle: "Two-Step Equations",
+        masteryState: "practiced", // not-started, practiced, mastered
+        questions: [
+          {
+            q: "Solve for $x$: 3x + 7 = 22",
+            options: ["x = 5", "x = 4", "x = 6", "x = 7"],
+            correct: 0,
+            hints: [
+              "First, isolate the variable term by subtracting 7 from both sides: 3x = 15.",
+              "Next, divide both sides by 3 to solve for x: x = 15 / 3 = 5."
+            ]
+          },
+          {
+            q: "Solve for $y$: 5y - 12 = 28",
+            options: ["y = 6", "y = 8", "y = 7", "y = 10"],
+            correct: 1,
+            hints: [
+              "Add 12 to both sides of the equation: 5y = 40.",
+              "Divide both sides by 5: y = 40 / 5 = 8."
+            ]
+          }
+        ]
+      },
+      {
+        id: "unit-2",
+        title: "Unit 2: Algebraic Expansion",
+        skillTitle: "Expanding Single & Double Brackets",
+        masteryState: "mastered",
+        questions: [
+          {
+            q: "Expand and simplify: 4(2x - 3) + 5",
+            options: ["8x - 7", "8x - 12", "8x + 7", "6x - 7"],
+            correct: 0,
+            hints: [
+              "Multiply 4 by both terms inside the bracket: 4(2x) - 4(3) = 8x - 12.",
+              "Add 5 to the constant term: 8x - 12 + 5 = 8x - 7."
+            ]
+          }
+        ]
+      },
+      {
+        id: "unit-3",
+        title: "Unit 3: Fractions & Ratio",
+        skillTitle: "Simplifying & Dividing Ratios",
+        masteryState: "not-started",
+        questions: [
+          {
+            q: "Divide $60 in the ratio 3 : 2.",
+            options: ["$36 and $24", "$30 and $30", "$40 and $20", "$35 and $25"],
+            correct: 0,
+            hints: [
+              "Find total parts: 3 + 2 = 5 parts.",
+              "Find the value of 1 part: $60 / 5 = $12.",
+              "Multiply each ratio part by $12: 3 × $12 = $36 and 2 × $12 = $24."
+            ]
+          }
+        ]
+      },
+      {
+        id: "unit-4",
+        title: "Unit 4: Geometry & Angles",
+        skillTitle: "Angles in Parallel Lines",
+        masteryState: "not-started",
+        questions: [
+          {
+            q: "Two interior angles on the same side of a transversal line add up to:",
+            options: ["180°", "360°", "90°", "270°"],
+            correct: 0,
+            hints: [
+              "Co-interior (or allied) angles between parallel lines are supplementary.",
+              "Supplementary angles always sum up to 180°."
+            ]
+          }
+        ]
       }
+    ];
+
+    // --- STATE ENGINE ---
+    let currentUnitIndex = 0;
+    let currentQuestionIndex = 0;
+    let currentHintIndex = 0;
+    let selectedOptionIndex = null;
+    let userXP = 1250;
+    let userStreak = 5;
+
+    // --- AUDIO SYNTHESIZER ---
+    function playAudio(type) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'correct') {
+          osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+          osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+          gain.gain.setValueAtTime(0.2, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.3);
+        } else if (type === 'incorrect') {
+          osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
+          gain.gain.setValueAtTime(0.2, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.2);
+        }
+      } catch (e) {
+        // Fallback if audio blocked
+      }
+    }
+
+    // --- RENDER FUNCTIONS ---
+    function renderTree() {
+      const container = document.getElementById('units-tree');
+      container.innerHTML = '';
+
+      let masteredCount = 0;
+
+      units.forEach((u, idx) => {
+        if (u.masteryState === 'mastered') masteredCount++;
+
+        const isSelected = idx === currentUnitIndex;
+        const div = document.createElement('div');
+        div.onclick = () => selectUnit(idx);
+        div.className = `p-4 rounded-xl border cursor-pointer transition flex items-center justify-between ${
+          isSelected ? 'border-emerald-500 bg-emerald-50/50 shadow-sm' : 'border-slate-200 hover:border-slate-300 bg-white'
+        }`;
+
+        let pillClass = 'state-not-started';
+        let pillText = 'Not Started';
+        if (u.masteryState === 'practiced') { pillClass = 'state-practiced'; pillText = 'Practiced'; }
+        if (u.masteryState === 'mastered') { pillClass = 'state-mastered'; pillText = 'Mastered ✨'; }
+
+        div.innerHTML = `
+          <div>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">${u.title.split(':')[0]}</p>
+            <p class="text-sm font-bold text-slate-800">${u.skillTitle}</p>
+          </div>
+          <span class="mastery-pill ${pillClass}">${pillText}</span>
+        `;
+        container.appendChild(div);
+      });
+
+      document.getElementById('total-mastery-text').innerText = `${masteredCount} of ${units.length} Mastered`;
     }
 
     function renderQuestion() {
-      const q = currentStageData.lessons[currentQuestionIndex];
-      const container = document.getElementById('worksheet-area');
+      const unit = units[currentUnitIndex];
+      const qData = unit.questions[currentQuestionIndex];
 
-      container.innerHTML = `
-        <h2 class="question-title">${currentStageData.title}</h2>
-        <p><strong>Question ${currentQuestionIndex + 1} of ${currentStageData.lessons.length}:</strong></p>
-        <p style="font-size: 1.1rem; margin: 12px 0;">${q.question}</p>
-        
-        <div class="options-grid">
-          ${q.options.map((opt, i) => `
-            <button class="option-btn" onclick="selectOption(${i})" id="opt-${i}">${opt}</button>
-          `).join('')}
-        </div>
+      document.getElementById('active-unit-title').innerText = unit.title;
+      document.getElementById('active-skill-title').innerText = unit.skillTitle;
+      document.getElementById('question-text').innerText = qData.q;
 
-        <div id="feedback-box" class="feedback"></div>
+      // Reset state
+      selectedOptionIndex = null;
+      currentHintIndex = 0;
+      document.getElementById('hints-box').classList.add('hidden');
+      document.getElementById('feedback-message').innerText = '';
 
-        <button class="action-btn" onclick="submitAnswer()">Check Answer</button>
-      `;
-    }
+      const optionsContainer = document.getElementById('options-container');
+      optionsContainer.innerHTML = '';
 
-    function selectOption(index) {
-      selectedOptionIndex = index;
-      document.querySelectorAll('.option-btn').forEach((btn, i) => {
-        btn.classList.toggle('selected', i === index);
+      qData.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => selectOption(idx);
+        btn.id = `opt-btn-${idx}`;
+        btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left flex items-center justify-between';
+        btn.innerHTML = `
+          <span>${opt}</span>
+          <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs opacity-0 check-mark">✓</span>
+        `;
+        optionsContainer.appendChild(btn);
       });
     }
 
-    function submitAnswer() {
-      if (selectedOptionIndex === null) return;
+    function selectOption(idx) {
+      selectedOptionIndex = idx;
+      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
 
-      const q = currentStageData.lessons[currentQuestionIndex];
-      const feedback = document.getElementById('feedback-box');
+      qData.options.forEach((_, i) => {
+        const btn = document.getElementById(`opt-btn-${i}`);
+        if (i === idx) {
+          btn.className = 'p-4 rounded-xl border-2 border-emerald-600 bg-emerald-50 font-bold text-emerald-900 transition text-left flex items-center justify-between';
+        } else {
+          btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left flex items-center justify-between';
+        }
+      });
+    }
 
-      if (selectedOptionIndex === q.correct) {
-        feedback.className = "feedback correct";
-        feedback.innerText = "Correct! Great work.";
-        feedback.style.display = "block";
+    function selectUnit(idx) {
+      currentUnitIndex = idx;
+      currentQuestionIndex = 0;
+      renderTree();
+      renderQuestion();
+    }
 
-        setTimeout(() => {
-          selectedOptionIndex = null;
-          if (currentQuestionIndex + 1 < currentStageData.lessons.length) {
-            currentQuestionIndex++;
-            renderQuestion();
-          } else {
-            document.getElementById('worksheet-area').innerHTML = `
-              <h2>🎉 Stage ${currentStageData.stage} Complete!</h2>
-              <p>Hanaan has mastered this stage. Next stage unlocked.</p>
-              <button class="action-btn" onclick="loadStage(${currentStageData.stage + 1})">Advance to Stage ${currentStageData.stage + 1}</button>
-            `;
-            document.getElementById(`node-${currentStageData.stage}`).className = "stage-node completed";
-            if (document.getElementById(`node-${currentStageData.stage + 1}`)) {
-              document.getElementById(`node-${currentStageData.stage + 1}`).className = "stage-node active";
-            }
-          }
-        }, 1200);
+    function checkAnswer() {
+      if (selectedOptionIndex === null) {
+        alert("Please select an answer first!");
+        return;
+      }
+
+      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
+      const isCorrect = selectedOptionIndex === qData.correct;
+      const feedback = document.getElementById('feedback-message');
+
+      if (isCorrect) {
+        playAudio('correct');
+        feedback.innerText = "Correct! Great job! 🎉";
+        feedback.className = "text-sm font-bold text-emerald-600";
+
+        // Reward XP
+        userXP += 100;
+        document.getElementById('xp-counter').innerText = userXP.toLocaleString();
+
+        // Update Unit Mastery State
+        units[currentUnitIndex].masteryState = "mastered";
+        renderTree();
+
+        // Confetti burst
+        confetti({
+          particleCount: 80,
+          spread: 60,
+          origin: { y: 0.8 }
+        });
+
       } else {
-        feedback.className = "feedback incorrect";
-        feedback.innerText = `Not quite. Hint: ${q.hint}`;
-        feedback.style.display = "block";
+        playAudio('incorrect');
+        feedback.innerText = "Not quite. Try getting a hint!";
+        feedback.className = "text-sm font-bold text-rose-500";
       }
     }
 
-    // Initialize Stage 1 on load
-    loadStage(1);
+    function showNextHint() {
+      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
+      const hintBox = document.getElementById('hints-box');
+      const hintText = document.getElementById('hint-text');
+
+      if (currentHintIndex < qData.hints.length) {
+        hintBox.classList.remove('hidden');
+        hintText.innerText = qData.hints[currentHintIndex];
+        currentHintIndex++;
+      } else {
+        alert("No more hints available for this question!");
+      }
+    }
+
+    // --- SCRATCHPAD LOGIC ---
+    let canvas, ctx, drawing = false;
+
+    function toggleScratchpad() {
+      const modal = document.getElementById('scratchpad-modal');
+      modal.classList.toggle('hidden');
+
+      if (!modal.classList.contains('hidden') && !canvas) {
+        canvas = document.getElementById('scratch-canvas');
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        ctx = canvas.getContext('2d');
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+
+        canvas.addEventListener('mousedown', () => drawing = true);
+        canvas.addEventListener('mouseup', () => { drawing = false; ctx.beginPath(); });
+        canvas.addEventListener('mousemove', draw);
+      }
+    }
+
+    function draw(e) {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+
+    function clearScratchpad() {
+      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // --- INITIALIZE ---
+    renderTree();
+    renderQuestion();
   </script>
 </body>
 </html>
