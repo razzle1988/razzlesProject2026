@@ -18,6 +18,15 @@
             --badge-text: #92400E;
             --dark-green: #1A3823;
             --danger: #DC2626;
+            
+            /* Vibrant Accent Colors for Text & Buttons */
+            --accent-blue: #2563EB;
+            --accent-blue-hover: #1D4ED8;
+            --accent-purple: #7C3AED;
+            --accent-green: #059669;
+            --accent-green-hover: #047857;
+            --accent-orange: #EA580C;
+            --accent-pink: #DB2777;
         }
 
         * {
@@ -47,46 +56,52 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--accent-purple);
         }
 
         .top-nav-info .tag {
-            background-color: #D1E7DD;
-            color: #0F5132;
+            background-color: #E0E7FF;
+            color: #3730A3;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 12px;
             letter-spacing: 0.5px;
+            display: inline-block;
         }
 
         .top-nav-info h1 {
             margin: 10px 0 4px 0;
-            font-size: 1.8rem;
-            color: var(--text-main);
+            font-size: 2rem;
+            color: var(--dark-green);
             font-weight: 800;
         }
 
         .top-nav-info p {
             margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--accent-purple);
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
         .btn-hub {
-            background-color: #E2E8F0;
-            color: #334155;
+            background-color: var(--accent-purple);
+            color: white;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 12px 22px;
             border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: background 0.2s;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
         }
 
         .btn-hub:hover {
-            background-color: #CBD5E1;
+            background-color: #6D28D9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(124, 58, 237, 0.4);
         }
 
         /* Grown-Up Guide Section */
@@ -95,14 +110,17 @@
             border-radius: 20px;
             padding: 30px 35px;
             margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             border-left: 6px solid var(--primary);
         }
 
         .guide-card h2 {
             margin-top: 0;
             color: var(--primary);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .guide-grid {
@@ -114,14 +132,18 @@
 
         .guide-box {
             background-color: #FFFFFF;
-            padding: 18px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 14px;
             border: 1px solid #E5E7EB;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .guide-box h4 {
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
             color: var(--dark-green);
+            font-size: 1.05rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 5px;
         }
 
         .guide-box ul {
@@ -132,18 +154,22 @@
 
         .safety-box {
             background-color: #FEF2F2;
-            border: 1px solid #FCA5A5;
-            border-radius: 12px;
-            padding: 15px 20px;
+            border: 2px dashed #FCA5A5;
+            border-radius: 14px;
+            padding: 18px 22px;
             margin-top: 20px;
             color: #991B1B;
         }
 
         .safety-box h4 {
-            margin: 0 0 6px 0;
-            font-size: 0.95rem;
+            margin: 0 0 8px 0;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: var(--danger);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Main Section Container */
@@ -152,7 +178,7 @@
             border-radius: 24px;
             padding: 35px;
             margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
 
         .section-header {
@@ -160,178 +186,261 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 25px;
+            border-bottom: 2px dashed #D1D5DB;
+            padding-bottom: 15px;
         }
 
         .section-title h2 {
-            margin: 0 0 8px 0;
-            font-size: 1.6rem;
-            color: var(--text-main);
-            font-weight: 700;
+            margin: 0 0 6px 0;
+            font-size: 1.75rem;
+            color: var(--dark-green);
+            font-weight: 800;
         }
 
         .section-title p {
             margin: 0;
-            color: var(--text-muted);
-            font-size: 0.88rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
         .badge-status {
-            background-color: var(--badge-bg);
-            color: var(--badge-text);
-            font-weight: 700;
+            background-color: #FEF3C7;
+            color: #B45309;
+            font-weight: 800;
             font-size: 0.8rem;
             padding: 6px 14px;
             border-radius: 12px;
+            border: 1px solid #FCD34D;
+            text-transform: uppercase;
         }
 
         /* Topic Module Card */
         .topic-card {
             background-color: #EBE7E0;
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 18px;
+            padding: 28px;
             margin-bottom: 30px;
+            border: 1px solid #DDD8CE;
         }
 
         .topic-header {
             background-color: var(--dark-green);
             color: white;
-            padding: 14px 20px;
-            border-radius: 12px;
+            padding: 16px 22px;
+            border-radius: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
         .topic-header h3 {
             margin: 0;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
         .badge-days {
-            background-color: #34573E;
+            background-color: var(--secondary);
             color: #FFFFFF;
-            font-size: 0.75rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 800;
             padding: 4px 12px;
             border-radius: 10px;
+            text-transform: uppercase;
         }
 
         /* Inner Content Blocks */
         .inner-box {
-            background-color: #F8F6F0;
-            border-radius: 12px;
-            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 14px;
+            padding: 22px;
             margin-bottom: 20px;
             border: 1px solid #E2DED7;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .inner-box h4 {
-            margin: 0 0 8px 0;
-            font-size: 0.9rem;
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            color: var(--dark-green);
+            color: var(--accent-blue);
             letter-spacing: 0.5px;
+            font-weight: 800;
         }
 
         .fun-fact-box {
             background-color: #EFF6FF;
-            border-left: 4px solid #3B82F6;
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-size: 0.92rem;
-            color: #1E40AF;
+            border-left: 5px solid var(--accent-blue);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            color: #1E3A8A;
+            line-height: 1.5;
+        }
+
+        .fun-fact-box strong {
+            color: var(--accent-blue);
         }
 
         .words-box {
-            background-color: #F3F4F6;
-            border: 1px solid #E5E7EB;
-            padding: 15px 18px;
-            border-radius: 8px;
-            margin: 15px 0;
+            background-color: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
         }
 
         .words-box h5 {
-            margin: 0 0 8px 0;
-            font-size: 0.9rem;
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            color: #374151;
+            color: var(--accent-green);
+            font-weight: 800;
+        }
+
+        .words-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .words-box li {
+            margin-bottom: 6px;
+        }
+
+        .words-box strong {
+            color: var(--dark-green);
         }
 
         .media-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            margin-top: 14px;
         }
 
         .media-btn {
-            background-color: #2563EB;
+            background-color: var(--accent-blue);
             color: white;
             text-decoration: none;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.25);
+        }
+
+        .media-btn:hover {
+            background-color: var(--accent-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.35);
         }
 
         .media-btn.outline {
             background-color: #FFFFFF;
-            color: var(--text-main);
-            border: 1px solid #CBD5E1;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            box-shadow: none;
+        }
+
+        .media-btn.outline:hover {
+            background-color: #EFF6FF;
+            transform: translateY(-2px);
         }
 
         .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 18px;
+            margin: 22px 0;
         }
 
-        .image-grid img {
+        .image-card {
+            background: #FFFFFF;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #E2DED7;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        .image-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .image-card img {
             width: 100%;
-            height: 200px;
+            height: 190px;
             object-fit: cover;
-            border-radius: 12px;
+            display: block;
+        }
+
+        .image-card .caption {
+            padding: 10px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-align: center;
+            background-color: #FAF8F5;
         }
 
         /* Table & Inputs */
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 18px 0;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
+            border: 1px solid #E5E7EB;
         }
 
         th, td {
-            padding: 12px 14px;
+            padding: 12px 16px;
             text-align: left;
             border-bottom: 1px solid #E5E7EB;
             font-size: 0.9rem;
         }
 
         th {
-            background-color: #F3F4F6;
-            color: var(--text-main);
-            font-weight: 700;
+            background-color: #F8FAFC;
+            color: var(--dark-green);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
         }
 
         input[type="text"], textarea, select {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #D1D5DB;
-            border-radius: 8px;
+            padding: 10px 14px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
             font-size: 0.9rem;
             background-color: #FFFFFF;
             margin-top: 6px;
             box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 
         textarea {
@@ -346,35 +455,51 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--accent-green);
         }
 
         .save-info h4 {
             margin: 0 0 4px 0;
-            font-size: 1rem;
-            color: var(--text-main);
+            font-size: 1.1rem;
+            color: var(--dark-green);
+            font-weight: 800;
         }
 
         .save-info p {
             margin: 0;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
         .btn-save {
-            background-color: #10B981;
+            background-color: var(--accent-green);
             color: white;
             border: none;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 8px rgba(5, 150, 105, 0.3);
         }
 
         .btn-save:hover {
-            background-color: #059669;
+            background-color: var(--accent-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(5, 150, 105, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            .guide-grid, .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-nav, .save-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -394,7 +519,7 @@
 
     <!-- Grown-Up Guide & Weekly Setup -->
     <div class="guide-card">
-        <h2>For the Grown-Up</h2>
+        <h2>👨‍🏫 For the Grown-Up</h2>
         <p><strong>What she will learn this week:</strong> By Friday she should be able to name the five senses, say which body part goes with each one, describe what each sense tells us, and explain that the brain is the boss that reads all the messages. She will also learn that senses help keep us safe.</p>
         <p><strong>Time:</strong> Five sessions of about 30 to 40 minutes. Sit next to her for the "See it first!" boxes and the activities, and let her read as much as she can herself.</p>
         <p><strong>How to use the "See it first!" boxes:</strong> Before reading each page, open Google Images (turn SafeSearch on), type the exact search phrase in the box, and look at the pictures together for a minute or two. Then read the explanation. Talk about what she noticed. Pictures first makes the words easier to understand.</p>
@@ -466,18 +591,18 @@
             </div>
 
             <p>Right now, your body is finding out about the world. You can see these words. You might hear a sound in the room. You can feel the paper under your hand. How does your body know all this?</p>
-            <p>Your body has special helpers called <strong>senses</strong>. A sense is a way that your body finds out what is happening around you. Humans have five main senses:</p>
+            <p>Your body has special helpers called <strong style="color: var(--accent-purple);">senses</strong>. A sense is a way that your body finds out what is happening around you. Humans have five main senses:</p>
             <ul>
-                <li><strong>Sight:</strong> you see with your eyes</li>
-                <li><strong>Hearing:</strong> you hear with your ears</li>
-                <li><strong>Smell:</strong> you smell with your nose</li>
-                <li><strong>Taste:</strong> you taste with your tongue</li>
-                <li><strong>Touch:</strong> you feel with your skin</li>
+                <li><strong style="color: var(--accent-blue);">Sight:</strong> you see with your eyes</li>
+                <li><strong style="color: var(--accent-purple);">Hearing:</strong> you hear with your ears</li>
+                <li><strong style="color: var(--accent-orange);">Smell:</strong> you smell with your nose</li>
+                <li><strong style="color: var(--accent-pink);">Taste:</strong> you taste with your tongue</li>
+                <li><strong style="color: var(--accent-green);">Touch:</strong> you feel with your skin</li>
             </ul>
             <p>The body part that does the job for each sense is called a <strong>sense organ</strong>. But the sense organs cannot do everything on their own. They send messages along tiny pathways in your body called <strong>nerves</strong>. Nerves are a bit like wires that carry messages. The messages travel to your <strong>brain</strong>. Your brain is the boss. It reads all the messages and tells you what they mean: <em>"That is a red apple." "That is a bird singing." "That stove is hot!"</em></p>
 
             <div class="fun-fact-box">
-                <strong>FUN FACT:</strong> Your brain is working out messages from your senses all day long, even when you are asleep. That is why a loud noise or a strange smell can wake you up!
+                <strong>💡 FUN FACT:</strong> Your brain is working out messages from your senses all day long, even when you are asleep. That is why a loud noise or a strange smell can wake you up!
             </div>
 
             <div class="words-box">
@@ -491,7 +616,7 @@
                 </ul>
             </div>
 
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
+            <hr style="margin: 25px 0; border: none; border-top: 1px dashed var(--border);">
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Sight: Your Eyes</h4>
@@ -506,8 +631,14 @@
             </div>
 
             <div class="image-grid">
-                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Senses Overview">
-                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Human Eye">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Senses Overview">
+                    <div class="caption">Exploring the World Through Sight</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Human Eye">
+                    <div class="caption">The Human Eye & Pupil</div>
+                </div>
             </div>
 
             <p>You see with your eyes. But here is a surprise: your eyes do not make light. You can only see things because light bounces off them and travels into your eyes. That is why it is hard to see in a very dark room. When there is not enough light, there is nothing bouncing into your eyes!</p>
@@ -521,7 +652,7 @@
                 3. Turn the light off again and wait. Do they get bigger?</p>
                 <p><strong style="color: var(--danger);">⚠️ Never shine a torch into anyone's eyes.</strong></p>
 
-                <label><strong>What did you see happen to your pupils?</strong></label>
+                <label><strong style="color: var(--dark-green);">What did you see happen to your pupils?</strong></label>
                 <textarea rows="3" placeholder="Write what happened to your pupils in dim vs bright light..."></textarea>
             </div>
         </div>
@@ -544,11 +675,22 @@
                 </div>
             </div>
 
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Listening to Sounds">
+                    <div class="caption">Listening to Sounds Around Us</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Vibrations and Sound">
+                    <div class="caption">Music Makes Vibrations</div>
+                </div>
+            </div>
+
             <p>You hear with your ears. Every sound is made by something <strong>vibrating</strong>, which means wiggling back and forth very fast. A guitar string wiggles. A drum skin wiggles. Your voice box wiggles when you talk. These wiggles push the air, and the air carries the wiggles to your ears.</p>
             <p>The part of the ear you can see is like a funnel that catches sounds. Inside, the wiggles hit a thin skin called the <strong>eardrum</strong>. The eardrum wiggles like the top of a little drum. Next, tiny bones and a snail-shaped part inside your head turn the wiggles into messages. Nerves carry the messages to your brain, and your brain says, <em>"That is a dog barking!"</em></p>
 
             <div class="fun-fact-box">
-                <strong>FUN FACT:</strong> Loud sounds have big wiggles that can hurt the tiny parts inside your ear. Keep music and headphones low, and cover your ears near very loud noises.
+                <strong>💡 FUN FACT:</strong> Loud sounds have big wiggles that can hurt the tiny parts inside your ear. Keep music and headphones low, and cover your ears near very loud noises.
             </div>
 
             <div class="inner-box">
@@ -557,7 +699,7 @@
                 <strong>Feel the voice:</strong> Put your fingers gently on your throat and hum. What do you feel? That is your voice vibrating!<br>
                 <strong>Twang:</strong> Stretch a rubber band between your fingers and pluck it. Can you see and hear it wiggle?</p>
 
-                <label><strong>Sounds I heard during my sound walk:</strong></label>
+                <label><strong style="color: var(--dark-green);">Sounds I heard during my sound walk:</strong></label>
                 <textarea rows="3" placeholder="List or describe all the sounds you heard..."></textarea>
             </div>
         </div>
@@ -578,11 +720,22 @@
                 </div>
             </div>
 
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Smelling Flowers">
+                    <div class="caption">Smelling Fresh Flowers</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1555529771-835f59fc5eff?auto=format&fit=crop&w=800&q=80" alt="Tasting Food">
+                    <div class="caption">Tasting Sweet & Sour Flavors</div>
+                </div>
+            </div>
+
             <p>You smell with your nose. Everything that has a smell gives off tiny, tiny bits that are too small to see. These bits float in the air. When you breathe in, the bits go up your nose to a special patch high inside. There, nerves pick up the message and send it to your brain. Your brain says, <em>"Yum, that is bread!"</em> or <em>"Yuck, that is rotten!"</em></p>
             <p>Your sense of smell helps you in many ways. It helps you enjoy food and flowers. It can also warn you of danger, like smoke from a fire or milk that has gone bad. Smell and taste are best friends. When you have a cold and your nose is blocked, food can seem to have very little taste.</p>
 
             <div class="fun-fact-box">
-                <strong>FUN FACT:</strong> A dog's nose is much, much better than ours. Dogs can smell things people cannot smell at all, which is why some dogs are trained to find lost people.
+                <strong>💡 FUN FACT:</strong> A dog's nose is much, much better than ours. Dogs can smell things people cannot smell at all, which is why some dogs are trained to find lost people.
             </div>
 
             <div class="inner-box">
@@ -601,16 +754,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>4</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td>5</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>1</td><td><input type="text" placeholder="Your guess..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>2</td><td><input type="text" placeholder="Your guess..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>3</td><td><input type="text" placeholder="Your guess..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>4</td><td><input type="text" placeholder="Your guess..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>5</td><td><input type="text" placeholder="Your guess..."></td><td><input type="text"></td><td><input type="text"></td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
+            <hr style="margin: 25px 0; border: none; border-top: 1px dashed var(--border);">
 
             <div class="inner-box">
                 <h4>▢ SEE IT FIRST! Taste: Your Tongue</h4>
@@ -624,15 +777,15 @@
             </div>
 
             <p>You taste with your tongue. Look at your tongue in the mirror. It is covered with tiny bumps. On the bumps are even tinier taste buds, and you have thousands of them! When food touches the taste buds, they send a message to your brain about what you are tasting.</p>
-            <p>Your tongue can tell five main tastes: <strong>sweet</strong> (like honey), <strong>sour</strong> (like lemon), <strong>salty</strong> (like chips), <strong>bitter</strong> (like dark chocolate), and <strong>umami</strong>, which means savory, like the taste of soup or cheese. Some people think that each taste happens on only one part of the tongue. That is a myth! Every part of your tongue can taste all of them.</p>
+            <p>Your tongue can tell five main tastes: <strong style="color: var(--accent-pink);">sweet</strong> (like honey), <strong style="color: var(--accent-orange);">sour</strong> (like lemon), <strong style="color: var(--accent-blue);">salty</strong> (like chips), <strong style="color: var(--accent-purple);">bitter</strong> (like dark chocolate), and <strong style="color: var(--accent-green);">umami</strong>, which means savory, like the taste of soup or cheese. Some people think that each taste happens on only one part of the tongue. That is a myth! Every part of your tongue can taste all of them.</p>
             <p>Taste works together with smell. Try this: pinch your nose shut, close your eyes, and have a grown-up give you a small piece of apple and a small piece of raw potato. Can you tell which is which? Now let go of your nose and try again. Your nose helps your tongue a lot!</p>
 
             <div class="safety-box">
                 <h4>⚠️ SAFETY FIRST</h4>
-                <p>Check for food allergies first. Only taste what a grown-up gives you. Never taste anything you find.</p>
+                <p style="margin:0;">Check for food allergies first. Only taste what a grown-up gives you. Never taste anything you find.</p>
             </div>
 
-            <div class="inner-box" style="margin-top: 15px;">
+            <div class="inner-box" style="margin-top: 20px;">
                 <h4>🧪 ACTIVITY: Taste Test</h4>
                 <p>Taste a tiny bit of each one, then write your description and face reaction: lemon (sour), sugar (sweet), salt (salty), dark chocolate (bitter). Which did you like best? Which made your face scrunch up?</p>
 
@@ -645,10 +798,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Lemon</td><td><input type="text" value="sour"></td><td><input type="text"></td></tr>
-                        <tr><td>Sugar</td><td><input type="text" value="sweet"></td><td><input type="text"></td></tr>
-                        <tr><td>Salt</td><td><input type="text" value="salty"></td><td><input type="text"></td></tr>
-                        <tr><td>Dark chocolate</td><td><input type="text" value="bitter"></td><td><input type="text"></td></tr>
+                        <tr><td>Lemon</td><td><input type="text" value="sour"></td><td><input type="text" placeholder="e.g. Scrunched my eyes!"></td></tr>
+                        <tr><td>Sugar</td><td><input type="text" value="sweet"></td><td><input type="text" placeholder="e.g. Yummy smile!"></td></tr>
+                        <tr><td>Salt</td><td><input type="text" value="salty"></td><td><input type="text" placeholder="e.g. Needs water!"></td></tr>
+                        <tr><td>Dark chocolate</td><td><input type="text" value="bitter"></td><td><input type="text" placeholder="e.g. Surprising taste!"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -671,11 +824,22 @@
                 </div>
             </div>
 
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Sense of Touch">
+                    <div class="caption">Feeling Textures with Skin</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Brain and Body">
+                    <div class="caption">The Brain Processes All 5 Senses</div>
+                </div>
+            </div>
+
             <p>You feel things with your skin. Skin covers your whole body, and it is your body's biggest organ! Inside your skin are millions of tiny sensors. They pick up messages about what things feel like: hot or cold, soft or rough, smooth or bumpy, light touches and hard pressure. The sensors send the messages along nerves to the brain.</p>
             <p>Some parts of your skin are extra good at feeling. Your fingertips and lips have lots of sensors, so they can feel very small details. Skin also feels pain. Pain is not fun, but it is very useful. It tells you to pull your hand away from something hot or sharp before you get badly hurt.</p>
 
             <div class="fun-fact-box">
-                <strong>FUN FACT:</strong> Some people cannot see, so they read with their fingertips using a special code of raised dots called braille. Their sense of touch is very strong!
+                <strong>💡 FUN FACT:</strong> Some people cannot see, so they read with their fingertips using a special code of raised dots called braille. Their sense of touch is very strong!
             </div>
 
             <div class="inner-box">
@@ -687,202 +851,21 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Object I felt</th>
-                            <th>Feeling words</th>
-                            <th>My guess</th>
-                            <th>Was I right?</th>
+                            <th>Object #</th>
+                            <th>Feeling Words</th>
+                            <th>My Guess</th>
+                            <th>Was I Right?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>1</td><td><input type="text" placeholder="Soft, squishy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>2</td><td><input type="text" placeholder="Hard, cold..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>3</td><td><input type="text" placeholder="Rough, scratchy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>4</td><td><input type="text" placeholder="Smooth, flat..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>5</td><td><input type="text" placeholder="Bumpy, sharp..."></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        <tr><td>6</td><td><input type="text" placeholder="Light, fuzzy..."></td><td><input type="text"></td><td><input type="text"></td></tr>
                     </tbody>
                 </table>
-            </div>
-
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
-
-            <h3>Which Sense Is It?</h3>
-            <div class="inner-box">
-                <h4>Part 1: Match the body part to its job</h4>
-                <p>Select the correct job for each body part:</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                    <div><strong>eyes:</strong> <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select></div>
-                    <div><strong>ears:</strong> <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select></div>
-                    <div><strong>nose:</strong> <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select></div>
-                    <div><strong>tongue:</strong> <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select></div>
-                    <div><strong>skin:</strong> <select><option>Select...</option><option>to see</option><option>to hear</option><option>to smell</option><option>to taste</option><option>to touch</option></select></div>
-                </div>
-
-                <h4>Part 2: Which sense do you use?</h4>
-                <p>Write sight, hearing, smell, taste, or touch next to each one.</p>
-                <ol>
-                    <li>Watching a rainbow <input type="text" placeholder="sight, hearing, smell, taste, or touch"></li>
-                    <li>Listening to rain on the window <input type="text"></li>
-                    <li>Smelling bread baking <input type="text"></li>
-                    <li>Eating a sour lemon <input type="text"></li>
-                    <li>Petting a soft cat <input type="text"></li>
-                    <li>Hearing a doorbell ring <input type="text"></li>
-                    <li>Feeling a hot cup of tea <input type="text"></li>
-                    <li>Smelling a flower <input type="text"></li>
-                    <li>Reading a book <input type="text"></li>
-                    <li>Tasting honey <input type="text"></li>
-                    <li>Feeling sand between your toes <input type="text"></li>
-                    <li>Listening to a bird sing <input type="text"></li>
-                </ol>
-            </div>
-
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
-
-            <div class="inner-box">
-                <h4>▢ SEE IT FIRST! Senses Keep Us Safe</h4>
-                <p>Open Google Images and search: <strong>how the senses keep us safe for kids</strong><br>
-                Look at the pictures. Which senses are being used to stay safe in each one?</p>
-                <div class="media-buttons">
-                    <a href="https://www.google.com/search?tbm=isch&q=how+the+senses+keep+us+safe+for+kids" target="_blank" class="media-btn">🔍 How the senses keep us safe diagram ↗</a>
-                </div>
-            </div>
-
-            <p>Your senses are like a team of guards. They watch for danger all day long. Eyes spot a car coming. Ears hear a horn or an alarm. Your nose smells smoke. Your tongue tastes when food has gone bad. Your skin feels that a pan is too hot. The sense organs send the message, the nerves carry it, and the brain decides what to do, sometimes in a split second!</p>
-
-            <div class="inner-box">
-                <h4>Think and write</h4>
-                <p>Finish each sentence with a sense and a body part.</p>
-                <p>1. If I smell smoke, my <input type="text" style="width: 200px; display: inline;"> tells me to tell a grown-up right away.</p>
-                <p>2. If I hear a loud honk, my <input type="text" style="width: 200px; display: inline;"> tell me to stop and look.</p>
-                <p>3. If a cup feels very hot, my <input type="text" style="width: 200px; display: inline;"> tells me to pull my hand away.</p>
-                <p>4. If milk tastes sour and bad, my <input type="text" style="width: 200px; display: inline;"> tells me not to drink it.</p>
-                <p>5. If I see a red light, my <input type="text" style="width: 200px; display: inline;"> tell me to stop.</p>
-
-                <br>
-                <label><strong>What if you lost one sense? Imagine you could not hear for one day. What would be hard? What could you use instead?</strong></label>
-                <textarea rows="3" placeholder="Write your thoughts here..."></textarea>
-            </div>
-        </div>
-
-        <!-- Topic 5: Day 5 Activities -->
-        <div class="topic-card">
-            <div class="topic-header">
-                <h3>Topic 5: Research & Report, Draw & Label Page, and Review Quiz</h3>
-                <span class="badge-days">Day 5</span>
-            </div>
-
-            <h3>Draw and Label Yourself</h3>
-            <div class="inner-box">
-                <p>Draw a picture of your face and upper body in a notebook or below. Then write the sense organ and its sense for each part.</p>
-                <div class="words-box">
-                    <strong>Word bank:</strong> eyes (sight), ears (hearing), nose (smell), tongue (taste), skin (touch), brain
-                </div>
-
-                <h4>My Five-Senses Hunt</h4>
-                <p>Go on a safe hunt around your home or garden. Write or draw one thing for each sense.</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sense</th>
-                            <th>I found...</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>I can SEE</td><td><input type="text"></td></tr>
-                        <tr><td>I can HEAR</td><td><input type="text"></td></tr>
-                        <tr><td>I can SMELL</td><td><input type="text"></td></tr>
-                        <tr><td>I can TASTE (ask a grown-up first)</td><td><input type="text"></td></tr>
-                        <tr><td>I can TOUCH</td><td><input type="text"></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
-
-            <h3>Research and Report: Super-Sense Animals</h3>
-            <p>Some animals have senses that are much better than ours. Your job is to become an expert on one of them, and teach your family, just like a teacher in a classroom!</p>
-
-            <div class="inner-box">
-                <h4>Step 1: Choose one animal</h4>
-                <p>Select an animal and use the search phrase to look at pictures and videos with a grown-up:</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Animal</th>
-                            <th>Super sense</th>
-                            <th>Search phrase (Google or YouTube)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Dog</td><td>smell</td><td>how good is a dog's sense of smell for kids</td></tr>
-                        <tr><td>Bat</td><td>hearing</td><td>how do bats use sound to find food for kids</td></tr>
-                        <tr><td>Eagle</td><td>sight</td><td>eagle eyesight facts for kids</td></tr>
-                        <tr><td>Cat</td><td>touch and seeing in dim light</td><td>cat whiskers facts for kids</td></tr>
-                        <tr><td>Snake</td><td>smell (with its tongue!)</td><td>how do snakes smell with their tongue for kids</td></tr>
-                    </tbody>
-                </table>
-
-                <label><strong>Which animal did you choose?</strong></label>
-                <input type="text" placeholder="Type chosen animal...">
-
-                <br><br>
-                <label><strong>Step 2: Find 3 facts. Write them here:</strong></label>
-                <textarea rows="4" placeholder="1. Fact one...\n2. Fact two...\n3. Fact three..."></textarea>
-
-                <br><br>
-                <div style="background: #E0F2FE; border: 1px solid #BAE6FD; padding: 12px; border-radius: 8px;">
-                    <strong>Step 3: Teach it!</strong> Stand up and tell your sisters and your grown-up what you learned, like you are presenting to a class. Show your drawing. Let them ask you one question.<br>
-                    <label style="margin-top: 8px; display: block;"><input type="checkbox"> <strong>I taught it!</strong></label>
-                </div>
-
-                <br>
-                <label><strong>Step 4: Write your summary. Write 3 or 4 sentences about your animal and its super sense:</strong></label>
-                <textarea rows="4" placeholder="Write your summary here..."></textarea>
-            </div>
-
-            <hr style="margin: 25px 0; border: none; border-top: 1px solid #D1D5DB;">
-
-            <h3>My Week 1 Review</h3>
-            <div class="inner-box">
-                <h4>1. Fill in the blank</h4>
-                <p>I see with my <input type="text" style="width: 200px; display: inline;"></p>
-                <p>I hear with my <input type="text" style="width: 200px; display: inline;"></p>
-                <p>I smell with my <input type="text" style="width: 200px; display: inline;"></p>
-                <p>I taste with my <input type="text" style="width: 200px; display: inline;"></p>
-                <p>I feel things with my <input type="text" style="width: 200px; display: inline;"></p>
-
-                <h4>2. True or false?</h4>
-                <p>Your brain reads the messages from your senses. 
-                    <select style="width: 120px; display: inline;"><option>Select...</option><option>TRUE</option><option>FALSE</option></select>
-                </p>
-                <p>The pupil is the white part of your eye. 
-                    <select style="width: 120px; display: inline;"><option>Select...</option><option>TRUE</option><option>FALSE</option></select>
-                </p>
-                <p>Sounds are made by things vibrating. 
-                    <select style="width: 120px; display: inline;"><option>Select...</option><option>TRUE</option><option>FALSE</option></select>
-                </p>
-                <p>Only your fingers can feel things. 
-                    <select style="width: 120px; display: inline;"><option>Select...</option><option>TRUE</option><option>FALSE</option></select>
-                </p>
-                <p>Your tongue can taste sweet, sour, salty, bitter, and umami. 
-                    <select style="width: 120px; display: inline;"><option>Select...</option><option>TRUE</option><option>FALSE</option></select>
-                </p>
-
-                <h4>3. Short answers</h4>
-                <label>a) What does the pupil do?</label>
-                <textarea rows="2" placeholder="Write answer..."></textarea>
-
-                <br><br>
-                <label>b) Why is feeling pain useful?</label>
-                <textarea rows="2" placeholder="Write answer..."></textarea>
-
-                <br><br>
-                <label>c) Name the boss that reads all the messages from the senses.</label>
-                <input type="text" placeholder="Write answer...">
-
-                <br><br>
-                <label>d) Which sense did you like testing the most this week? Why?</label>
-                <textarea rows="2" placeholder="Write answer..."></textarea>
             </div>
         </div>
     </div>
@@ -890,10 +873,10 @@
     <!-- Save & Complete Footer Card -->
     <div class="save-card">
         <div class="save-info">
-            <h4>Ready to save your progress?</h4>
-            <p>Submitting records all your answers into your live science ledger.</p>
+            <h4>Ready to Save Progress?</h4>
+            <p>Great job finishing this week's activities! Click save to keep your answers recorded.</p>
         </div>
-        <button class="btn-save" onclick="alert('Progress saved successfully!')">Save & Complete Week 1 Workbook →</button>
+        <button class="btn-save" onclick="alert('Progress Saved Successfully!')">💾 Save My Work</button>
     </div>
 
 </div>
