@@ -3,414 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hanaan's Math Portal - Khan Academy Style</title>
+  <title>Hanaan's Interactive Science & Math Workbook - Week 1</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <!-- KaTeX for math symbol rendering -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Lato', sans-serif;
-      background-color: #F8F9FA;
-      color: #212529;
-    }
-    .khan-navy { background-color: #142a53; }
-    .khan-card {
-      background: #FFFFFF;
-      border: 1px solid #E3E8EE;
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-    }
-    .mastery-pill {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: 9999px;
-    }
-    .state-not-started { background-color: #F1F5F9; color: #64748B; }
-    .state-practiced { background-color: #FEF3C7; color: #D97706; }
-    .state-mastered { background-color: #D1FAE5; color: #059669; }
+    body { font-family: 'Outfit', sans-serif; }
+    .interactive-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .interactive-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
   </style>
 </head>
-<body class="min-h-screen flex flex-col">
-
-  <!-- HEADER -->
-  <header class="khan-navy text-white py-3 px-4 md:px-8 shadow-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <div class="flex items-center gap-4">
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
-          <span class="text-xl font-black tracking-wider text-white">KHAN</span>
-          <span class="text-xs bg-emerald-500 text-white font-bold px-2 py-0.5 rounded">ACADEMY</span>
-        </a>
-        <span class="hidden md:inline-block text-slate-400 text-sm">|</span>
-        <span class="hidden md:inline-block text-sm font-semibold text-slate-200">Grade 7–8 & Cambridge O Level (4024)</span>
+<body class="bg-slate-50 text-slate-800 p-4 md:p-8 min-h-screen">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Header & Navigation -->
+    <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+      <div>
+        <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Learning Hub</span>
+        <h1 class="text-3xl font-extrabold text-indigo-700 mt-1">Hanaan's Learning Portal ✏️</h1>
+        <p class="text-xs text-slate-500 font-medium mt-0.5">Week 1: Science Lab & Direct Math Pathway</p>
       </div>
-
-      <div class="flex items-center gap-4 text-sm font-bold">
-        <div class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
-          <span class="text-amber-400 text-base">⚡</span>
-          <span id="xp-counter">1,250</span> <span class="text-xs text-slate-400">XP</span>
-        </div>
-        <div class="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
-          <span class="text-rose-500 text-base">🔥</span>
-          <span id="streak-counter">5</span> <span class="text-xs text-slate-400">Days</span>
-        </div>
-        <a href="index.html" class="text-xs text-slate-300 hover:text-white underline ml-2">Back to Hub</a>
-      </div>
+      <a href="index.html" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
     </div>
-  </header>
 
-  <!-- MAIN LAYOUT -->
-  <div class="max-w-6xl mx-auto w-full p-4 md:p-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-    <!-- UNIT TREE -->
-    <aside class="lg:col-span-4 space-y-4">
-      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="font-extrabold text-lg text-slate-800">Grade 7–8 Curriculum</h2>
-          <span class="text-xs font-bold text-slate-500" id="total-mastery-text">0 of 8 Mastered</span>
-        </div>
-        <div class="space-y-2.5 max-h-[600px] overflow-y-auto pr-1" id="units-tree"></div>
-      </div>
-    </aside>
-
-    <!-- PRACTICE ARENA -->
-    <main class="lg:col-span-8 flex flex-col">
-      <div class="khan-card p-6 md:p-8 flex-1 flex flex-col justify-between" id="practice-card">
-        
-        <div>
-          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
-            <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-400" id="active-unit-title">Unit 1</span>
-              <h3 class="text-xl font-black text-slate-800" id="active-skill-title">Skill Title</h3>
-            </div>
-            <button onclick="toggleScratchpad()" class="text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg flex items-center gap-1">
-              ✏️ Scratchpad
-            </button>
-          </div>
-
-          <div class="space-y-4 my-4">
-            <div class="text-sm text-slate-500 font-semibold">Khan Practice Question:</div>
-            <div class="text-xl md:text-2xl font-bold text-slate-900 bg-slate-50 p-6 rounded-xl border border-slate-200" id="question-text">
-              Loading...
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6" id="options-container"></div>
-
-          <div id="hints-box" class="mt-6 hidden bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900 space-y-2">
-            <div class="font-bold flex items-center gap-1 text-amber-800">💡 Step-by-Step Hint:</div>
-            <div id="hint-text" class="leading-relaxed"></div>
-          </div>
+    <!-- MAIN WORKBOOK CONTAINER -->
+    <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-indigo-100 shadow-md space-y-10">
+      
+      <!-- ========================================================================================= -->
+      <!-- MATH SECTION: KHAN ACADEMY DIRECT LINK -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6">
+        <div class="bg-indigo-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">Mathematics Practice</h3>
+          <span class="text-xs bg-indigo-800 px-3 py-1 rounded-lg">Khan Academy</span>
         </div>
 
-        <div class="border-t border-slate-100 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <button onclick="showNextHint()" class="text-xs font-bold text-slate-500 hover:text-slate-800 underline">
-            Get a hint (Step-by-step)
-          </button>
+        <div class="bg-indigo-50/70 border border-indigo-200 p-6 rounded-2xl space-y-4 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 max-w-xl">
+            <div class="inline-flex items-center gap-2 text-indigo-900 font-bold text-sm">
+              <span>📐</span> Ready for Math Practice?
+            </div>
+            <p class="text-xs text-indigo-950 leading-relaxed">
+              Click below to jump straight to Khan Academy and continue your math lessons, exercises, and personalized learning path directly on their platform.
+            </p>
+          </div>
           
-          <div class="flex items-center gap-3 w-full sm:w-auto">
-            <span id="feedback-message" class="text-sm font-bold"></span>
-            <button id="check-btn" onclick="checkAnswer()" class="w-full sm:w-auto px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-xl text-sm shadow-md transition">
-              Check Answer
-            </button>
+          <a href="https://www.khanacademy.org/math" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center gap-2 text-sm font-extrabold bg-indigo-600 hover:bg-indigo-700 text-white py-3.5 px-6 rounded-2xl transition shadow-md whitespace-nowrap">
+            🚀 Launch Khan Academy Math ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================================================================================= -->
+      <!-- TOPIC 1: SCIENCE & LAB WORKBOOK -->
+      <!-- ========================================================================================= -->
+      <div class="space-y-6 border-t pt-8 border-slate-100">
+        <div class="bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between">
+          <h3 class="text-lg font-bold">Topic 1: How Your Body Senses the World</h3>
+          <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Science Lab</span>
+        </div>
+        
+        <!-- SEE IT FIRST BOX -->
+        <div class="bg-sky-50 border border-sky-200 p-5 rounded-2xl space-y-3">
+          <div class="flex items-center gap-2 text-sky-800 font-bold text-sm">
+            <span>👁️</span> SEE IT FIRST! Interactive Media & Visualizations
+          </div>
+          <p class="text-xs text-sky-900 leading-relaxed">
+            Before reading, explore how sense organs connect to the brain and how nerves carry messages between them!
+          </p>
+          <div class="flex flex-wrap gap-3 pt-1">
+            <a href="https://www.bbc.co.uk/bitesize/articles/z3jpk2p" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-sky-600 hover:bg-sky-700 text-white py-2 px-4 rounded-xl transition">
+              🌐 BBC Bitesize: The Nervous System Interactive Guide ↗
+            </a>
+            <a href="https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold bg-white border border-sky-300 text-sky-800 hover:bg-sky-100 py-2 px-4 rounded-xl transition">
+              🔍 Khan Academy Science: Human Anatomy ↗
+            </a>
           </div>
         </div>
 
-      </div>
-    </main>
-
-  </div>
-
-  <!-- SCRATCHPAD -->
-  <div id="scratchpad-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-4 shadow-2xl flex flex-col h-[500px]">
-      <div class="flex justify-between items-center pb-2 border-b">
-        <h4 class="font-bold text-slate-800">Scratchpad</h4>
-        <div class="flex items-center gap-2">
-          <button onclick="clearScratchpad()" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded font-semibold text-slate-600">Clear</button>
-          <button onclick="toggleScratchpad()" class="text-xs bg-rose-500 text-white px-3 py-1 rounded font-semibold">Close</button>
+        <!-- ACTIVITY 1: REFLEX EXPERIMENT -->
+        <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-2xl space-y-4">
+          <h4 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+            🧪 Activity: Reflex and Reaction Lab
+          </h4>
+          <div class="text-xs text-slate-700 space-y-2 leading-relaxed">
+            <p><strong>Part 1 (Hand Reaction):</strong> Sit facing a partner. Have them hold their hand out, palm up, just under yours without touching. Without warning, they try to catch your hand as you snatch it away. Swap roles.</p>
+          </div>
+          <div class="space-y-3 pt-2 text-xs">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Observation: Record what you noticed about how fast your body reacted without you deciding first:</label>
+              <textarea id="h_exp1" rows="2" class="w-full p-3 border border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Write your observation here..."></textarea>
+            </div>
+          </div>
+          <!-- SAVE & SUBMIT BUTTONS FOR SCIENCE ACTIVITY -->
+          <div class="pt-3 border-t border-emerald-200 flex flex-wrap gap-3 items-center justify-end">
+            <button onclick="saveHanaanProgress()" class="text-xs font-bold bg-white border border-emerald-500 text-emerald-700 hover:bg-emerald-100 py-2 px-4 rounded-xl transition">
+              💾 Save Progress
+            </button>
+            <button onclick="saveHanaanProgress()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-xl transition shadow-sm">
+              ✓ Submit Activity
+            </button>
+          </div>
         </div>
       </div>
-      <canvas id="scratch-canvas" class="flex-1 w-full bg-amber-50/30 cursor-crosshair rounded-xl mt-2 border border-slate-200"></canvas>
+
     </div>
   </div>
 
   <script>
-    // FULL KHAN ACADEMY GRADE 7-8 TOPIC TREE
-    const units = [
-      {
-        id: "unit-1",
-        title: "Unit 1: Rational Numbers",
-        skillTitle: "Operations with Negative Numbers",
-        masteryState: "practiced",
-        questions: [{
-          q: "Solve: -15 + (-8) - (-12)",
-          options: ["-11", "-35", "5", "-11.5"],
-          correct: 0,
-          hints: ["Combine initial negatives: -15 + (-8) = -23.", "Subtracting a negative is adding: -23 + 12 = -11."]
-        }]
-      },
-      {
-        id: "unit-2",
-        title: "Unit 2: Rates & Ratios",
-        skillTitle: "Unit Rates & Proportions",
-        masteryState: "not-started",
-        questions: [{
-          q: "If 4 kg of apples cost $18, what is the cost of 7 kg?",
-          options: ["$31.50", "$28.00", "$32.00", "$30.50"],
-          correct: 0,
-          hints: ["Find the unit rate per kg: $18 / 4 = $4.50 per kg.", "Multiply by 7: 7 × $4.50 = $31.50."]
-        }]
-      },
-      {
-        id: "unit-3",
-        title: "Unit 3: Linear Equations",
-        skillTitle: "Two-Step Equations",
-        masteryState: "practiced",
-        questions: [{
-          q: "Solve for x: 3x + 7 = 22",
-          options: ["x = 5", "x = 4", "x = 6", "x = 7"],
-          correct: 0,
-          hints: ["Subtract 7 from both sides: 3x = 15.", "Divide by 3: x = 5."]
-        }]
-      },
-      {
-        id: "unit-4",
-        title: "Unit 4: Expressions & Brackets",
-        skillTitle: "Expanding & Factoring Expressions",
-        masteryState: "mastered",
-        questions: [{
-          q: "Expand and simplify: 4(2x - 3) + 5",
-          options: ["8x - 7", "8x - 12", "8x + 7", "6x - 7"],
-          correct: 0,
-          hints: ["Multiply across brackets: 4(2x) - 12 = 8x - 12.", "Add constant term: 8x - 12 + 5 = 8x - 7."]
-        }]
-      },
-      {
-        id: "unit-5",
-        title: "Unit 5: Linear Functions",
-        skillTitle: "Slope & y-intercept (y = mx + c)",
-        masteryState: "not-started",
-        questions: [{
-          q: "What is the slope (m) of the line y = -3x + 8?",
-          options: ["-3", "8", "3", "-8"],
-          correct: 0,
-          hints: ["In equation form y = mx + c, the coefficient of x is the slope m.", "Here m = -3."]
-        }]
-      },
-      {
-        id: "unit-6",
-        title: "Unit 6: Geometry & Angles",
-        skillTitle: "Parallel Lines & Polygons",
-        masteryState: "not-started",
-        questions: [{
-          q: "Two co-interior angles between parallel lines add up to:",
-          options: ["180°", "360°", "90°", "270°"],
-          correct: 0,
-          hints: ["Co-interior (allied) angles on the same side of a transversal are supplementary.", "Supplementary angles sum to 180°."]
-        }]
-      },
-      {
-        id: "unit-7",
-        title: "Unit 7: Pythagorean Theorem",
-        skillTitle: "Right-Angled Triangle Calculations",
-        masteryState: "not-started",
-        questions: [{
-          q: "Find the hypotenuse if side a = 6 and side b = 8.",
-          options: ["10", "14", "12", "100"],
-          correct: 0,
-          hints: ["Use a² + b² = c².", "6² + 8² = 36 + 64 = 100.", "c = √100 = 10."]
-        }]
-      },
-      {
-        id: "unit-8",
-        title: "Unit 8: Statistics & Probability",
-        skillTitle: "Probability & Data Modeling",
-        masteryState: "not-started",
-        questions: [{
-          q: "A fair die is rolled. What is the probability of getting an even prime number?",
-          options: ["1/6", "1/3", "1/2", "2/6"],
-          correct: 0,
-          hints: ["Prime numbers on a die: 2, 3, 5.", "Even prime number: only 2.", "Probability = 1 outcome out of 6 possible = 1/6."]
-        }]
-      }
-    ];
+    const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    let currentUnitIndex = 0;
-    let currentQuestionIndex = 0;
-    let currentHintIndex = 0;
-    let selectedOptionIndex = null;
-    let userXP = 1250;
+    function gatherFormData() {
+      return {
+        exp1: document.getElementById('h_exp1') ? document.getElementById('h_exp1').value : ''
+      };
+    }
 
-    function renderTree() {
-      const container = document.getElementById('units-tree');
-      container.innerHTML = '';
-      let masteredCount = 0;
-
-      units.forEach((u, idx) => {
-        if (u.masteryState === 'mastered') masteredCount++;
-
-        const isSelected = idx === currentUnitIndex;
-        const div = document.createElement('div');
-        div.onclick = () => selectUnit(idx);
-        div.className = `p-3 rounded-xl border cursor-pointer transition flex items-center justify-between ${
-          isSelected ? 'border-emerald-500 bg-emerald-50/50 shadow-sm' : 'border-slate-200 hover:border-slate-300 bg-white'
-        }`;
-
-        let pillClass = 'state-not-started';
-        let pillText = 'Not Started';
-        if (u.masteryState === 'practiced') { pillClass = 'state-practiced'; pillText = 'Practiced'; }
-        if (u.masteryState === 'mastered') { pillClass = 'state-mastered'; pillText = 'Mastered ✨'; }
-
-        div.innerHTML = `
-          <div>
-            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">${u.title.split(':')[0]}</p>
-            <p class="text-xs font-bold text-slate-800">${u.skillTitle}</p>
-          </div>
-          <span class="mastery-pill ${pillClass}">${pillText}</span>
-        `;
-        container.appendChild(div);
+    async function saveHanaanProgress() {
+      const dataPayload = gatherFormData();
+      await supabaseClient.from('task_states').upsert({
+        id: 'hanaan_learning_week1',
+        states: [false, dataPayload],
+        updated_at: new Date()
       });
-
-      document.getElementById('total-mastery-text').innerText = `${masteredCount} of ${units.length} Mastered`;
+      alert('Progress saved successfully!');
     }
 
-    function renderQuestion() {
-      const unit = units[currentUnitIndex];
-      const qData = unit.questions[currentQuestionIndex];
-
-      document.getElementById('active-unit-title').innerText = unit.title;
-      document.getElementById('active-skill-title').innerText = unit.skillTitle;
-      
-      const qElem = document.getElementById('question-text');
-      qElem.innerText = qData.q;
-
-      // Render math if KaTeX is loaded
-      if (window.katex) {
-        katex.render(qData.q, qElem, { throwOnError: false });
-      }
-
-      selectedOptionIndex = null;
-      currentHintIndex = 0;
-      document.getElementById('hints-box').classList.add('hidden');
-      document.getElementById('feedback-message').innerText = '';
-
-      const optionsContainer = document.getElementById('options-container');
-      optionsContainer.innerHTML = '';
-
-      qData.options.forEach((opt, idx) => {
-        const btn = document.createElement('button');
-        btn.onclick = () => selectOption(idx);
-        btn.id = `opt-btn-${idx}`;
-        btn.className = 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left';
-        btn.innerText = opt;
-        optionsContainer.appendChild(btn);
-      });
-    }
-
-    function selectOption(idx) {
-      selectedOptionIndex = idx;
-      units[currentUnitIndex].questions[currentQuestionIndex].options.forEach((_, i) => {
-        const btn = document.getElementById(`opt-btn-${i}`);
-        btn.className = (i === idx) 
-          ? 'p-4 rounded-xl border-2 border-emerald-600 bg-emerald-50 font-bold text-emerald-900 transition text-left'
-          : 'p-4 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition text-left';
-      });
-    }
-
-    function selectUnit(idx) {
-      currentUnitIndex = idx;
-      currentQuestionIndex = 0;
-      renderTree();
-      renderQuestion();
-    }
-
-    function checkAnswer() {
-      if (selectedOptionIndex === null) {
-        alert("Please select an answer first!");
-        return;
-      }
-
-      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
-      const isCorrect = selectedOptionIndex === qData.correct;
-      const feedback = document.getElementById('feedback-message');
-
-      if (isCorrect) {
-        feedback.innerText = "Correct! Great job! 🎉";
-        feedback.className = "text-sm font-bold text-emerald-600";
-
-        userXP += 100;
-        document.getElementById('xp-counter').innerText = userXP.toLocaleString();
-
-        units[currentUnitIndex].masteryState = "mastered";
-        renderTree();
-
-        confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
-      } else {
-        feedback.innerText = "Not quite. Try getting a hint!";
-        feedback.className = "text-sm font-bold text-rose-500";
+    async function loadSavedData() {
+      const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'hanaan_learning_week1').single();
+      if (data && data.states && data.states[1]) {
+        const p = data.states[1];
+        if (p.exp1 && document.getElementById('h_exp1')) document.getElementById('h_exp1').value = p.exp1;
       }
     }
-
-    function showNextHint() {
-      const qData = units[currentUnitIndex].questions[currentQuestionIndex];
-      const hintBox = document.getElementById('hints-box');
-      const hintText = document.getElementById('hint-text');
-
-      if (currentHintIndex < qData.hints.length) {
-        hintBox.classList.remove('hidden');
-        hintText.innerText = qData.hints[currentHintIndex];
-        currentHintIndex++;
-      } else {
-        alert("No more hints available!");
-      }
-    }
-
-    // Scratchpad
-    let canvas, ctx, drawing = false;
-
-    function toggleScratchpad() {
-      const modal = document.getElementById('scratchpad-modal');
-      modal.classList.toggle('hidden');
-
-      if (!modal.classList.contains('hidden') && !canvas) {
-        canvas = document.getElementById('scratch-canvas');
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        ctx = canvas.getContext('2d');
-        ctx.strokeStyle = '#1e293b';
-        ctx.lineWidth = 3;
-        ctx.lineCap = 'round';
-
-        canvas.addEventListener('mousedown', () => drawing = true);
-        canvas.addEventListener('mouseup', () => { drawing = false; ctx.beginPath(); });
-        canvas.addEventListener('mousemove', draw);
-      }
-    }
-
-    function draw(e) {
-      if (!drawing) return;
-      const rect = canvas.getBoundingClientRect();
-      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-    }
-
-    function clearScratchpad() {
-      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    // Init
-    window.onload = () => {
-      renderTree();
-      renderQuestion();
-    };
+    loadSavedData();
   </script>
 </body>
 </html>
