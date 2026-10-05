@@ -15,7 +15,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 p-4 md:p-8 min-h-screen">
   <div class="max-w-4xl mx-auto space-y-8">
-
     <!-- Header & Navigation -->
     <div class="flex justify-between items-center bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
       <div>
@@ -25,7 +24,6 @@
       </div>
       <a href="index.html" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 px-4 rounded-xl transition">← Main Hub</a>
     </div>
-
     <!-- MAIN WORKBOOK CONTAINER -->
     <div class="bg-white rounded-3xl p-6 md:p-8 border-2 border-emerald-100 shadow-md space-y-10">
       
@@ -37,7 +35,6 @@
         </div>
         <span id="j-status" class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">In Progress</span>
       </div>
-
       <!-- ========================================================================================= -->
       <!-- TOPIC 1: HOW YOUR BODY SENSES THE WORLD -->
       <!-- ========================================================================================= -->
@@ -46,7 +43,6 @@
           <h3 class="text-lg font-bold">Topic 1: How Your Body Senses the World</h3>
           <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Days 1 & 2</span>
         </div>
-
         <!-- SEE IT FIRST BOX 1 -->
         <div class="bg-sky-50 border border-sky-200 p-5 rounded-2xl space-y-3">
           <div class="flex items-center gap-2 text-sky-800 font-bold text-sm">
@@ -64,7 +60,6 @@
             </a>
           </div>
         </div>
-
         <!-- Visual Diagram Illustration -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col items-center text-center">
@@ -78,7 +73,6 @@
             <p class="text-[11px] text-slate-500 mt-1">The brain receives electrical signals and decides how to respond.</p>
           </div>
         </div>
-
         <!-- Section Reading Notes -->
         <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs leading-relaxed space-y-3">
           <h4 class="font-extrabold text-slate-900 text-sm">How Receptors and Nerves Work</h4>
@@ -92,7 +86,6 @@
             All these signals travel to your brain, which interprets them and decides how to respond. Sometimes the response is a thought (<em>"that smells like popcorn"</em>), and sometimes it's an automatic reaction called a <strong>reflex</strong>, like blinking or pulling your hand off something hot before you've even consciously felt the pain.
           </p>
         </div>
-
         <!-- DID YOU KNOW BOX -->
         <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex gap-3 items-start">
           <span class="text-2xl">💡</span>
@@ -101,7 +94,6 @@
             A reflex reaction can happen before your brain has even finished processing the pain! Some reflex signals only travel as far as your spinal cord and back, which is faster than sending a message all the way to the brain.
           </div>
         </div>
-
         <!-- ACTIVITY 1: REFLEX & REACTION EXPERIMENT -->
         <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-2xl space-y-4">
           <h4 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
@@ -112,7 +104,6 @@
             <p><strong>Part 2 (Knee Reflex):</strong> Gently tap just below the kneecap with the side of your hand while your leg dangles freely. Watch the automatic leg twitch!</p>
             <p><strong>Part 3 (Eye Mirror Experiment):</strong> In a dim room, look at your eyes in a mirror and note the pupil size. Switch on a bright light and watch again!</p>
           </div>
-
           <div class="space-y-3 pt-2 text-xs">
             <div>
               <label class="block font-bold text-slate-800 mb-1">Observation 1: Record what you noticed about how fast your body reacted without you 'deciding' first:</label>
@@ -123,12 +114,19 @@
               <textarea id="j_exp2" rows="2" class="w-full p-3 border border-emerald-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain pupil action..."></textarea>
             </div>
           </div>
+          <!-- SAVE & SUBMIT BUTTONS FOR ACTIVITY 1 -->
+          <div class="pt-3 border-t border-emerald-200 flex flex-wrap gap-3 items-center justify-end">
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-emerald-500 text-emerald-700 hover:bg-emerald-100 py-2 px-4 rounded-xl transition">
+              💾 Save Progress
+            </button>
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-xl transition shadow-sm">
+              ✓ Submit Activity
+            </button>
+          </div>
         </div>
-
         <!-- SENSES IN DEPTH SUBSECTION -->
         <div class="space-y-4 pt-4">
           <h3 class="text-base font-extrabold text-slate-800 border-b pb-2">The Senses in Depth</h3>
-
           <!-- SEE IT FIRST BOX 2 -->
           <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
             <div class="flex items-center gap-2 text-sky-800 font-bold text-xs">
@@ -143,7 +141,6 @@
               </a>
             </div>
           </div>
-
           <!-- Deep Depth Cards with Images -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
@@ -153,7 +150,6 @@
                 Sound travels through air as waves. The outer ear funnels waves to the <strong>eardrum</strong>, vibrating three tiny bones that pass movement to the fluid-filled, snail-shaped <strong>cochlea</strong>, where receptors create nerve signals.
               </p>
             </div>
-
             <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
               <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=400&q=80" alt="Smell and Taste Chemoreception" class="w-full h-28 object-cover rounded-lg">
               <h5 class="font-bold text-emerald-800 text-sm">👅 Smell & Taste</h5>
@@ -161,7 +157,6 @@
                 Work as a team called <strong>chemoreception</strong>. Smell receptors detect airborne particles. Taste buds detect sweet, sour, salty, bitter, and umami. Most "flavour" is actually smell!
               </p>
             </div>
-
             <div class="bg-white p-4 rounded-2xl border border-slate-200 interactive-card space-y-2">
               <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=400&q=80" alt="Touch Skin Receptors" class="w-full h-28 object-cover rounded-lg">
               <h5 class="font-bold text-emerald-800 text-sm">✋ Touch</h5>
@@ -170,7 +165,6 @@
               </p>
             </div>
           </div>
-
           <!-- THINK LIKE A SCIENTIST 1 -->
           <div class="bg-purple-50 border border-purple-200 p-5 rounded-2xl space-y-3 text-xs">
             <h4 class="font-extrabold text-purple-900 text-sm flex items-center gap-2">
@@ -184,10 +178,18 @@
               <label class="block font-bold text-purple-950 mb-1">2. People who are deaf or blind often report that their other senses feel sharper. Can you think of a reason why that might be, even though the sense organ itself hasn't changed?</label>
               <textarea id="j_think2" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your response..."></textarea>
             </div>
+            <!-- SAVE & SUBMIT BUTTONS FOR THINK LIKE A SCIENTIST 1 -->
+            <div class="pt-3 border-t border-purple-200 flex flex-wrap gap-3 items-center justify-end">
+              <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-purple-400 text-purple-800 hover:bg-purple-100 py-2 px-4 rounded-xl transition">
+                💾 Save Progress
+              </button>
+              <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-purple-700 hover:bg-purple-800 text-white py-2 px-4 rounded-xl transition shadow-sm">
+                ✓ Submit Activity
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
       <!-- ========================================================================================= -->
       <!-- TOPIC 2: LIVING VS NON-LIVING & MRS GREN -->
       <!-- ========================================================================================= -->
@@ -196,7 +198,6 @@
           <h3 class="text-lg font-bold">Topic 2: Living vs Non-Living</h3>
           <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Days 3 & 4</span>
         </div>
-
         <!-- SEE IT FIRST BOX 3 -->
         <div class="bg-sky-50 border border-sky-200 p-5 rounded-2xl space-y-3">
           <div class="flex items-center gap-2 text-sky-800 font-bold text-sm">
@@ -211,7 +212,6 @@
             </a>
           </div>
         </div>
-
         <!-- MRS GREN Interactive Grid -->
         <div class="space-y-3 text-xs">
           <h4 class="font-extrabold text-slate-800 text-sm">The MRS GREN Acronym (Memory Trick)</h4>
@@ -269,7 +269,6 @@
             </div>
           </div>
         </div>
-
         <!-- THREE CATEGORIES SECTION -->
         <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3 text-xs leading-relaxed">
           <h4 class="font-extrabold text-slate-900 text-sm">Living, Non-Living, or Dead? (3-Way Sorting)</h4>
@@ -288,7 +287,6 @@
             </div>
           </div>
         </div>
-
         <!-- INTERACTIVE NATURE WALK TABLE -->
         <div class="space-y-3 border border-slate-200 p-5 rounded-2xl bg-white shadow-sm">
           <h4 class="font-bold text-slate-800 text-sm flex items-center justify-between">
@@ -311,8 +309,16 @@
               </tbody>
             </table>
           </div>
+          <!-- SAVE & SUBMIT BUTTONS FOR NATURE WALK TABLE -->
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-3 items-center justify-end">
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 py-2 px-4 rounded-xl transition">
+              💾 Save Progress
+            </button>
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-xl transition shadow-sm">
+              ✓ Submit Activity
+            </button>
+          </div>
         </div>
-
         <!-- TRICKY CASES & DEBATES -->
         <div class="space-y-4">
           <h3 class="text-base font-extrabold text-slate-800 border-b pb-2">Tricky Cases & Biological Debates</h3>
@@ -325,7 +331,6 @@
                 A seed in a packet looks still and non-living. But inside, it is alive in a resting state called <strong>dormancy</strong>. Its life processes happen extremely slowly; with water, warmth, and light, it will sprout!
               </p>
             </div>
-
             <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-200 space-y-2">
               <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=500&q=80" alt="Virus Microscopic Structure" class="w-full h-32 object-cover rounded-xl mb-1">
               <h5 class="font-bold text-purple-900 text-sm">Case 2: A Virus</h5>
@@ -334,7 +339,6 @@
               </p>
             </div>
           </div>
-
           <!-- THINK LIKE A SCIENTIST 2 -->
           <div class="bg-purple-50 border border-purple-200 p-5 rounded-2xl space-y-3 text-xs">
             <h4 class="font-extrabold text-purple-900 text-sm flex items-center gap-2">
@@ -348,11 +352,18 @@
               <label class="block font-bold text-purple-950 mb-1">2. Is fire alive? Go through MRS GREN and decide which ones it passes and which it fails.</label>
               <textarea id="j_think4" rows="2" class="w-full p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Your analysis..."></textarea>
             </div>
+            <!-- SAVE & SUBMIT BUTTONS FOR THINK LIKE A SCIENTIST 2 -->
+            <div class="pt-3 border-t border-purple-200 flex flex-wrap gap-3 items-center justify-end">
+              <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-purple-400 text-purple-800 hover:bg-purple-100 py-2 px-4 rounded-xl transition">
+                💾 Save Progress
+              </button>
+              <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-purple-700 hover:bg-purple-800 text-white py-2 px-4 rounded-xl transition shadow-sm">
+                ✓ Submit Activity
+              </button>
+            </div>
           </div>
         </div>
-
       </div>
-
       <!-- ========================================================================================= -->
       <!-- DAY 5: RESEARCH & REPORT -->
       <!-- ========================================================================================= -->
@@ -361,7 +372,6 @@
           <h3 class="text-lg font-bold">Day 5: Research & Presentation Lab</h3>
           <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Independent Study</span>
         </div>
-
         <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 text-xs">
           <p class="font-bold text-slate-800 text-sm">Choose ONE question to research, then present what you learned to your family:</p>
           
@@ -379,7 +389,6 @@
               <span><strong>Option C:</strong> How does a Venus flytrap sense and respond to touch without a brain?</span>
             </label>
           </div>
-
           <div class="space-y-3 pt-2">
             <div>
               <label class="block font-bold text-slate-800 mb-1">Facts I Found (At least 3 facts):</label>
@@ -394,9 +403,17 @@
               <label for="j_presented" class="font-bold text-emerald-900">I presented this to my family and answered a question about it!</label>
             </div>
           </div>
+          <!-- SAVE & SUBMIT BUTTONS FOR DAY 5 RESEARCH -->
+          <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-3 items-center justify-end">
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 py-2 px-4 rounded-xl transition">
+              💾 Save Progress
+            </button>
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-xl transition shadow-sm">
+              ✓ Submit Activity
+            </button>
+          </div>
         </div>
       </div>
-
       <!-- ========================================================================================= -->
       <!-- MY WEEK 1 REVIEW QUIZ & SHORT ANSWERS -->
       <!-- ========================================================================================= -->
@@ -405,7 +422,6 @@
           <h3 class="text-lg font-bold">My Week 1 Assessment Review</h3>
           <span class="text-xs bg-emerald-800 px-3 py-1 rounded-lg">Final Test</span>
         </div>
-
         <!-- Section A: Fill in the Blank -->
         <div class="space-y-3 text-xs bg-emerald-50/40 p-5 rounded-2xl border border-emerald-100">
           <h4 class="font-extrabold text-emerald-900 text-sm">Part 1: Fill in the Blanks</h4>
@@ -432,33 +448,36 @@
             </div>
           </div>
         </div>
-
         <!-- Section B: Short Answers -->
         <div class="space-y-4 text-xs bg-white p-5 rounded-2xl border border-slate-200">
           <h4 class="font-extrabold text-slate-900 text-sm">Part 2: Short Answer Investigation</h4>
-
           <div>
             <label class="block font-bold text-slate-800 mb-1">1) Name the seven characteristics of living things, in full (not just the letters):</label>
             <textarea id="j_sa1" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Movement..."></textarea>
           </div>
-
           <div>
             <label class="block font-bold text-slate-800 mb-1">2) Explain why a candle flame is not considered a living thing:</label>
             <textarea id="j_sa2" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain using MRS GREN..."></textarea>
           </div>
-
           <div>
             <label class="block font-bold text-slate-800 mb-1">3) Explain why a dry, dormant seed is still considered alive:</label>
             <textarea id="j_sa3" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Explain dormancy..."></textarea>
           </div>
-
           <div>
             <label class="block font-bold text-slate-800 mb-1">4) Describe the path a signal takes from your finger touching something hot, to you feeling it:</label>
             <textarea id="j_sa4" rows="2" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none" placeholder="Describe the signal path..."></textarea>
           </div>
+          <!-- SAVE & SUBMIT BUTTONS FOR ASSESSMENT REVIEW -->
+          <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-3 items-center justify-end">
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 py-2 px-4 rounded-xl transition">
+              💾 Save Progress
+            </button>
+            <button onclick="saveJunainahProgress()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-xl transition shadow-sm">
+              ✓ Submit Activity
+            </button>
+          </div>
         </div>
       </div>
-
       <!-- SUBMIT WORKBOOK -->
       <div class="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
@@ -469,15 +488,12 @@
           Save & Complete Week 1 Workbook ✨
         </button>
       </div>
-
     </div>
   </div>
-
   <script>
     const SUPABASE_URL = 'https://giztjobuajyhryhsdrws.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_eVezPSRSfCLuMZdYZ_hr1Q_OSZcLFAm';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
     // Build 10 Interactive Table Rows dynamically
     const tableBody = document.getElementById('sort-table-body');
     for (let i = 1; i <= 10; i++) {
@@ -498,7 +514,7 @@
       tableBody.appendChild(row);
     }
 
-    async function saveJunainahFullWorkbook() {
+    function gatherFormData() {
       const dataPayload = {
         exp1: document.getElementById('j_exp1').value,
         exp2: document.getElementById('j_exp2').value,
@@ -520,7 +536,6 @@
         sa4: document.getElementById('j_sa4').value,
         sortItems: []
       };
-
       for(let i=1; i<=10; i++) {
         dataPayload.sortItems.push({
           item: document.getElementById(`j_sort_item_${i}`).value,
@@ -528,15 +543,27 @@
           reason: document.getElementById(`j_sort_reason_${i}`).value
         });
       }
+      return dataPayload;
+    }
 
+    async function saveJunainahProgress() {
+      const dataPayload = gatherFormData();
+      await supabaseClient.from('task_states').upsert({
+        id: 'science_junainah_week1_full',
+        states: [false, dataPayload],
+        updated_at: new Date()
+      });
+      alert('Progress saved successfully!');
+    }
+
+    async function saveJunainahFullWorkbook() {
+      const dataPayload = gatherFormData();
       document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
       document.getElementById('j-status').innerText = "Completed ✨";
-
       const btn = document.getElementById('j-submit');
       btn.disabled = true;
       btn.innerText = "Workbook Saved & Completed ✓";
       btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
-
       await supabaseClient.from('task_states').upsert({
         id: 'science_junainah_week1_full',
         states: [true, dataPayload],
@@ -546,7 +573,7 @@
 
     async function loadSavedData() {
       const { data } = await supabaseClient.from('task_states').select('states').eq('id', 'science_junainah_week1_full').single();
-      if (data && data.states && data.states[0]) {
+      if (data && data.states && data.states[1]) {
         const p = data.states[1];
         if(p.exp1) document.getElementById('j_exp1').value = p.exp1;
         if(p.exp2) document.getElementById('j_exp2').value = p.exp2;
@@ -566,7 +593,6 @@
         if(p.sa2) document.getElementById('j_sa2').value = p.sa2;
         if(p.sa3) document.getElementById('j_sa3').value = p.sa3;
         if(p.sa4) document.getElementById('j_sa4').value = p.sa4;
-
         if(p.sortItems) {
           p.sortItems.forEach((row, idx) => {
             const i = idx + 1;
@@ -575,16 +601,16 @@
             if(document.getElementById(`j_sort_reason_${i}`)) document.getElementById(`j_sort_reason_${i}`).value = row.reason || '';
           });
         }
-
-        document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
-        document.getElementById('j-status').innerText = "Completed ✨";
-        const btn = document.getElementById('j-submit');
-        btn.disabled = true;
-        btn.innerText = "Workbook Saved & Completed ✓";
-        btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
+        if (data.states[0]) {
+          document.getElementById('j-status').className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full";
+          document.getElementById('j-status').innerText = "Completed ✨";
+          const btn = document.getElementById('j-submit');
+          btn.disabled = true;
+          btn.innerText = "Workbook Saved & Completed ✓";
+          btn.className = "w-full md:w-auto text-xs font-bold bg-slate-300 text-slate-600 py-3.5 px-8 rounded-xl cursor-not-allowed";
+        }
       }
     }
-
     loadSavedData();
   </script>
 </body>
